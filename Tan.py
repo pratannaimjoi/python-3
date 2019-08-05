@@ -303,7 +303,7 @@ def listgrup():
     return listGrup
 
 def socmedia():
-    socMedia = """🐼คำสั่งแทคBotSelf🐼
+    socMedia = """🐼คำสั่งแทคBotmaster🐼
 🐭คท @ ➠ แทคคนที่จะเอาคท
 🐭มิด @  ➠ ลงmidคนอื่น
 🐭ชื่อ @ ➠ ลงชื่อคนอื่น
