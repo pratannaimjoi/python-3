@@ -1,0 +1,20 @@
+{
+  " name " : "เริ่มต้นที่ Heroku: Python " ,
+  " description " : "แอป Python แบร์โบนซึ่งสามารถนำไปใช้กับ Heroku ได้อย่างง่ายดาย" ,
+  " image " : " heroku / python " ,
+  " repository " : " https://github.com/heroku/python-getting-started " ,
+  "คำหลัก" : [ " python " , " django " ],
+  " addons " : [ " heroku-postgresql " ],
+  " env " : {
+    " SECRET_KEY " : {
+      " description " : "รหัสลับสำหรับแอปพลิเคชั่น Django " ,
+      " generator " : " secret "
+    }
+  }
+  "สภาพแวดล้อม" : {
+    "ทดสอบ" : {
+      "สคริปต์" : {
+        " test-setup " : " python Manage.py collectstatic --noinput " ,
+        " test " : " python Manage.py test "
+      }
+    }
