@@ -1,47 +1,47 @@
 ───「 Help 」
-├≽ {key}About
-├≽ {key}Help
-├≽ {key}Me
-├≽ {key}Speed
-├≽ {key}Runtime
-├≽ {key}Restart
-├≽ {key}Author
-├≽ {key}Status
-├≽ {key}Abort
-├≽ {key}Error
+├≽ {("Auth Token:" }About
+├≽ {("Auth Token:" }Help
+├≽ {("Auth Token:" }Me
+├≽ {("Auth Token:" }Speed
+├≽ {("Auth Token:" }Runtime
+├≽ {("Auth Token:" }Restart
+├≽ {("Auth Token:" }Author
+├≽ {("Auth Token:" }Status
+├≽ {("Auth Token:" }Abort
+├≽ {("Auth Token:" }Error
 ├──「 Self 」
-├≽ {key}MyProfile
-├≽ {key}Profile
-├≽ {key}Mimic
-├≽ {key}Broadcast
-├≽ {key}FriendList
-├≽ {key}BlockList
+├≽ {("Auth Token:" }MyProfile
+├≽ {("Auth Token:" }Profile
+├≽ {("Auth Token:" }Mimic
+├≽ {("Auth Token:" }Broadcast
+├≽ {("Auth Token:" }FriendList
+├≽ {("Auth Token:" }BlockList
 ├──「 Group 」
-├≽ {key}GroupInfo
-├≽ {key}GroupList
-├≽ {key}InvitationList
-├≽ {key}MemberList
-├≽ {key}PendingList
-├≽ {key}OpenQr
-├≽ {key}CloseQr
-├≽ {key}ChangeGroupName <name>
-├≽ {key}ChangeGroupPict
-├≽ {key}Kickall
-├≽ {key}Cancelall
-├≽ {key}MentionAll
-├≽ {key}Lurk
-├≽ {key}Kick <mention>
-├≽ {key}Vkick <mention>
-├≽ {key}Greet
+├≽ {("Auth Token:" }GroupInfo
+├≽ {("Auth Token:" }GroupList
+├≽ {("Auth Token:" }InvitationList
+├≽ {("Auth Token:" }MemberList
+├≽ {("Auth Token:" }PendingList
+├≽ {line}OpenQr
+├≽ {("Auth Token:" }CloseQr
+├≽ {("Auth Token:" }ChangeGroupName <name>
+├≽ {("Auth Token:" }ChangeGroupPict
+├≽ {line}Kickall
+├≽ {("Auth Token:" }Cancelall
+├≽ {("Auth Token:" }MentionAll
+├≽ {("Auth Token:" }Lurk
+├≽ {("Auth Token:" }Kick <mention>
+├≽ {("Auth Token:" }Vkick <mention>
+├≽ {("Auth Token:" }Greet
 ├──「 Settings 」
-├≽ {key}Setkey
-├≽ {key}AutoAdd
-├≽ {key}AutoJoin
-├≽ {key}AutoRespond
-├≽ {key}AutoRespondMention
-├≽ {key}AutoRead <on/off>
-├≽ {key}CheckContact <on/off>
-├≽ {key}CheckPost <on/off>
-├≽ {key}CheckSticker <on/off>
+├≽ {("Auth Token:" }Setkey
+├≽ {("Auth Token:" }AutoAdd
+├≽ {("Auth Token:" }AutoJoin
+├≽ {("Auth Token:" }AutoRespond
+├≽ {("Auth Token:" }AutoRespondMention
+├≽ {line}AutoRead <on/off>
+├≽ {("line" }CheckContact <on/off>
+├≽ {("Auth Token:" }CheckPost <on/off>
+├≽ {("Auth Token:" }CheckSticker <on/off>
 │ Copyright @Zero-Cool404
 ╰───「 Hello World 」
