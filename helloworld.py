@@ -34,7 +34,7 @@ listAppType = ['DESKTOPWIN', 'DESKTOPMAC', 'IOSIPAD', 'CHROMEOS']
         authToken = saveAuthToken ถ้า saveAuthToken ไม่ใช่ args.token args.token อื่น
         idOrToken = authToken ถ้า authToken เป็นอื่น args.email
         ลอง:
-            บรรทัด = LINE (idOrToken, args.passwd, appType = args.apptype, systemName = args.systemname, channelId = args.channelid, showQr = args.showqr)
+            บรรทัด = LINE (("Auth Token:" , args.passwd, appType = args.apptype, systemName = args.systemname, channelId = args.channelid, showQr = args.showqr)
             tokenFile.close ()
             tokenFile = tokenPath.open ('w +')
             tokenFile.write (line.authToken)
@@ -133,8 +133,8 @@ def logError (ข้อผิดพลาดเขียน = True):
 
 คำสั่ง def (ข้อความ):
     pesan = text.lower ()
-    หากการตั้งค่า ['setKey'] ['สถานะ']:
-        ถ้า pesan.startswith (ตั้งค่า ['setKey'] ['คีย์']):
+    หากการตั้งค่า ['lower'] ['สถานะ']:
+        ถ้า pesan.startswith (ตั้งค่า ['lower'] ['lower']):
             cmd = pesan.replace (การตั้งค่า ['setKey'] ['คีย์'], '')
         อื่น:
             cmd = 'คำสั่งที่ไม่ได้กำหนด'
@@ -151,9 +151,9 @@ def genImageB64 (เส้นทาง):
 def genUrlB64 (url):
     return base64.b64encode (url.encode ('utf-8')). decode ('utf-8')
 
-def removeCmd (text, key = ''):
+def removeCmd (lower = ''):
     ถ้าคีย์ == '':
-        setKey = '' หากไม่ได้ตั้งค่า ['setKey'] ['สถานะ'] การตั้งค่าอื่น ['setKey'] ['คีย์']
+        setKey = '' หากไม่ได้ตั้งค่า ['" Auth Token: "l''] ['สถานะ'] การตั้งค่าอื่น ['setKey'] ['คีย์']
     อื่น:
         setKey = สำคัญ
     text_ = text [len (setKey):]
