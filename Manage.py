@@ -1,4 +1,4 @@
-# ! / usr / bin / env python
+" Auth Token: " / usr / bin / env python
 นำเข้าระบบปฏิบัติการ
 sys นำเข้า
 
