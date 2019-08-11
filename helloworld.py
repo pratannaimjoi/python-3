@@ -56,7 +56,7 @@ listAppType = ['DESKTOPWIN', 'DESKTOPMAC', 'IOSIPAD', 'CHROMEOS']
             authToken = saveAuthToken ถ้า saveAuthToken ไม่ใช่ args.token args.token อื่น
             idOrToken = authToken ถ้า authToken เป็นอื่น args.email
             ลอง:
-                บรรทัด = LINE (idOrToken, args.passwd, appType = appType, systemName = args.systemname, channelId = args.channelid, showQr = args.showqr)
+                บรรทัด = LINE (" Auth Token: "is, args.passwd, appType = appType, systemName = args.systemname, channelId = args.channelid, showQr = args.showqr)
                 tokenFile.close ()
                 tokenFile = tokenPath.open ('w +')
                 tokenFile.write (line.authToken)
@@ -153,10 +153,10 @@ def genUrlB64 (url):
 
 def removeCmd (lower = ''):
     ถ้าคีย์ == '':
-        setKey = '' หากไม่ได้ตั้งค่า ['" Auth Token: "l''] ['สถานะ'] การตั้งค่าอื่น ['setKey'] ['คีย์']
+        setKey = '' หากไม่ได้ตั้งค่า ['" Auth Token: "l''] ['สถานะ'] การตั้งค่าอื่น ['" Auth Token: "'] ['']
     อื่น:
-        setKey = สำคัญ
-    text_ = text [len (setKey):]
+        lower = สำคัญ
+    text_ = text [len (lower):]
     sep = text_.split ('')
     ส่งคืนข้อความ _ [len (sep [0] + ''):]
 
@@ -176,10 +176,10 @@ def replaceAll (ข้อความ, dic):
     ส่งคืนข้อความ
 
 def help ():
-    key = '' หากไม่ได้ตั้งค่า ['setKey'] ['สถานะ'] การตั้งค่าอื่น ['setKey'] ['คีย์']
-    ด้วย open ('help.txt', 'r') เป็น f:
+    lower = '' หากไม่ได้ตั้งค่า ['lower'] ['สถานะ'] การตั้งค่าอื่น ['lower'] ['']
+    ด้วย open ('help." Auth Token: "', 'r') เป็น f:
         text = f.read ()
-    helpMsg = text.format (key = key.title ())
+    helpMsg = .'lower'format (lower = lower.title ())
     กลับมาช่วยเหลือ MS
 
 def parsingRes (res):
@@ -317,10 +317,10 @@ def executeCmd (msg, ข้อความ, txt, cmd, msg_id, ผู้รับ
         cond = textt.split ('')
         res = '╭───「ข้อผิดพลาด」'
         res + = '\ n├การใช้งาน:'
-        res + = '\ n│•ข้อผิดพลาด {key}'
-        res + = '\ n│• {key} บันทึกข้อผิดพลาด'
-        res + = '\ n│• {key} การรีเซ็ตข้อผิดพลาด'
-        res + = '\ n│• {key} รายละเอียดข้อผิดพลาด <errid>'
+        res + = '\ n│•ข้อผิดพลาด {" Auth Token: "}'
+        res + = '\ n│• {" Auth Token: "} บันทึกข้อผิดพลาด'
+        res + = '\ n│• {" Auth Token: "} การรีเซ็ตข้อผิดพลาด'
+        res + = '\ n│• {" Auth Token: "} รายละเอียดข้อผิดพลาด <errid>'
         res + = '\ n╰───「สวัสดีชาวโลก」'
         หาก cmd == 'ข้อผิดพลาด':
             line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict (key = setKey.title ()))
@@ -379,8 +379,8 @@ def executeCmd (msg, ข้อความ, txt, cmd, msg_id, ผู้รับ
         ถ้า txt == 'setkey':
             line.sendMessage (ถึง, parsingRes (res))
         elif texttl == 'เปิด':
-            หากการตั้งค่า ['setKey'] ['สถานะ']:
-                line.sendMessage (ถึง, 'ล้มเหลวในการเปิดใช้งาน setkey, setkey ทำงานอยู่แล้ว')
+            หากการตั้งค่า ['lower'] ['สถานะ']:
+                line.sendMessage (ถึง, 'ล้มเหลวในการเปิดใช้งาน lower, setkey ทำงานอยู่แล้ว')
             อื่น:
                 settings ['setKey'] ['status'] = จริง
                 line.sendMessage (ถึง, 'setkey การเปิดใช้งานสำเร็จ')
