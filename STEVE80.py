@@ -35,7 +35,7 @@ line.log("Timeline Token : " + str(.tl.channelAccessToken))
 
 waitOpen = codecs.open(".json","r","utf-8")
 settingsOpen = codecs.open(".json","r","utf-8")
-imagesOpen = codecs.open(".json","r","utf-8")
+imagesOpen = codecs.open("images.json","r","utf-8")
 stickersOpen = codecs.open("sticker.json","r","utf-8")
 wait = json.load(waitOpen)
 images = json.load(imagesOpen)
