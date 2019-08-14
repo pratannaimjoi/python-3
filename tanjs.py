@@ -43,7 +43,7 @@ images = json.load(imagesOpen)
 settings = json.load(settingsOpen)
 stickers = json.load(stickersOpen)
 #==============================================================================#
-tanieMID = maxgie.profile.mid
+tanieMID = tanie.profile.mid
 tanieProfile = tanie.getProfile()
 tanieSettings = tanie.getSettings()
 #==============================================================================#
