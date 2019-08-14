@@ -179,8 +179,8 @@ user2 = ""
 setTime = {}
 setTime = rfuSet['setTime']
 
-contact = maxgie.getProfile() 
-backup = maxgie.getProfile() 
+contact =() .getProfile() 
+backup = ().getProfile() 
 backup.dispalyName = contact.displayName 
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
@@ -191,24 +191,24 @@ Start = time.time()
 tz = pytz.timezone("Asia/Jakarta")
 timeNow = datetime.now(tz=tz)
 
-settings["myProfile"]["displayName"] = maxgieProfile.displayName
-settings["myProfile"]["statusMessage"] = maxgieProfile.statusMessage
-settings["myProfile"]["pictureStatus"] = maxgieProfile.pictureStatus
-cont = maxgie.getContact(maxgieMID)
+settings["myProfile"]["displayName"] = ()Profile.displayName
+settings["myProfile"]["statusMessage"] = ()Profile.statusMessage
+settings["myProfile"]["pictureStatus"] = ()Profile.pictureStatus
+cont = ().getContact(MID)
 settings["myProfile"]["videoProfile"] = cont.videoProfile
-coverId = maxgie.getProfileDetail()["result"]["objectId"]
+coverId = ().getProfileDetail()["result"]["objectId"]
 settings["myProfile"]["coverId"] = coverId
 
-ProfileMe["statusMessage"] = maxgieProfile.statusMessage
-ProfileMe["pictureStatus"] = maxgieProfile.pictureStatus
-coverId = maxgie.getProfileDetail()["result"]["objectId"]
+ProfileMe["statusMessage"] = ()Profile.statusMessage
+ProfileMe["pictureStatus"] = ()Profile.pictureStatus
+coverId = ().getProfileDetail()["result"]["objectId"]
 ProfileMe["coverId"] = coverId
 #=====================================================================
-with open("max.json", "r", encoding="utf_8_sig") as f:
+with open(".json", "r", encoding="utf_8_sig") as f:
     anu = json.loads(f.read())
     anu.update(settings)
     settings = anu
-with open("Max2.json", "r", encoding="utf_8_sig") as f:
+with open(".json", "r", encoding="utf_8_sig") as f:
     itu = json.loads(f.read())
     itu.update(wait)
     wait = itu
@@ -217,89 +217,89 @@ def RhyN_(to, mid):
     try:
         aa = '{"S":"0","E":"3","M":'+json.dumps(mid)+'}'
         text_ = '@Ma '
-        maxgie.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
+        ().sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
     except Exception as error:
         logError(error)
 def sendMessageCustom(to, text, icon , name):
     annda = {'MSG_SENDER_ICON': icon,
         'MSG_SENDER_NAME':  name,
     }
-    maxgie.sendMessage(to, text, contentMetadata=annda)
+    ().sendMessage(to, text, contentMetadata=annda)
 def sendMessageCustomContact(to, icon, name, mid):
     annda = { 'mid': mid,
     'MSG_SENDER_ICON': icon,
     'MSG_SENDER_NAME':  name,
     }
-    maxgie.sendMessage(to, '', annda, 13)
+    ().sendMessage(to, '', annda, 13)
 def cloneProfile(mid):
-    contact = maxgie.getContact(mid)
+    contact = ().getContact(mid)
     if contact.videoProfile == None:
-        maxgie.cloneContactProfile(mid)
+        ().cloneContactProfile(mid)
     else:
-        profile = maxgie.getProfile()
+        profile = ().getProfile()
         profile.displayName, profile.statusMessage = contact.displayName, contact.statusMessage
-        maxgie.updateProfile(profile)
-        pict = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
-        vids = maxgie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
+        ().updateProfile(profile)
+        pict = ().downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
+        vids = ().downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
-    coverId = maxgie.getProfileDetail(mid)['result']['objectId']
-    maxgie.updateProfileCoverById(coverId)
+    coverId = ().getProfileDetail(mid)['result']['objectId']
+    ().updateProfileCoverById(coverId)
 def backupProfile():
-    profile = maxgie.getContact(maxgieMID)
+    profile = ().getContact(MID)
     settings['myProfile']['displayName'] = profile.displayName
     settings['myProfile']['pictureStatus'] = profile.pictureStatus
     settings['myProfile']['statusMessage'] = profile.statusMessage
     settings['myProfile']['videoProfile'] = profile.videoProfile
-    coverId = maxgie.getProfileDetail()['result']['objectId']
+    coverId = ().getProfileDetail()['result']['objectId']
     settings['myProfile']['coverId'] = str(coverId)
 def restoreProfile():
-    profile = maxgie.getProfile()
+    profile = ().getProfile()
     profile.displayName = settings['myProfile']['displayName']
     profile.statusMessage = settings['myProfile']['statusMessage']
     if settings['myProfile']['videoProfile'] == None:
         profile.pictureStatus = settings['myProfile']['pictureStatus']
-        maxgie.updateProfileAttribute(8, profile.pictureStatus)
-        maxgie.updateProfile(profile)
+        ().updateProfileAttribute(8, profile.pictureStatus)
+        ().updateProfile(profile)
     else:
-        maxgie.updateProfile(profile)
+        ().updateProfile(profile)
         pict = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'], saveAs="tmp/pict.bin")
         vids = maxgie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'] + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
     coverId = settings['myProfile']['coverId']
-    maxgie.updateProfileCoverById(coverId)
+    ().updateProfileCoverById(coverId)
 def autoresponuy(to,msg,wait):
     to = msg.to
     if msg.to not in wait["GROUP"]['AR']['AP']:
         return
     if msg.to in wait["GROUP"]['AR']['S']:
-        maxgie.sendMessage(msg.to,text=None,contentMetadata=wait["GROUP"]['AR']['S'][msg.to]['Sticker'], contentType=7)
+        ().sendMessage(msg.to,text=None,contentMetadata=wait["GROUP"]['AR']['S'][msg.to]['Sticker'], contentType=7)
     if(wait["GROUP"]['AR']['P'][msg.to] in [""," ","\n",None]):
         return
     if '@!' not in wait["GROUP"]['AR']['P'][msg.to]:
         wait["GROUP"]['AR']['P'][msg.to] = '@!'+wait["GROUP"]['AR']['P'][msg.to]
-    nama = maxgie.getGroup(msg.to).name
-    sd = maxgie.waktunjir()
-    maxgie.sendMention(msg.to,wait["GROUP"]['AR']['P'][msg.to].replace('greeting',sd).replace(';',nama),'',[msg._from]*wait["GROUP"]['AR']['P'][msg.to].count('@!'))
+    nama = ().getGroup(msg.to).name
+    sd = ().waktunjir()
+    ().sendMention(msg.to,wait["GROUP"]['AR']['P'][msg.to].replace('greeting',sd).replace(';',nama),'',[msg._from]*wait["GROUP"]['AR']['P'][msg.to].count('@!'))
 def ClonerV2(to):
     try:
-        contact = maxgie.getContact(to)
-        profile = maxgie.profile
-        profileName = maxgie.profile
-        profileStatus = maxgie.profile
+        contact = ().getContact(to)
+        profile = ().profile
+        profileName = ().profile
+        profileStatus = ().profile
         profileName.displayName = contact.displayName
         profileStatus.statusMessage = contact.statusMessage
-        maxgie.updateProfile(profileName)
-        maxgie.updateProfile(profileStatus)
-        profile.pictureStatus = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/{}'.format(contact.pictureStatus, 'path'))
-        if maxgie.getProfileCoverId(to) is not None:
-            maxgie.updateProfileCoverById(maxgie.getProfileCoverId(to))
-        maxgie.updateProfilePicture(profile.pictureStatus)
+        ().updateProfile(profileName)
+        ().updateProfile(profileStatus)
+        profile.pictureStatus = ().downloadFileURL('http://dl.profile.line-cdn.net/{}'.format(contact.pictureStatus, 'path'))
+        if ().getProfileCoverId(to) is not None:
+            ().updateProfileCoverById().getProfileCoverId(to))
+        ().updateProfilePicture(profile.pictureStatus)
         print("Success Clone Profile {}".format(contact.displayName))
         return maxgie.updateProfile(profile)
         if contact.videoProfile == None:
             return "Get Video Profile"
         path2 = "http://dl.profile.line-cdn.net/" + profile.pictureStatus
-        maxgie.updateProfilePicture(path2, 'vp')
+        ().updateProfilePicture(path2, 'vp')
     except Exception as error:
         print(error)
 #maxg = "ua053fcd4c52917706ae60c811e39d3ea"
@@ -314,13 +314,13 @@ def sendMentionFooter(to, mid, firstmessage, lastmessage):
         arrData = {'S':slen, 'E':elen, 'M':mid}
         arr.append(arrData)
         text += mention + str(lastmessage)
-        nama = "{}".format(maxgie.getContact(maxgieMID).displayName)
-        img = "http://dl.profile.line-cdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus)
+        nama = "{}".format().getContact(MID).displayName)
+        img = "http://dl.profile.line-cdn.net/{}".format().getContact(MID).pictureStatus)
         ticket = "https://line.me/ti/p/z7CqVLtFII"
-        maxgie.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        ().sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        ().sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def mentions(to, text="", mids=[]):
     arrData = ""
@@ -348,7 +348,7 @@ def mentions(to, text="", mids=[]):
         arrData = {'S':str(slen), 'E':str(elen - 4), 'M':mids[0]}
         arr.append(arrData)
         textx += mention + str(text)
-    maxgie.sendMessage(to, textx, {'AGENT_NAME':'LINE OFFICIAL', 'AGENT_LINK': 'line://ti/p/~{}'.format(maxgie.getProfile().userid), 'AGENT_ICON': "http://dl.profile.line-cdn.net/" + maxgie.getContact("ua053fcd4c52917706ae60c811e39d3ea").picturePath, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+    ().sendMessage(to, textx, {'AGENT_NAME':'LINE OFFICIAL', 'AGENT_LINK': 'line://ti/p/~{}'.format(maxgie.getProfile().userid), 'AGENT_ICON': "http://dl.profile.line-cdn.net/" + maxgie.getContact("ua053fcd4c52917706ae60c811e39d3ea").picturePath, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 def changeVideoAndPictureProfile(pict, vids):
     try:
         files = {'file': open(vids, 'rb')}
@@ -357,7 +357,7 @@ def changeVideoAndPictureProfile(pict, vids):
         r_vp = maxgie.server.postContent('{}/talk/vp/upload.nhn'.format(str(maxgie.server.LINE_OBS_DOMAIN)), data=data, files=files)
         if r_vp.status_code != 201:
             return "Failed update profile"
-        maxgie.updateProfilePicture(pict, 'vp')
+        ().updateProfilePicture(pict, 'vp')
         return "Success update profile"
     except Exception as e:
         raise Exception("Error change video and picture profile {}".format(str(e)))
@@ -378,7 +378,7 @@ def sendTemplate(group, data):
     xyz = LiffChatContext(group)
     xyzz = LiffContext(chat=xyz)
     view = LiffViewRequest('1602687308-GXq4Vvk9', xyzz)
-    token = maxgie.liff.issueLiffView(view)
+    token = ().liff.issueLiffView(view)
     url = 'https://api.line.me/message/v3/share'
     headers = {
         'Content-Type': 'application/json',
@@ -460,10 +460,10 @@ def mentionMembers(to, mid):
         if no == jml:
             textx += ""
             textx += ""
-        maxgie.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        ().sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        ().sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def timeChange(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
@@ -499,16 +499,16 @@ def sendStickers(to, sver, spkg, sid):
         'STKPKGID': spkg,
         'STKID': sid
     }
-    maxgie.sendMessage(to, '', contentMetadata, 7)
+    ().sendMessage(to, '', contentMetadata, 7)
 def sendSticker(to, mid, sver, spkg, sid):
     contentMetadata = {
-        'MSG_SENDER_NAME': maxgie.getContact(mid).displayName,
-        'MSG_SENDER_ICON': 'http://dl.profile.line-cdn.net/' + maxgie.getContact(mid).pictureStatus,
+        'MSG_SENDER_NAME': ().getContact(mid).displayName,
+        'MSG_SENDER_ICON': 'http://dl.profile.line-cdn.net/' + .getContact(mid).pictureStatus,
         'STKVER': sver,
         'STKPKGID': spkg,
         'STKID': sid
     }
-    maxgie.sendMessage(to, '', contentMetadata, 7)
+    ().sendMessage(to, '', contentMetadata, 7)
 def sendImage(to, path, name="image"):
     try:
         if settings["server"] == "VPS":
