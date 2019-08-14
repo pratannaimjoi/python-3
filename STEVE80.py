@@ -29,26 +29,26 @@ try:
 except ImportError:
     import urllib2
 #==============================================================================#
-maxgie = LINE('')
-maxgie.log("Auth Token : " + str(maxgie.authToken))
-maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
+line = LINE('')
+line.log("Auth Token : " + str(.authToken))
+line.log("Timeline Token : " + str(.tl.channelAccessToken))
 
-waitOpen = codecs.open("Max2.json","r","utf-8")
-settingsOpen = codecs.open("max.json","r","utf-8")
-imagesOpen = codecs.open("image.json","r","utf-8")
+waitOpen = codecs.open(".json","r","utf-8")
+settingsOpen = codecs.open(".json","r","utf-8")
+imagesOpen = codecs.open(".json","r","utf-8")
 stickersOpen = codecs.open("sticker.json","r","utf-8")
 wait = json.load(waitOpen)
 images = json.load(imagesOpen)
 settings = json.load(settingsOpen)
 stickers = json.load(stickersOpen)
 #==============================================================================#
-maxgieMID = maxgie.profile.mid
-maxgieProfile = maxgie.getProfile()
-maxgieSettings = maxgie.getSettings()
+MID = .profile.mid
+line=Profile = .getProfile()
+line=Settings = .getSettings()
 #==============================================================================#
-maxgiePoll = OEPoll(maxgie)
-maxgieMID = maxgie.getProfile().mid
-admin = [maxgieMID]
+line=Poll = OEPoll()
+line=MID = .getProfile().mid
+admin = [MID]
 loop = asyncio.get_event_loop()
 listToken = ['desktopmac','desktopwin','iosipad','chromeos','win10']
 mc = {"wr":{}}
