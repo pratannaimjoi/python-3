@@ -29,7 +29,6 @@ try:
 except ImportError:
     import urllib2
 #==============================================================================#
-DELETE /orgs/:org/hooks/:hook_id
 maxgie = LINE('')
 maxgie.log("Auth Token : " + str(maxgie.authToken))
 maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
