@@ -30,12 +30,12 @@ except ImportError:
     import urllib2
 #==============================================================================#
 
-maxgie = LINE('')
-maxgie.log("Auth Token : " + str(maxgie.authToken))
-maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
+tanie = LINE('')
+tanie.log("Auth Token : " + str(tanie.authToken))
+tanie.log("Timeline Token : " + str(tanie.tl.channelAccessToken))
 
-waitOpen = codecs.open("Max2.json","r","utf-8")
-settingsOpen = codecs.open("max.json","r","utf-8")
+waitOpen = codecs.open("tan2.json","r","utf-8")
+settingsOpen = codecs.open("tan.json","r","utf-8")
 imagesOpen = codecs.open("image.json","r","utf-8")
 stickersOpen = codecs.open("sticker.json","r","utf-8")
 wait = json.load(waitOpen)
@@ -43,13 +43,13 @@ images = json.load(imagesOpen)
 settings = json.load(settingsOpen)
 stickers = json.load(stickersOpen)
 #==============================================================================#
-maxgieMID = maxgie.profile.mid
-maxgieProfile = maxgie.getProfile()
-maxgieSettings = maxgie.getSettings()
+tanieMID = tanie.profile.mid
+tanieProfile = tanie.getProfile()
+tanieSettings = tanie.getSettings()
 #==============================================================================#
-maxgiePoll = OEPoll(maxgie)
-maxgieMID = maxgie.getProfile().mid
-admin = [maxgieMID]
+taniePoll = OEPoll(tanie)
+tanieMID = tanie.getProfile().mid
+admin = [tanieMID]
 loop = asyncio.get_event_loop()
 listToken = ['desktopmac','desktopwin','iosipad','chromeos','win10']
 mc = {"wr":{}}
