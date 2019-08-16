@@ -17,7 +17,7 @@ from urllib.parse import urlencode
 #from tmp.MySplit import *
 from random import randint
 from shutil import copyfile
-from youtube_dl import YoutubeDL
+#from youtube_dl import YoutubeDL
 import subprocess, youtube_dl, humanize, traceback
 import subprocess as cmd
 import platform
