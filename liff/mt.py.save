@@ -1,8 +1,8 @@
-from LineMax.linepy import *
-from LineMax.akad.ttypes import Message
-from LineMax.akad.ttypes import ContentType as Type
-from LineMax.akad.ttypes import ChatRoomAnnouncementContents
-from LineMax.akad.ttypes import ChatRoomAnnouncement
+from Linetan.linepy import *
+from Linetan.akad.ttypes import Message
+from Linetan.akad.ttypes import ContentType as Type
+from Linetan.akad.ttypes import ChatRoomAnnouncementContents
+from Linetan.akad.ttypes import ChatRoomAnnouncement
 from multiprocessing import Pool, Process
 from datetime import datetime
 from time import sleep
