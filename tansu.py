@@ -14,7 +14,7 @@ from io import StringIO
 from multiprocessing import Pool
 from googletrans import Translator
 from urllib.parse import urlencode
-from tmp.MySplit import *
+#from tmp.MySplit import *
 from random import randint
 from shutil import copyfile
 from youtube_dl import YoutubeDL
