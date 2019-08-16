@@ -30,7 +30,58 @@ except ImportError:
     import urllib2
     นำเข้า urllib2
     นำเข้า urllib2
+botStart = time.time ()
+# ================================================= ============================= #
+# line = LINE ()
+# line = LINE ("อีเมล", "Passwd")
+line = LINE ( ' ' )
+line.log ( " Auth Token: "  +  str (line.authToken))
+line.log ( " Token ไทม์ไลน์: "  +  str (line.tl.channelAccessToken))
 
+# ki = LINE ()
+# ki.log ("Auth Token:" + str (ki.authToken))
+# ki.log ("Token ไทม์ไลน์:" + str (ki.tl.channelAccessToken))
+
+# kk = LINE ()
+# kk.log ("Auth Token:" + str (kk.authToken))
+# kk.log ("Token ไทม์ไลน์:" + str (kk.tl.channelAccessToken))
+
+# kc = LINE ()
+# kc.log ("Auth Token:" + str (kc.authToken))
+# kc.log ("Token ไทม์ไลน์:" + str (kc.tl.channelAccessToken))
+
+# ks = LINE ()
+# ks.log ("Auth Token:" + str (ks.authToken))
+# ks.log ("Token ไทม์ไลน์:" + str (ks.tl.channelAccessToken))
+พิมพ์ ( "ลงชื่อเข้าใช้ Succes " )
+
+lineMID = line.profile.mid
+lineProfile = line.getProfile ()
+lineSettings = line.getSettings ()
+
+oepoll = OEPoll (บรรทัด)
+# call = โทร (บรรทัด)
+readOpen = codecs.open ( " read.json " , " r " , " utf-8 " )
+settingsOpen = codecs.open ( " temp.json " , " r " , " utf-8 " )
+read = json.load (readOpen)
+settings = json.load (settingsOpen)
+Rfu = [บรรทัด]
+Exc = [บรรทัด]
+lineMID = line.getProfile (). mid
+bot1 = line.getProfile (). กลาง
+RfuBot = [lineMID]
+ครอบครัว= [ " uda8195e53e6c6e17f3f745743e477100 " , lineMID]
+ผู้ดูแลระบบ=  " uda8195e53e6c6e17f3f745743e477100 " 
+ผู้ดูแลระบบ= [ ' uda8195e53e6c6e17f3f745743e477100 ' , lineMID]
+RfuFamily = RfuBot + Family
+
+protectname = []
+protecturl = []
+การป้องกัน= []
+autocancel = {}
+autoinvite = []
+autoleaveroom = []
+เป้าหมาย= []
 
 #==============================================================================#
 sets = {
