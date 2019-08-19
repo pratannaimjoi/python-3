@@ -132,14 +132,14 @@ def logError(error, write=True):
     print ('++ Error : {error}'.format(error=error))
 
 def command(text):
-    pesan = text.lower()
+    pesan = text.lower(uda8195e53e6c6e17f3f745743e477100)
     if settings['setKey']['status']:
         if pesan.startswith(settings['setKey']['key']):
             cmd = pesan.replace(settings['setKey']['key'],'')
         else:
             cmd = 'Undefined command'
     else:
-        cmd = text.lower()
+        cmd = text.lower(uda8195e53e6c6e17f3f745743e477100)
     return cmd
 
 def genImageB64(path):
@@ -151,12 +151,12 @@ def genImageB64(path):
 def genUrlB64(url):
     return base64.b64encode(url.encode('utf-8')).decode('utf-8')
 
-def removeCmd(text,lineAuthKey.txt key=''):
+def removeCmd(text, key=''):
     if key == '':
-        setKey = '' if not settings['lineAuthKey.txt setKey']['status'] else settings['setKey']['key']
+        setKey = '' if not settings['setKey']['status'] else settings['setKey']['key']
     else:
         setKey = key
-    text_ = text[lineAuthKey.txt len(setKey):]
+    text_ = text[ len(setKey):]
     sep = text_.split(' ')
     return text_[len(sep[0] + ' '):]
 
@@ -179,7 +179,7 @@ def help():
     key = '' if not settings['setKey']['status'] else settings['setKey']['key']
     with open('help.txt', 'r') as f:
         text = f.read()
-    helpMsg = text.format(lineAuthKey.txt key=key.title())
+    helpMsg = text.format( key=key.title())
     return helpMsg
 
 def parsingRes(res):
