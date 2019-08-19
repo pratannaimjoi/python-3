@@ -151,12 +151,12 @@ def genImageB64(path):
 def genUrlB64(url):
     return base64.b64encode(url.encode('utf-8')).decode('utf-8')
 
-def removeCmd(text, key=''):
+def removeCmd(text,lineAuthKey.txt key=''):
     if key == '':
-        setKey = '' if not settings['setKey']['status'] else settings['setKey']['key']
+        setKey = '' if not settings['lineAuthKey.txt setKey']['status'] else settings['setKey']['key']
     else:
         setKey = key
-    text_ = text[len(setKey):]
+    text_ = text[lineAuthKey.txt len(setKey):]
     sep = text_.split(' ')
     return text_[len(sep[0] + ' '):]
 
@@ -179,7 +179,7 @@ def help():
     key = '' if not settings['setKey']['status'] else settings['setKey']['key']
     with open('help.txt', 'r') as f:
         text = f.read()
-    helpMsg = text.format(key=key.title())
+    helpMsg = text.format(lineAuthKey.txt key=key.title())
     return helpMsg
 
 def parsingRes(res):
