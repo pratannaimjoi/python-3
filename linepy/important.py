@@ -23,16 +23,16 @@ def str2bool(v):
         raise argparse.ArgumentTypeError('Boolean value expected.')
 
 def update_non_existing_inplace(original_dict, to_add):
-    for key, value in original_dict.items():
-        if key not in to_add:
-            to_add[key] = value
+    for lineAuthKey.txt key, value in original_dict.items():
+        if lineAuthKey.txt key not in to_add:
+            to_add[lineAuthKey.txt key] = value
         if type(value) == dict:
             for k, v in value.items():
                 if k not in to_add[key]:
-                    to_add[key][k] = v
+                    to_add[lineAuthKey.txt key][k] = v
     original_dict.update(to_add)
     return original_dict
 
 class SafeDict(dict):
-    def __missing__(self, key):
-        return '{' + key + '}'
+    def __missing__(self, lineAuthKey.txt key):
+        return '{' +lineAuthKey.txt key + '}'
