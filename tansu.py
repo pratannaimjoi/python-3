@@ -174,14 +174,14 @@ hoho = {
     "namefile": "",
 }
 
-user1 = maxgieMID
+user1 =line.profile.MID
 user2 = ""
 
 setTime = {}
 setTime = rfuSet['setTime']
 
-contact = maxgie.getProfile() 
-backup = maxgie.getProfile() 
+contact =line.mid.getProfile() 
+backup =line.mid .getProfile() 
 backup.dispalyName = contact.displayName 
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
@@ -205,11 +205,11 @@ ProfileMe["pictureStatus"] = maxgieProfile.pictureStatus
 coverId = maxgie.getProfileDetail()["result"]["objectId"]
 ProfileMe["coverId"] = coverId
 #=====================================================================
-with open("max.json", "r", encoding="utf_8_sig") as f:
+with open("tan2.json", "r", encoding="utf_8_sig") as f:
     anu = json.loads(f.read())
     anu.update(settings)
     settings = anu
-with open("Max2.json", "r", encoding="utf_8_sig") as f:
+with open("tan2.json", "r", encoding="utf_8_sig") as f:
     itu = json.loads(f.read())
     itu.update(wait)
     wait = itu
