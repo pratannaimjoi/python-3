@@ -612,4 +612,603 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
             สำหรับเป้าหมายในเป้าหมาย:
                 ลอง :
                     line.sendMessage (เป้าหมาย res)
-                ยกเว้น Talk
+                ยกเว้น Talk                      
+       line.sendMessage (เป้าหมาย res)
+                ยกเว้น TalkException:
+                    targets.remove (เป้าหมาย)
+                    ต่อ
+                time.sleep ( 0.8 )
+            line.sendMessage (ไปยัง'สำเร็จการกระจายไปยังกลุ่มทั้งหมดส่งไปยัง% iกลุ่ม'  %  len (เป้าหมาย))
+        elif cond [ 0 ] ==  ' 0 ' :
+            หาก len (cond) <  2 :
+                return line.sendMessage (ถึง, 'ไม่สามารถออกอากาศ, ตรวจไม่พบข้อความ' )
+            res =  '「ออกอากาศ」\ n '
+            res + = textt [ 2 :]
+            res + =  ' \ n \ n「สวัสดีชาวโลก」'
+            เป้าหมาย= line.getGroupIdsJoined () + line.getAllContactIds ()
+            สำหรับเป้าหมายในเป้าหมาย:
+                ลอง :
+                    line.sendMessage (เป้าหมาย res)
+                ยกเว้น TalkException:
+                    targets.remove (เป้าหมาย)
+                    ต่อ
+                time.sleep ( 0.8 )
+            line.sendMessage (ไปยัง'ประสบความสำเร็จในการถ่ายทอดไปยังกลุ่มและเพื่อนทั้งหมดส่งไปยัง% iกลุ่มและเพื่อน ๆ'  %  len (เป้าหมาย))
+        อื่น :
+            line.sendMessage (ถึง, parsingRes (res) .format ( key = setKey.title ()))
+    elif cmd.startswith ( ' friendlist ' ):
+        textt = removeCmd (ข้อความ, setKey)
+        texttl = textt.lower ()
+        cids = line.getAllContactIds ()
+        cids.sort ()
+        cnames = []
+        ress = []
+        res =  ' ╭───「รายชื่อเพื่อน」'
+        res + =  ' \ n ├รายการ: '
+        ถ้า cids:
+            รายชื่อ= []
+            ไม่=  0
+            หาก len (cids) >  200 :
+                parsed_len =  len (cids) // 200 + 1
+                หาจุดอยู่ใน ช่วง (parsed_len):
+                    สำหรับ cid ใน cids [จุด* 200 : (จุด+ 1 ) * 200 ]:
+                        ลอง :
+                            contact = line.getContact (cid)
+                            contacts.append (ติดต่อ)
+                        ยกเว้น TalkException:
+                            cids.remove (CID)
+                            ต่อ
+                        ไม่มี+ =  1
+                        ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่, contact.displayName)
+                        cnames.append (contact.displayName)
+                    ถ้า res:
+                        ถ้า res.startswith ( ' \ n ' ): res = res [ 1 :]
+                        if point ! = parsed_len -  1 :
+                            ress.append (ความละเอียดสูง)
+                    if point ! = parsed_len -  1 :
+                        res =  ' '
+            อื่น :
+                สำหรับ cid ใน cids:
+                    ลอง :
+                        contact = line.getContact (cid)
+                        contacts.append (ติดต่อ)
+                    ยกเว้น TalkException:
+                        cids.remove (CID)
+                        ต่อ
+                    ไม่มี+ =  1
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่, contact.displayName)
+                    cnames.append (contact.displayName)
+        อื่น :
+            res + =  ' \ n │ไม่มีอะไร'
+        res + =  ' \ n ├การใช้งาน: '
+        res + =  ' \ n │• {key} FriendList '
+        res + =  ' \ n │• {key}ข้อมูล FriendList <num / name> '
+        res + =  ' \ n │• {key} FriendList เพิ่ม <mention> '
+        res + =  ' \ n │• {key} รายชื่อเพื่อน Del <พูดถึง / num / ชื่อ / ทั้งหมด> '
+        res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+        ress.append (ความละเอียดสูง)
+        หาก cmd ==  'รายชื่อเพื่อน' :
+            สำหรับ res ใน ress:
+                line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
+        elif texttl.startswith ( ' info ' ):
+            ตำรา= textt [ 5 :]. แยก ( ' , ' )
+            ถ้า ไม่ใช่ cids:
+                return line.sendMessage (ถึง'เพื่อนที่แสดงข้อมูลล้มเหลวไม่มีเพื่อนอยู่ในรายการ' )
+            สำหรับ texxt ในข้อความ:
+                num =  ไม่มี
+                ชื่อ=  ไม่มี
+                ลอง :
+                    num =  int (texxt)
+                ยกเว้น ValueError :
+                    ชื่อ= texxt
+                if num ! =  ไม่มี :
+                    contact =รายชื่อ [NUM -  1 ]
+                    หากผู้ติดต่อรูปภาพสถานะ:
+                        line.sendImageWithURL (ถึง, ' http://dl.profile.line-cdn.net/ '  + contact.pictureStatus)
+                    cover = line.getProfileCoverURL (contact.mid)
+                    line.sendImageWithURL (ถึง, str (ปก))
+                    res =  ' ╭───「ข้อมูลติดต่อ」'
+                    res + =  ' \ n ├ MID: '  + contact.mid
+                    res + =  ' \ n ├ชื่อที่แสดง: '  +  str (contact.displayName)
+                    ถ้า contact.displayNameOverridden: res + =  ' \ n ├แทนที่ชื่อที่แสดง: '  +  str (contact.displayNameOverridden)
+                    res + =  ' \ n ├ข้อความสถานะ: '  +  str (contact.statusMessage)
+                    res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+                    line.sendMessage (ถึง, parsingRes (res))
+                ชื่อelif ! =  ไม่มี :
+                    หากชื่อใน cnames:
+รายชื่อ                        ผู้ติดต่อ= [cnames.index (ชื่อ)]
+                        หากผู้ติดต่อรูปภาพสถานะ:
+                            line.sendImageWithURL (ถึง, ' http://dl.profile.line-cdn.net/ '  + contact.pictureStatus)
+                        cover = line.getProfileCoverURL (contact.mid)
+                        line.sendImageWithURL (ถึง, str (ปก))
+                        res =  ' ╭───「ข้อมูลติดต่อ」'
+                        res + =  ' \ n ├ MID: '  + contact.mid
+                        res + =  ' \ n ├ชื่อที่แสดง: '  +  str (contact.displayName)
+                        ถ้า contact.displayNameOverridden: res + =  ' \ n ├แทนที่ชื่อที่แสดง: '  +  str (contact.displayNameOverridden)
+                        res + =  ' \ n ├ข้อความสถานะ: '  +  str (contact.statusMessage)
+                        res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+                        line.sendMessage (ถึง, parsingRes (res))
+        elif texttl.startswith ( 'เพิ่ม' ):
+            res =  ' ╭───「รายชื่อเพื่อน」'
+            res + =  ' \ n ├สถานะ: เพิ่มเพื่อน'
+            res + =  ' \ n ├เพิ่มแล้ว: '
+            ไม่=  0
+            เพิ่ม= []
+            ถ้า 'กล่าวถึง' ใน msg.contentMetadata.keys ():
+                กล่าวถึง= ast.literal_eval (msg.contentMetadata [ 'กล่าวถึง' ])
+                สำหรับการกล่าวถึงในการกล่าวถึง [ ' MENTIONEES ' ]:
+                    mid =พูดถึง [ ' M ' ]
+                    ถ้า mid ใน cids หรือ mid ในการเพิ่ม:
+                        ต่อ
+                    ไม่มี+ =  1
+                    ลอง :
+                        line.findAndAddContactsByMid (กลาง)
+                        name = line.getContact (กลาง) .displayName
+                    ยกเว้น TalkException:
+                        ชื่อ=  'ไม่ทราบ'
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                    added.append (กลาง)
+                หากไม่มี==  0 : res + =  ' \ n │ไม่มีอะไร'
+                res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+                line.sendMessage (ถึง, res)
+            อื่น :
+                line.sendMessage (ถึง, 'ล้มเหลวในการเพิ่มผู้ติดต่อไปยังรายชื่อเพื่อนไม่มีผู้ใช้หนึ่งคนที่กล่าวถึง' )
+        elif texttl.startswith ( ' del ' ):
+            ตำรา= textt [ 4 :]. split ( ' , ' )
+            ถ้า ไม่ใช่ cids:
+                return line.sendMessage (ถึง, 'ไม่สามารถลบผู้ติดต่อจากรายชื่อเพื่อนไม่มีเพื่อนในรายการ' )
+            res =  ' ╭───「รายชื่อเพื่อน」'
+            res + =  ' \ n ├สถานะ: เพื่อนสนิท'
+            res + =  ' \ n ├ลบแล้ว: '
+            ไม่=  0
+            ลบแล้ว= []
+            ถ้า 'กล่าวถึง' ใน msg.contentMetadata.keys ():
+                กล่าวถึง= ast.literal_eval (msg.contentMetadata [ 'กล่าวถึง' ])
+                สำหรับการกล่าวถึงในการกล่าวถึง [ ' MENTIONEES ' ]:
+                    mid =พูดถึง [ ' M ' ]
+                    ถ้ากลางไม่ได้ ใน CID ด้วยหรือกลางในการลบ:
+                        ต่อ
+                    ไม่มี+ =  1
+                    ลอง :
+                        line.deleteContact (กลาง)
+                        name = line.getContact (กลาง) .displayName
+                    ยกเว้น TalkException:
+                        ชื่อ=  'ไม่ทราบ'
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                    deleted.append (กลาง)
+            สำหรับ texxt ในข้อความ:
+                num =  ไม่มี
+                ชื่อ=  ไม่มี
+                ลอง :
+                    num =  int (texxt)
+                ยกเว้น ValueError :
+                    ชื่อ= texxt
+                if num ! =  ไม่มี :
+                    contact =รายชื่อ [NUM -  1 ]
+                    ถ้า contact.mid ไม่ได้ อยู่ใน cids และ contact.mid ในลบ:
+                        ต่อ
+                    ไม่มี+ =  1
+                    ลอง :
+                        line.deleteContact (contact.mid)
+                        name = contact.displayName
+                    ยกเว้น TalkException:
+                        ชื่อ=  'ไม่ทราบ'
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                    deleted.append (contact.mid)
+                ชื่อelif ! =  ไม่มี :
+                    หากชื่อใน cnames:
+รายชื่อ                        ผู้ติดต่อ= [cnames.index (ชื่อ)]
+                        ถ้า contact.mid ไม่ได้ อยู่ใน cids และ contact.mid ในลบ:
+                            ต่อ
+                        ไม่มี+ =  1
+                        ลอง :
+                            line.deleteContact (contact.mid)
+                            name = contact.displayName
+                        ยกเว้น TalkException:
+                            ชื่อ=  'ไม่ทราบ'
+                        ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                        deleted.append (contact.mid)
+                    elif name.lower () ==  'ทั้งหมด' :
+                        สำหรับผู้ติดต่อในผู้ติดต่อ:
+                            ถ้า contact.mid ไม่ได้ อยู่ใน cids และ contact.mid ในลบ:
+                                ต่อ
+                            ไม่มี+ =  1
+                            ลอง :
+                                line.deleteContact (contact.mid)
+                                name = contact.displayName
+                            ยกเว้น TalkException:
+                                ชื่อ=  'ไม่ทราบ'
+                            ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                            deleted.append (contact.mid)
+                            time.sleep ( 0.8 )
+                    อื่น :
+                        line.sendMessage (ถึง, 'เพื่อนที่ล้มเหลวด้วยชื่อ ` % s`, ชื่อไม่ได้อยู่ในรายการ♪ '  %ชื่อ)
+            หากไม่มี==  0 : res + =  ' \ n │ไม่มีอะไร'
+            res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+            line.sendMessage (ถึง, res)
+        อื่น :
+            สำหรับ res ใน ress:
+                line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
+    elif cmd.startswith ( ' blocklist ' ):
+        textt = removeCmd (ข้อความ, setKey)
+        texttl = textt.lower ()
+        cids = line.getBlockedContactIds ()
+        cids.sort ()
+        cnames = []
+        ress = []
+        res =  ' ╭───「รายการบล็อก」'
+        res + =  ' \ n ├รายการ: '
+        ถ้า cids:
+            รายชื่อ= []
+            ไม่=  0
+            หาก len (cids) >  200 :
+                parsed_len =  len (cids) // 200 + 1
+                หาจุดอยู่ใน ช่วง (parsed_len):
+                    สำหรับ cid ใน cids [จุด* 200 : (จุด+ 1 ) * 200 ]:
+                        ลอง :
+                            contact = line.getContact (cid)
+                            contacts.append (ติดต่อ)
+                        ยกเว้น TalkException:
+                            cids.remove (CID)
+                            ต่อ
+                        ไม่มี+ =  1
+                        ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่, contact.displayName)
+                        cnames.append (contact.displayName)
+                    ถ้า res:
+                        ถ้า res.startswith ( ' \ n ' ): res = res [ 1 :]
+                        if point ! = parsed_len -  1 :
+                            ress.append (ความละเอียดสูง)
+                    if point ! = parsed_len -  1 :
+                        res =  ' '
+            อื่น :
+                สำหรับ cid ใน cids:
+                    ลอง :
+                        contact = line.getContact (cid)
+                        contacts.append (ติดต่อ)
+                    ยกเว้น TalkException:
+                        cids.remove (CID)
+                        ต่อ
+                    ไม่มี+ =  1
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่, contact.displayName)
+                    cnames.append (contact.displayName)
+        อื่น :
+            res + =  ' \ n │ไม่มีอะไร'
+        res + =  ' \ n ├การใช้งาน: '
+        res + =  ' \ n │• {key} BlockList '
+        res + =  ' \ n │• {key}ข้อมูลบล็อกลิสต์ <num / name> '
+        res + =  ' \ n │• {key} BlockList เพิ่ม <mention> '
+        res + =  ' \ n │• {key} BlockList Del <พูดถึง / num / name / all> '
+        res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+        ress.append (ความละเอียดสูง)
+        ถ้า cmd ==  ' blocklist ' :
+            สำหรับ res ใน ress:
+                line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
+        elif texttl.startswith ( ' info ' ):
+            ตำรา= textt [ 5 :]. แยก ( ' , ' )
+            ถ้า ไม่ใช่ cids:
+                return line.sendMessage (ไปที่, 'การแสดงข้อมูลล้มเหลวผู้ใช้ที่ถูกบล็อก, ไม่มีผู้ใช้ในรายการ' )
+            สำหรับ texxt ในข้อความ:
+                num =  ไม่มี
+                ชื่อ=  ไม่มี
+                ลอง :
+                    num =  int (texxt)
+                ยกเว้น ValueError :
+                    ชื่อ= texxt
+                if num ! =  ไม่มี :
+                    contact =รายชื่อ [NUM -  1 ]
+                    หากผู้ติดต่อรูปภาพสถานะ:
+                        line.sendImageWithURL (ถึง, ' http://dl.profile.line-cdn.net/ '  + contact.pictureStatus)
+                    cover = line.getProfileCoverURL (contact.mid)
+                    line.sendImageWithURL (ถึง, str (ปก))
+                    res =  ' ╭───「ข้อมูลติดต่อ」'
+                    res + =  ' \ n ├ MID: '  + contact.mid
+                    res + =  ' \ n ├ชื่อที่แสดง: '  +  str (contact.displayName)
+                    ถ้า contact.displayNameOverridden: res + =  ' \ n ├แทนที่ชื่อที่แสดง: '  +  str (contact.displayNameOverridden)
+                    res + =  ' \ n ├ข้อความสถานะ: '  +  str (contact.statusMessage)
+                    res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+                    line.sendMessage (ถึง, parsingRes (res))
+                ชื่อelif ! =  ไม่มี :
+                    หากชื่อใน cnames:
+รายชื่อ                        ผู้ติดต่อ= [cnames.index (ชื่อ)]
+                        หากผู้ติดต่อรูปภาพสถานะ:
+                            line.sendImageWithURL (ถึง, ' http://dl.profile.line-cdn.net/ '  + contact.pictureStatus)
+                        cover = line.getProfileCoverURL (contact.mid)
+                        line.sendImageWithURL (ถึง, str (ปก))
+                        res =  ' ╭───「ข้อมูลติดต่อ」'
+                        res + =  ' \ n ├ MID: '  + contact.mid
+                        res + =  ' \ n ├ชื่อที่แสดง: '  +  str (contact.displayName)
+                        ถ้า contact.displayNameOverridden: res + =  ' \ n ├แทนที่ชื่อที่แสดง: '  +  str (contact.displayNameOverridden)
+                        res + =  ' \ n ├ข้อความสถานะ: '  +  str (contact.statusMessage)
+                        res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+                        line.sendMessage (ถึง, parsingRes (res))
+        elif texttl.startswith ( 'เพิ่ม' ):
+            res =  ' ╭───「รายการบล็อก」'
+            res + =  ' \ n ├สถานะ: เพิ่มบล็อก'
+            res + =  ' \ n ├เพิ่มแล้ว: '
+            ไม่=  0
+            เพิ่ม= []
+            ถ้า 'กล่าวถึง' ใน msg.contentMetadata.keys ():
+                กล่าวถึง= ast.literal_eval (msg.contentMetadata [ 'กล่าวถึง' ])
+                สำหรับการกล่าวถึงในการกล่าวถึง [ ' MENTIONEES ' ]:
+                    mid =พูดถึง [ ' M ' ]
+                    ถ้า mid ใน cids หรือ mid ในการเพิ่ม:
+                        ต่อ
+                    ไม่มี+ =  1
+                    ลอง :
+                        line.blockContact (กลาง)
+                        name = line.getContact (กลาง) .displayName
+                    ยกเว้น TalkException:
+                        ชื่อ=  'ไม่ทราบ'
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                    added.append (กลาง)
+                หากไม่มี==  0 : res + =  ' \ n │ไม่มีอะไร'
+                res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+                line.sendMessage (ถึง, res)
+            อื่น :
+                line.sendMessage (ถึง, 'ผู้ติดต่อบล็อกไม่สำเร็จ, ไม่มีผู้ใช้รายใดพูดถึง' )
+        elif texttl.startswith ( ' del ' ):
+            ตำรา= textt [ 4 :]. split ( ' , ' )
+            ถ้า ไม่ใช่ cids:
+                return line.sendMessage (ถึง, 'ไม่สามารถปลดบล็อคผู้ติดต่อ, ไม่มีผู้ใช้ในรายการ' )
+            res =  ' ╭───「รายการบล็อก」'
+            res + =  ' \ n ├สถานะ: Del Block '
+            res + =  ' \ n ├ลบแล้ว: '
+            ไม่=  0
+            ลบแล้ว= []
+            ถ้า 'กล่าวถึง' ใน msg.contentMetadata.keys ():
+                กล่าวถึง= ast.literal_eval (msg.contentMetadata [ 'กล่าวถึง' ])
+                สำหรับการกล่าวถึงในการกล่าวถึง [ ' MENTIONEES ' ]:
+                    mid =พูดถึง [ ' M ' ]
+                    ถ้ากลางไม่ได้ ใน CID ด้วยหรือกลางในการลบ:
+                        ต่อ
+                    ไม่มี+ =  1
+                    ลอง :
+                        line.unblockContact (กลาง)
+                        name = line.getContact (กลาง) .displayName
+                    ยกเว้น TalkException:
+                        ชื่อ=  'ไม่ทราบ'
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                    deleted.append (กลาง)
+            สำหรับ texxt ในข้อความ:
+                num =  ไม่มี
+                ชื่อ=  ไม่มี
+                ลอง :
+                    num =  int (texxt)
+                ยกเว้น ValueError :
+                    ชื่อ= texxt
+                if num ! =  ไม่มี :
+                    contact =รายชื่อ [NUM -  1 ]
+                    ถ้า contact.mid ไม่ได้ อยู่ใน cids และ contact.mid ในลบ:
+                        ต่อ
+                    ไม่มี+ =  1
+                    ลอง :
+                        line.unblockContact (contact.mid)
+                        name = contact.displayName
+                    ยกเว้น TalkException:
+                        ชื่อ=  'ไม่ทราบ'
+                    ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                             deleted.append (contact.mid)
+                ชื่อelif ! =  ไม่มี :
+                    หากชื่อใน cnames:
+รายชื่อ                        ผู้ติดต่อ= [cnames.index (ชื่อ)]
+                        ถ้า contact.mid ไม่ได้ อยู่ใน cids และ contact.mid ในลบ:
+                            ต่อ
+                        ไม่มี+ =  1
+                        ลอง :
+                            line.unblockContact (contact.mid)
+                            name = contact.displayName
+                        ยกเว้น TalkException:
+                            ชื่อ=  'ไม่ทราบ'
+                        ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                        deleted.append (contact.mid)
+                    elif name.lower () ==  'ทั้งหมด' :
+                        สำหรับผู้ติดต่อในผู้ติดต่อ:
+                            ถ้า contact.mid ไม่ได้ อยู่ใน cids และ contact.mid ในลบ:
+                                ต่อ
+                            ไม่มี+ =  1
+                            ลอง :
+                                line.unblockContact (contact.mid)
+                                name = contact.displayName
+                            ยกเว้น TalkException:
+                                ชื่อ=  'ไม่ทราบ'
+                            ละเอียด+ =  ' \ n │ %ฉัน % s '  % (ไม่ชื่อ)
+                            deleted.append (contact.mid)
+                            time.sleep ( 0.8 )
+                    อื่น :
+                        line.sendMessage (ถึง, 'ล้มเหลวในการปลดบล็อกผู้ใช้ที่มีชื่อ ` % s ', ชื่อไม่ได้อยู่ในรายการ♪ '  %ชื่อ)
+            หากไม่มี==  0 : res + =  ' \ n │ไม่มีอะไร'
+            res + =  ' \ n ╰───「สวัสดีชาวโลก」'
+            line.sendMessage (ถึง, res)
+        อื่น :
+            สำหรับ res ใน ress:
+                line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
+    elif cmd ==  ' mentionall ' :
+        สมาชิก= []
+        ถ้า msg.toType ==  1 :
+            room = line.getCompactRoom (ถึง)
+            members = [mem.mid สำหรับ mem ใน room.contacts]
+        elif msg.toType ==  2 :
+            group = line.getCompactGroup (ถึง)
+            สมาชิก= [mem.mid สำหรับ mem ใน group.members]
+        อื่น :
+            return line.sendMessage (ถึง'สมาชิกที่ไม่ได้กล่าวถึงทั้งหมดใช้คำสั่งนี้เฉพาะห้องแชทหรือกลุ่ม' )
+        ถ้าสมาชิก:
+            พูดถึงสมาชิก (ถึงสมาชิก)
+    elif cmd ==  ' groupinfo ' :
+        if msg.toType != 2: return line.sendMessage(to, 'Failed display group info, use this command only on group chat')
+        group = line.getCompactGroup(to)
+        try:
+            ccreator = group.creator.mid
+            gcreator = group.creator.displayName
+        except:
+            ccreator = None
+            gcreator = 'Not found'
+        if not group.invitee:
+            pendings = 0
+        else:
+            pendings = len(group.invitee)
+        qr = 'Close' if group.preventedJoinByTicket else 'Open'
+        if group.preventedJoinByTicket:
+            ticket = 'Not found'
+        else:
+            ticket = 'https://line.me/R/ti/g/' + str(line.reissueGroupTicket(group.id))
+        created = time.strftime('%d-%m-%Y %H:%M:%S', time.localtime(int(group.createdTime) / 1000))
+        path = 'http://dl.profile.line-cdn.net/' + group.pictureStatus
+        res = '╭───「 Group Info 」'
+        res += '\n├ ID : ' + group.id
+        res += '\n├ Name : ' + group.name
+        res += '\n├ Creator : ' + gcreator
+        res += '\n├ Created Time : ' + created
+        res += '\n├ Member Count : ' + str(len(group.members))
+        res += '\n├ Pending Count : ' + str(pendings)
+        res += '\n├ QR Status : ' + qr
+        res += '\n├ Ticket : ' + ticket
+        res += '\n╰───「 Hello World 」'
+        line.sendImageWithURL(to, path)
+        if ccreator:
+            line.sendContact(to, ccreator)
+        line.sendMessage(to, res)
+    elif cmd.startswith('grouplist'):
+        textt = removeCmd(text, setKey)
+        texttl = textt.lower()
+        gids = line.getGroupIdsJoined()
+        gnames = []
+        ress = []
+        res = '╭───「 Group List 」'
+        res += '\n├ List:'
+        if gids:
+            groups = line.getGroups(gids)
+            no = 0
+            if len(groups) > 200:
+                parsed_len = len(groups)//200+1
+                for point in range(parsed_len):
+                    for group in groups[point*200:(point+1)*200]:
+                        no += 1
+                        res += '\n│ %i. %s//%i' % (no, group.name, len(group.members))
+                        gnames.append(group.name)
+                    if res:
+                        if res.startswith('\n'): res = res[1:]
+                        if point != parsed_len - 1:
+                            ress.append(res)
+                    if point != parsed_len - 1:
+                        res = ''
+            else:
+                for group in groups:
+                    no += 1
+                    res += '\n│ %i. %s//%i' % (no, group.name, len(group.members))
+                    gnames.append(group.name)
+        else:
+            res += '\n│ Nothing'
+        res += '\n├ Usage : '
+        res += '\n│ • {key}GroupList'
+        res += '\n│ • {key}GroupList Leave <num/name/all>'
+        res += '\n╰───「 Hello World 」'
+        ress.append(res)
+        if cmd == 'grouplist':
+            for res in ress:
+                line.sendMessage(to, parsingRes(res).format_map(SafeDict(key=setKey.title())))
+        elif texttl.startswith('leave '):
+            texts = textt[6:].split(', ')
+            leaved = []
+            if not gids:
+                return line.sendMessage(to, 'Failed leave group, nothing group in list')
+            for texxt in texts:
+                num = None
+                name = None
+                try:
+                    num = int(texxt)
+                except ValueError:
+                    name = texxt
+                if num != None:
+                    if num <= len(groups) and num > 0:
+                        group = groups[num - 1]
+                        if group.id in leaved:
+                            line.sendMessage(to, 'Already leave group %s' % group.name)
+                            continue
+                        line.leaveGroup(group.id)
+                        leaved.append(group.id)
+                        if to not in leaved:
+                            line.sendMessage(to, 'Success leave group %s' % group.name)
+                    else:
+                        line.sendMessage(to, 'Failed leave group number %i, number out of range' % num)
+                elif name != None:
+                    if name in gnames:
+                        group = groups[gnames.index(name)]
+                        if group.id in leaved:
+                            line.sendMessage(to, 'Already leave group %s' % group.name)
+                            continue
+                        line.leaveGroup(group.id)
+                        leaved.append(group.id)
+                        if to not in leaved:
+                            line.sendMessage(to, 'Success leave group %s' % group.name)
+                    elif name.lower() == 'all':
+                        for gid in gids:
+                            if gid in leaved:
+                                continue
+                            line.leaveGroup(gid)
+                            leaved.append(gid)
+                            time.sleep(0.8)
+                        if to not in leaved:
+                            line.sendMessage(to, 'Success leave all group ♪')
+                    else:
+                        line.sendMessage(to, 'Failed leave group with name `%s`, name not in list ♪' % name)
+        else:
+            for res in ress:
+                line.sendMessage(to, parsingRes(res).format_map(SafeDict(key=setKey.title())))
+    elif cmd.startswith('invitationlist'):
+        textt = removeCmd(text, setKey)
+        texttl = textt.lower()
+        gids = line.getGroupIdsInvited()
+        gnames = []
+        ress = []
+        res = '╭───「 Invitation List 」'
+        res += '\n├ List:'
+        if gids:
+            groups = line.getGroups(gids)
+            no = 0
+            if len(groups) > 200:
+                parsed_len = len(groups)//200+1
+                for point in range(parsed_len):
+                    for group in groups[point*200:(point+1)*200]:
+                        no += 1
+                        res += '\n│ %i. %s//%i' % (no, group.name, len(group.members))
+                        gnames.append(group.name)
+                    if res:
+                        if res.startswith('\n'): res = res[1:]
+                        if point != parsed_len - 1:
+                            ress.append(res)
+                    if point != parsed_len - 1:
+                        res = ''
+            else:
+                for group in groups:
+                    no += 1
+                    res += '\n│ %i. %s//%i' % (no, group.name, len(group.members))
+                    gnames.append(group.name)
+        else:
+            res += '\n│ Nothing'
+        res += '\n├ Usage : '
+        res += '\n│ • {key}InvitationList'
+        res += '\n│ • {key}InvitationList Accept <num/name/all>'
+        res += '\n│ • {key}InvitationList Reject <num/name/all>'
+        res += '\n╰───「 Hello World 」'
+        ress.append(res)
+        if cmd == 'invitationlist':
+            for res in ress:
+                line.sendMessage(to, parsingRes(res).format_map(SafeDict(key=setKey.title())))
+        elif texttl.startswith('accept '):
+            texts = textt[7:].split(', ')
+            accepted = []
+            if not gids:
+                return line.sendMessage(to, 'Failed accept group, nothing invitation group in list')
+            for texxt in texts:
+                num = None
+                name = None
+                try:
+                    num = int(texxt)
+                except ValueError:
+                    ชื่อ= texxt
+                if num ! =  ไม่มี :
+                    ถ้า num <=  len (กลุ่ม) และ num >  0 :
+                        group =กลุ่ม [NUM -  1 ]
+    
+
