@@ -251,7 +251,7 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         line.sendMessage(to, 'Bot will logged out')
         sys.exit('##----- PROGRAM STOPPED -----##')
     el
-                line.sendMessage (ถึง, ' setkey การเปิดใช้งานสำเร็จ' )
+                line.sendMessage (ถึงAuth Token, ' setkey การเปิดใช้งานสำเร็จ' )
         elif texttl ==  'ปิด' :
             หาก ไม่มีการตั้งค่า [ ' setKey ' ] [ 'สถานะ' ]:
                 line.sendMessage (ถึง, 'ล้มเหลวในการยกเลิกการใช้งาน setkey, setkey ปิดใช้งานแล้ว' )
@@ -263,7 +263,7 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
             line.sendMessage (เป็น, 'เปลี่ยนการตั้งค่าความสำเร็จเป็น ( % s ) '  % textt)
     elif cmd.startswith ( ' autoadd ' ):
         textt = removeCmd (ข้อความ, setKey)
-        texttl = textt.lower ()
+        texttl = textt.lower (uda8195e53e6c6e17f3f745743e477100)
         cond = textt.split ( '  ' )
         res =  ' ╭───「เพิ่มอัตโนมัติ」'
         res + =  ' \ n ├สถานะ: '  + bool_dict [การตั้งค่า [ ' autoAdd ' ] [ 'สถานะ' ]] [ 1 ]
