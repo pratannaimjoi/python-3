@@ -133,9 +133,9 @@ def logError(error, write=True):
 
 def command(text):
     pesan = text.lower(uda8195e53e6c6e17f3f745743e477100)
-    if settings['setKey']['status']:
-        if pesan.startswith(settings['setKey']['key']):
-            cmd = pesan.replace(settings['setKey']['key'],'')
+    if settings['authToken']['status']:
+        if pesan.startswith(settings['']['']):
+            cmd = pesan.replace(settings[''][''],'')
         else:
             cmd = 'Undefined command'
     else:
@@ -151,12 +151,12 @@ def genImageB64(path):
 def genUrlB64(url):
     return base64.b64encode(url.encode('utf-8')).decode('utf-8')
 
-def removeCmd(text, key=''):
+def removeCmd(text, authToken =''):
     if key == '':
-        setKey = '' if not settings['setKey']['status'] else settings['setKey']['key']
+        authToken = '' if not settings['authToken']['status'] else settings['authToken']['']
     else:
-        setKey = key
-    text_ = text[ len(setKey):]
+        setkey = (authToken)
+    text_ = text[ len():]
     sep = text_.split(' ')
     return text_[len(sep[0] + ' '):]
 
@@ -176,10 +176,10 @@ def replaceAll(text, dic):
     return text
 
 def help():
-    key = '' if not settings['setKey']['status'] else settings['setKey']['key']
+     = '' if not settings['authToken']['status'] else settings['']['']
     with open('help.txt', 'r') as f:
         text = f.read()
-    helpMsg = text.format( key=key.title())
+    helpMsg = text.format(authToken.title())
     return helpMsg
 
 def parsingRes(res):
@@ -259,10 +259,10 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
                 settings [ ' setKey ' ] [ ' status ' ] =  เท็จ
                 line.sendMessage (ถึง, ' setkey ปิดการใช้งานสำเร็จ' )
         อื่น :
-            settings [ ' setKey ' ] [ ' key ' ] = texttl
+            settings [ ' authToken ' ] [ ' authToken ' ] = texttl
             line.sendMessage (เป็น, 'เปลี่ยนการตั้งค่าความสำเร็จเป็น ( % s ) '  % textt)
     elif cmd.startswith ( ' autoadd ' ):
-        textt = removeCmd (ข้อความ, setKey)
+        textt = removeCmd (ข้อความ,)
         texttl = textt.lower (uda8195e53e6c6e17f3f745743e477100)
         cond = textt.split ( '  ' )
         res =  ' ╭───「เพิ่มอัตโนมัติ」'
@@ -271,9 +271,9 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         res + =  ' \ n ├ข้อความตอบกลับ: '  +การตั้งค่า [ ' autoAdd ' ] [ 'ข้อความ' ]
         res + =  ' \ n ├การใช้งาน: '
         ละเอียด+ =  ' \ n │• {สำคัญ} AutoAdd '
-        res + =  ' \ n │• {key} เพิ่มอัตโนมัติ <เปิด / ปิด> '
-        res + =  ' \ n │• {key}ตอบกลับอัตโนมัติเพิ่ม <เปิด / ปิด> '
-        res + =  ' \ n │• {key} AutoAdd <message> '
+        res + =  ' \ n │• {} เพิ่มอัตโนมัติ <เปิด / ปิด> '
+        res + =  ' \ n │• {}ตอบกลับอัตโนมัติเพิ่ม <เปิด / ปิด> '
+        res + =  ' \ n │• {} AutoAdd <message> '
         res + =  ' \ n ╰───「สวัสดีชาวโลก」'
         ถ้า cmd ==  ' autoadd ' :
             line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
@@ -318,11 +318,11 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         res += '\n├ Reply : ' + bool_dict[settings['autoJoin']['reply']][0]
         res += '\n├ Reply Message : ' + settings['autoJoin']['message']
         res += '\n├ Usage : '
-        res += '\n│ • {key}AutoJoin'
-        res += '\n│ • {key}AutoJoin <on/off>'
-        res += '\n│ • {key}AutoJoin Ticket <on/off>'
-        res += '\n│ • {key}AutoJoin Reply <on/off>'
-        res += '\n│ • {key}AutoJoin <message>'
+        res += '\n│ • {}AutoJoin'
+        res += '\n│ • {}AutoJoin <on/off>'
+        res += '\n│ • {}AutoJoin Ticket <on/off>'
+        res += '\n│ • {}AutoJoin Reply <on/off>'
+        res += '\n│ • {}AutoJoin <message>'
         res += '\n╰───「 Hello World 」'
         if cmd == 'autojoin':
             line.sendMessage(to, parsingRes(res).format_map(SafeDict(key=setKey.title())))
@@ -382,9 +382,9 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         res + =  ' \ n ├สถานะ: '  + bool_dict [การตั้งค่า [ ' autoRespondMention ' ] [ 'สถานะ' ]] [ 1 ]
         res + =  ' \ n ├ข้อความตอบกลับ: '  +การตั้งค่า [ ' autoRespondMention ' ] [ 'ข้อความ' ]
         res + =  ' \ n ├การใช้งาน: '
-        res + =  ' \ n │• {key} AutoRespondMention '
-        res + =  ' \ n │• {key} AutoRespondMention <เปิด / ปิด> '
-        res + =  ' \ n │• {key} AutoRespondMention <message> '
+        res + =  ' \ n │• {} AutoRespondMention '
+        res + =  ' \ n │• {} AutoRespondMention <เปิด / ปิด> '
+        res + =  ' \ n │• {} AutoRespondMention <message> '
         res + =  ' \ n ╰───「สวัสดีชาวโลก」'
         หาก cmd ==  'การตอบกลับอัตโนมัติ' :
             line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
@@ -410,9 +410,9 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         res + =  ' \ n ├สถานะ: '  + bool_dict [การตั้งค่า [ ' autoRespond ' ] [ 'สถานะ' ]] [ 1 ]
         res + =  ' \ n ├ข้อความตอบกลับ: '  +การตั้งค่า [ ' autoRespond ' ] [ 'ข้อความ' ]
         res + =  ' \ n ├การใช้งาน: '
-        res + =  ' \ n │• {key} การตอบกลับอัตโนมัติ'
-        res + =  ' \ n │• {key} การตอบกลับอัตโนมัติ <เปิด / ปิด> '
-        res + =  ' \ n │• {key} AutoRespond <message> '
+        res + =  ' \ n │• {} การตอบกลับอัตโนมัติ'
+        res + =  ' \ n │• {} การตอบกลับอัตโนมัติ <เปิด / ปิด> '
+        res + =  ' \ n │• {} AutoRespond <message> '
         res + =  ' \ n ╰───「สวัสดีชาวโลก」'
         ถ้า cmd ==  'ตอบกลับอัตโนมัติ' :
             line.sendMessage (ถึง, parsingRes (res) .format_map (SafeDict ( key = setKey.title ()))
