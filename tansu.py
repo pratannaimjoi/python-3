@@ -30,9 +30,9 @@ except ImportError:
     import urllib2
 #==============================================================================#
 
-tanie = LINE('')
-tanie.log("Auth Token : " + str(tanie.authToken))
-tanie.log("Timeline Token : " + str(tanie.tl.channelAccessToken))
+line. = LINE('')
+line.log("uda8195e53e6c6e17f3f745743e477100" : " + str(tanie.authToken))
+line.log("Timeline Token : " + str(tanie.tl.channelAccessToken))
 
 waitOpen = codecs.open("tan2.json","r","utf-8")
 settingsOpen = codecs.open("tan.json","r","utf-8")
@@ -43,13 +43,13 @@ images = json.load(imagesOpen)
 settings = json.load(settingsOpen)
 stickers = json.load(stickersOpen)
 #==============================================================================#
-tanieMID = tanie.profile.mid
-tanieProfile = tanie.getProfile()
-tanieSettings = tanie.getSettings()
+line.authToken.MID = lime.authToken.profile.mid
+line.authToken.Profile = tanie.getProfile()
+line.authToken.Settings = tanie.getSettings()
 #==============================================================================#
 taniePoll = OEPoll(tanie)
-tanieMID = tanie.getProfile().mid
-admin = [tanieMID]
+tanieMID = line..getProfile().mid
+admin = ["uda8195e53e6c6e17f3f745743e477100"MID]
 loop = asyncio.get_event_loop()
 listToken = ['desktopmac','desktopwin','iosipad','chromeos','win10']
 mc = {"wr":{}}
