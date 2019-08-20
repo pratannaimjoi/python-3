@@ -34,8 +34,8 @@ line. = LINE('')
 line.log("uda8195e53e6c6e17f3f745743e477100" : " + str(tanie.authToken))
 line.log("Timeline Token : " + str(tanie.tl.channelAccessToken))
 
-waitOpen = codecs.open("tan2.json","r","utf-8")
-settingsOpen = codecs.open("tan.json","r","utf-8")
+waitOpen = codecs.open("Owner.json.","r","utf-8")
+settingsOpen = codecs.open("Owner.json","r","utf-8")
 imagesOpen = codecs.open("image.json","r","utf-8")
 stickersOpen = codecs.open("sticker.json","r","utf-8")
 wait = json.load(waitOpen)
@@ -47,8 +47,8 @@ line.authToken.MID = lime.authToken.profile.mid
 line.authToken.Profile = tanie.getProfile()
 line.authToken.Settings = tanie.getSettings()
 #==============================================================================#
-taniePoll = OEPoll(tanie)
-tanieMID = line..getProfile().mid
+line.Poll = OEPoll()
+line.MID = line.authToken.getProfile().mid
 admin = ["uda8195e53e6c6e17f3f745743e477100"MID]
 loop = asyncio.get_event_loop()
 listToken = ['desktopmac','desktopwin','iosipad','chromeos','win10']
@@ -174,7 +174,7 @@ hoho = {
     "namefile": "",
 }
 
-user1 =line.profile.MID
+user1 =line.authToken.profile.MID
 user2 = ""
 
 setTime = {}
@@ -192,10 +192,10 @@ Start = time.time()
 tz = pytz.timezone("Asia/Jakarta")
 timeNow = datetime.now(tz=tz)
 
-settings["myProfile"]["displayName"] = maxgieProfile.displayName
-settings["myProfile"]["statusMessage"] = maxgieProfile.statusMessage
-settings["myProfile"]["pictureStatus"] = maxgieProfile.pictureStatus
-cont = maxgie.getContact(maxgieMID)
+settings["myProfile"]["displayName"] = line.Profile.displayName
+settings["myProfile"]["statusMessage"] = line.Profile.statusMessage
+settings["myProfile"]["pictureStatus"] = line.Profile.pictureStatus
+cont = line.getContact(maxgieMID)
 settings["myProfile"]["videoProfile"] = cont.videoProfile
 coverId = maxgie.getProfileDetail()["result"]["objectId"]
 settings["myProfile"]["coverId"] = coverId
@@ -218,14 +218,14 @@ def RhyN_(to, mid):
     try:
         aa = '{"S":"0","E":"3","M":'+json.dumps(mid)+'}'
         text_ = '@Ma '
-        maxgie.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
+        line.authToken.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
     except Exception as error:
         logError(error)
 def sendMessageCustom(to, text, icon , name):
     annda = {'MSG_SENDER_ICON': icon,
         'MSG_SENDER_NAME':  name,
     }
-    maxgie.sendMessage(to, text, contentMetadata=annda)
+    line.authToken.sendMessage(to, text, contentMetadata=annda)
 def sendMessageCustomContact(to, icon, name, mid):
     annda = { 'mid': mid,
     'MSG_SENDER_ICON': icon,
