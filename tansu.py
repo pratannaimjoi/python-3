@@ -231,22 +231,22 @@ def sendMessageCustomContact(to, icon, name, mid):
     'MSG_SENDER_ICON': icon,
     'MSG_SENDER_NAME':  name,
     }
-    maxgie.sendMessage(to, '', annda, 13)
+    line.authToken.sendMessage(to, '', annda, 13)
 def cloneProfile(mid):
     contact = maxgie.getContact(mid)
     if contact.videoProfile == None:
-        maxgie.cloneContactProfile(mid)
+        line.authToken.cloneContactProfile(mid)
     else:
         profile = maxgie.getProfile()
         profile.displayName, profile.statusMessage = contact.displayName, contact.statusMessage
-        maxgie.updateProfile(profile)
+        line.authToken.updateProfile(profile)
         pict = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
         vids = maxgie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
     coverId = maxgie.getProfileDetail(mid)['result']['objectId']
-    maxgie.updateProfileCoverById(coverId)
+    line.authToken.updateProfileCoverById(coverId)
 def backupProfile():
-    profile = maxgie.getContact(maxgieMID)
+    profile = line.getContact(lineMID)
     settings['myProfile']['displayName'] = profile.displayName
     settings['myProfile']['pictureStatus'] = profile.pictureStatus
     settings['myProfile']['statusMessage'] = profile.statusMessage
@@ -254,56 +254,56 @@ def backupProfile():
     coverId = maxgie.getProfileDetail()['result']['objectId']
     settings['myProfile']['coverId'] = str(coverId)
 def restoreProfile():
-    profile = maxgie.getProfile()
+    profile = line.getProfile()
     profile.displayName = settings['myProfile']['displayName']
     profile.statusMessage = settings['myProfile']['statusMessage']
     if settings['myProfile']['videoProfile'] == None:
         profile.pictureStatus = settings['myProfile']['pictureStatus']
-        maxgie.updateProfileAttribute(8, profile.pictureStatus)
-        maxgie.updateProfile(profile)
+        line.updateProfileAttribute(8, profile.pictureStatus)
+        line.updateProfile(profile)
     else:
-        maxgie.updateProfile(profile)
-        pict = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'], saveAs="tmp/pict.bin")
-        vids = maxgie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'] + '/vp', saveAs="tmp/video.bin")
+        line.updateProfile(profile)
+        pict = line.authToken.downloadFileURL('http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'], saveAs="tmp/pict.bin")
+        vids = line.authToken.downloadFileURL( 'http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'] + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
     coverId = settings['myProfile']['coverId']
-    maxgie.updateProfileCoverById(coverId)
+    line.updateProfileCoverById(coverId)
 def autoresponuy(to,msg,wait):
     to = msg.to
     if msg.to not in wait["GROUP"]['AR']['AP']:
         return
     if msg.to in wait["GROUP"]['AR']['S']:
-        maxgie.sendMessage(msg.to,text=None,contentMetadata=wait["GROUP"]['AR']['S'][msg.to]['Sticker'], contentType=7)
+        lime.authToken.sendMessage(msg.to,text=None,contentMetadata=wait["GROUP"]['AR']['S'][msg.to]['Sticker'], contentType=7)
     if(wait["GROUP"]['AR']['P'][msg.to] in [""," ","\n",None]):
         return
     if '@!' not in wait["GROUP"]['AR']['P'][msg.to]:
         wait["GROUP"]['AR']['P'][msg.to] = '@!'+wait["GROUP"]['AR']['P'][msg.to]
-    nama = maxgie.getGroup(msg.to).name
-    sd = maxgie.waktunjir()
+    nama = line.getGroup(msg.to).name
+    sd = line.waktunjir()
     maxgie.sendMention(msg.to,wait["GROUP"]['AR']['P'][msg.to].replace('greeting',sd).replace(';',nama),'',[msg._from]*wait["GROUP"]['AR']['P'][msg.to].count('@!'))
 def ClonerV2(to):
     try:
-        contact = maxgie.getContact(to)
-        profile = maxgie.profile
+        contact = line.authToken.getContact(to)
+        profile = line.authToken.profile
         profileName = maxgie.profile
         profileStatus = maxgie.profile
         profileName.displayName = contact.displayName
         profileStatus.statusMessage = contact.statusMessage
-        maxgie.updateProfile(profileName)
-        maxgie.updateProfile(profileStatus)
-        profile.pictureStatus = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/{}'.format(contact.pictureStatus, 'path'))
-        if maxgie.getProfileCoverId(to) is not None:
-            maxgie.updateProfileCoverById(maxgie.getProfileCoverId(to))
-        maxgie.updateProfilePicture(profile.pictureStatus)
+        line.authToken.updateProfile(profileName)
+        line.authToken.updateProfile(profileStatus)
+        profile.pictureStatus = line.authToken.downloadFileURL('http://dl.profile.line-cdn.net/{}'.format(contact.pictureStatus, 'path'))
+        if line.authToken.getProfileCoverId(to) is not None:
+            line.authToken.updateProfileCoverById(maxgie.getProfileCoverId(to))
+        line.authToken.updateProfilePicture(profile.pictureStatus)
         print("Success Clone Profile {}".format(contact.displayName))
-        return maxgie.updateProfile(profile)
+        return line.authToken.updateProfile(profile)
         if contact.videoProfile == None:
             return "Get Video Profile"
         path2 = "http://dl.profile.line-cdn.net/" + profile.pictureStatus
-        maxgie.updateProfilePicture(path2, 'vp')
+        line.authToken.updateProfilePicture(path2, 'vp')
     except Exception as error:
         print(error)
-#maxg = "ua053fcd4c52917706ae60c811e39d3ea"
+ line = ""
 def sendMentionFooter(to, mid, firstmessage, lastmessage):
     try:
         arrData = ""
@@ -315,13 +315,13 @@ def sendMentionFooter(to, mid, firstmessage, lastmessage):
         arrData = {'S':slen, 'E':elen, 'M':mid}
         arr.append(arrData)
         text += mention + str(lastmessage)
-        nama = "{}".format(maxgie.getContact(maxgieMID).displayName)
+        nama = "{}".format(line.authToken.getContact(lineMID).displayName)
         img = "http://dl.profile.line-cdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus)
         ticket = "https://line.me/ti/p/z7CqVLtFII"
-        maxgie.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        authToken.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        line.authToken.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 
 def mentions(to, text="", mids=[]):
     arrData = ""
@@ -349,16 +349,16 @@ def mentions(to, text="", mids=[]):
         arrData = {'S':str(slen), 'E':str(elen - 4), 'M':mids[0]}
         arr.append(arrData)
         textx += mention + str(text)
-    maxgie.sendMessage(to, textx, {'AGENT_NAME':'LINE OFFICIAL', 'AGENT_LINK': 'line://ti/p/~{}'.format(maxgie.getProfile().userid), 'AGENT_ICON': "http://dl.profile.line-cdn.net/" + maxgie.getContact("ua053fcd4c52917706ae60c811e39d3ea").picturePath, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+    authToken.sendMessage(to, textx, {'AGENT_NAME':'LINE OFFICIAL', 'AGENT_LINK': 'line://ti/p/~{}'.format(maxgie.getProfile().userid), 'AGENT_ICON': "http://dl.profile.line-cdn.net/" + maxgie.getContact("ua053fcd4c52917706ae60c811e39d3ea").picturePath, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 def changeVideoAndPictureProfile(pict, vids):
     try:
         files = {'file': open(vids, 'rb')}
-        obs_params = maxgie.genOBSParams({'oid': maxgieMID, 'ver': '2.0', 'type': 'video', 'cat': 'vp.mp4'})
+        obs_params = authToken.genOBSParams({'oid': lineMID, 'ver': '2.0', 'type': 'video', 'cat': 'vp.mp4'})
         data = {'params': obs_params}
-        r_vp = maxgie.server.postContent('{}/talk/vp/upload.nhn'.format(str(maxgie.server.LINE_OBS_DOMAIN)), data=data, files=files)
+        r_vp = line.authToken.server.postContent('{}/talk/vp/upload.nhn'.format(str(maxgie.server.LINE_OBS_DOMAIN)), data=data, files=files)
         if r_vp.status_code != 201:
             return "Failed update profile"
-        maxgie.updateProfilePicture(pict, 'vp')
+        line.authToken.updateProfilePicture(pict, 'vp')
         return "Success update profile"
     except Exception as e:
         raise Exception("Error change video and picture profile {}".format(str(e)))
@@ -367,7 +367,7 @@ def sendTemplate(to, data):
     xyz = LiffChatContext(to)
     xyzz = LiffContext(chat=xyz)
     view = LiffViewRequest('1602687308-GXq4Vvk9', xyzz)
-    token = maxgie.liff.issueLiffView(view)
+    token = line.authToken.liff.issueLiffView(view)
     url = 'https://api.line.me/message/v3/share'
     headers = {
         'Content-Type': 'application/json',
@@ -434,10 +434,10 @@ def sendMention(to, mid, firstmessage, lastmessage):
         arrData = {'S':slen, 'E':elen, 'M':mid}
         arr.append(arrData)
         text += mention + str(lastmessage)
-        maxgie.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        authToken.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        authToken.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def mentionMembers(to, mid):
     try:
         group = maxgie.getGroup(to)
@@ -461,10 +461,10 @@ def mentionMembers(to, mid):
         if no == jml:
             textx += ""
             textx += ""
-        maxgie.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        authToken.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        authToken.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def timeChange(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
@@ -500,50 +500,50 @@ def sendStickers(to, sver, spkg, sid):
         'STKPKGID': spkg,
         'STKID': sid
     }
-    maxgie.sendMessage(to, '', contentMetadata, 7)
+    line.authToken.sendMessage(to, '', contentMetadata, 7)
 def sendSticker(to, mid, sver, spkg, sid):
     contentMetadata = {
-        'MSG_SENDER_NAME': maxgie.getContact(mid).displayName,
-        'MSG_SENDER_ICON': 'http://dl.profile.line-cdn.net/' + maxgie.getContact(mid).pictureStatus,
+        'MSG_SENDER_NAME': line.authToken.getContact(mid).displayName,
+        'MSG_SENDER_ICON': 'http://dl.profile.line-cdn.net/' + line.getContact(mid).pictureStatus,
         'STKVER': sver,
         'STKPKGID': spkg,
         'STKID': sid
     }
-    maxgie.sendMessage(to, '', contentMetadata, 7)
+    line.sendMessage(to, '', contentMetadata, 7)
 def sendImage(to, path, name="image"):
     try:
         if settings["server"] == "VPS":
-            maxgie.sendImageWithURL(to, str(path))
+            authToken.sendImageWithURL(to, str(path))
     except Exception as error:
         logError(error)
 def command(text):
     pesan = text.lower()
-    if settings["setKey"] == True:
-        if pesan.startswith(settings["keyCommand"]):
-            cmd = pesan.replace(settings["keyCommand"],"")
+    if settings["สถานะ"] == True:
+        if pesan.startswith(settings["Command"]):
+            cmd = pesan.replace(settings["Command"],"")
         else:
             cmd = "Undefined command"
     else:
         cmd = text.lower()
     return cmd
 def removeCmd(cmd, text):
-    key = settings["keyCommand"]
-    if settings["setKey"] == False: key = ''  
-    rmv = len(key + cmd) + 1
+    key = settings["Command"]
+    if settings["สถานะ"] == False: () = ''  
+    rmv = len(line + cmd) + 1
     return text[rmv:]
 
 #=====================================================================
 def backupData():
     try:
         backup = settings
-        f = codecs.open('max.json','w','utf-8')
-        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        f = codecs.open('tan.json','w','utf-8')
+        json.dump(backup, f, sort_=True, indent=4, ensure_ascii=False)
         backup = images
         f = codecs.open('image.json','w','utf-8')
-        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        json.dump(backup, f, sort_=True, indent=4, ensure_ascii=False)
         backup = stickers
         f = codecs.open('sticker.json','w','utf-8')
-        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        json.dump(backup, f, sort_=True, indent=4, ensure_ascii=False)
         backup = wait
         f = codecs.open('Max2.json','w','utf-8')
         json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
@@ -552,10 +552,10 @@ def backupData():
         logError(error)
         return False
 #==============================================================================#
-async def maxgieBot(op):
+async def tanBot(op):
     try:
         if settings["restartPoint"] != None:
-            maxgie.sendMessage(settings["restartPoint"], 'ล็อคอินแล้วเรียบร้อย ><')
+            line.authToken.sendMessage(settings["restartPoint"], 'ล็อคอินแล้วเรียบร้อย ><')
             settings["restartPoint"] = None
         if op.type == 0:
             return
@@ -563,8 +563,8 @@ async def maxgieBot(op):
             if settings["autoAdd"] == True:
               if op.param2 in admin:
                   return
-              maxgie.findAndAddContactsByMid(op.param1)
-              maxgie.sendMessage(op.param1,"{}".format(tagadd["add"]))
+              line.authToken.findAndAddContactsByMid(op.param1)
+              line.authToken.sendMessage(op.param1,"{}".format(tagadd["add"]))
               msgSticker = sets["messageSticker"]["listSticker"]["add"]
               if msgSticker != None:
                   sid = msgSticker["STKID"]
@@ -576,7 +576,7 @@ async def maxgieBot(op):
             if settings["autoblock"] == True:
               if op.param2 in admin:
                   return
-              maxgie.sendMessage(op.param1,tagadd["b"])
+              line.authToken.sendMessage(op.param1,tagadd["b"])
           #    msgSticker = sets["messageSticker"]["listSticker"]["block"]
           #    if msgSticker != None:
           #        sid = msgSticker["STKID"]
@@ -584,11 +584,11 @@ async def maxgieBot(op):
           #        sver = msgSticker["STKVER"]
           #        sendSticker(op.param1, sver, spkg, sid)
                     #maxgie.sendMessage(op.param1,tagaad["b"])
-              maxgie.blockContact(op.param1)
+              .blockContact(op.param1)
               print ("[ 5 ] AUTO BLOCK")
         if op.type == 13:
-            if maxgieMID in op.param3:
-                G = maxgie.getGroup(op.param1)
+            if line.MID in op.param3:
+                G = line.authToken.getGroup(op.param1)
                 if settings["autoJoin"] == True:
                     if sets["autoCancel"]["on"] == True:
                         if len(G.members) <= sets["autoCancel"]["members"]:
