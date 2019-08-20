@@ -30,7 +30,7 @@ except ImportError:
     import urllib2
 #==============================================================================#
 
-line. = LINE('')
+line. = LINE('line.authToken')
 line.log("uda8195e53e6c6e17f3f745743e477100" : " + str(tanie.authToken))
 line.log("Timeline Token : " + str(tanie.tl.channelAccessToken))
 
@@ -233,17 +233,17 @@ def sendMessageCustomContact(to, icon, name, mid):
     }
     line.authToken.sendMessage(to, '', annda, 13)
 def cloneProfile(mid):
-    contact = maxgie.getContact(mid)
+    contact = line.getContact(mid)
     if contact.videoProfile == None:
         line.authToken.cloneContactProfile(mid)
     else:
-        profile = maxgie.getProfile()
+        profile =line.authToken.getProfile()
         profile.displayName, profile.statusMessage = contact.displayName, contact.statusMessage
         line.authToken.updateProfile(profile)
-        pict = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
-        vids = maxgie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
+        pict = line.authToken.downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
+        vids = line.authToken.downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
-    coverId = maxgie.getProfileDetail(mid)['result']['objectId']
+    coverId = line.authToken.getProfileDetail(mid)['result']['objectId']
     line.authToken.updateProfileCoverById(coverId)
 def backupProfile():
     profile = line.getContact(lineMID)
