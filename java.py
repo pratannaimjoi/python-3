@@ -166,7 +166,7 @@ hoho = {
 }
 
 user1 = tanieMID
-user2 = ""
+user2 = "244c0b54ddc440929ae85d0759daec20"
 setTime = {}
 setTime = rfuSet['setTime']
 contact = .getProfile() 
@@ -300,7 +300,7 @@ def sendMentionFooter(to, mid, firstmessage, lastmessage):
         tanie.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        .sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        tanie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def mentions(to, text="", mids=[]):
     arrData = ""
     arr = []
