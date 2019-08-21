@@ -29,8 +29,8 @@ try:
 except ImportError:
     import urllib2
  = LINE('')
-.log("Auth Token : " + str(.authToken))
-.log("Timeline Token : " + str(.tl.channelAccessToken))
+tanie.log("Auth Token : " + str(.authToken))
+tanie.log("Timeline Token : " + str(.tl.channelAccessToken))
 
 waitOpen = codecs.open("tan2.json","r","utf-8")
 settingsOpen = codecs.open("tan.json","r","utf-8")
@@ -40,10 +40,10 @@ wait = json.load(waitOpen)
 images = json.load(imagesOpen)
 settings = json.load(settingsOpen)
 stickers = json.load(stickersOpen)MID profile.mid
-Profile =() .getProfile()
-Settings = ().getSettings()Poll = OEPoll()
-MID = ().getProfile().mid
-admin = [MID]
+Profile =() tanie.getProfile()
+Settings = ()tanie.getSettings()Poll = OEPoll()
+tanieMID = ()tanie.getProfile().mid
+admin = [tanieMID]
 loop = asyncio.get_event_loop()
 listToken = ['desktopmac','desktopwin','iosipad','chromeos','win10']
 mc = {"wr":{}}
@@ -165,7 +165,7 @@ hoho = {
     "namefile": "",
 }
 
-user1 = MID
+user1 = tanieMID
 user2 = ""
 setTime = {}
 setTime = rfuSet['setTime']
@@ -181,15 +181,15 @@ timeNow = datetime.now(tz=tz)
 settings["myProfile"]["displayName"] = Profile.displayName
 settings["myProfile"]["statusMessage"] = Profile.statusMessage
 settings["myProfile"]["pictureStatus"] = Profile.pictureStatus
-cont = .getContact(MID)
+cont = tanie.getContact(tanieMID)
 settings["myProfile"]["videoProfile"] = cont.videoProfile
-coverId = .getProfileDetail()["result"]["objectId"]
+coverId = tanie.getProfileDetail()["result"]["objectId"]
 settings["myProfile"]["coverId"] = coverId
 ProfileMe["statusMessage"] = Profile.statusMessage
 ProfileMe["pictureStatus"] = Profile.pictureStatus
-coverId = ().getProfileDetail()["result"]["objectId"]
+coverId = ()tanie.getProfileDetail()["result"]["objectId"]
 ProfileMe["coverId"] = coverIdwith open("tan.json", "r", encoding="utf_8_sig") as f:
-    anu = json.loads(f.read())
+    anu =json.loads(f.read())
     anu.update(settings)
     settings = anu
 with open("tan2.json", "r", encoding="utf_8_sig") as f:
@@ -198,35 +198,35 @@ with open("tan2.json", "r", encoding="utf_8_sig") as f:
     try:
         aa = '{"S":"0","E":"3","M":'+json.dumps(mid)+'}'
         text_ = '@Ma '
-        .sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
+        tanie.sendMessage(to, text_, contentMetadata={'MENTION':'{"MENTIONEES":['+aa+']}'}, contentType=0)
     except Exception as error:
         logError(error)
 def sendMessageCustom(to, text, icon , name):
     annda = {'MSG_SENDER_ICON': icon,
         'MSG_SENDER_NAME':  name,
     }
-    .sendMessage(to, text, contentMetadata=annda)
+    tanie.sendMessage(to, text, contentMetadata=annda)
 def sendMessageCustomContact(to, icon, name, mid):
     annda = { 'mid': mid,
     'MSG_SENDER_ICON': icon,
     'MSG_SENDER_NAME':  name,
     }
-    .sendMessage(to, '', annda, 13)
+    tanie.sendMessage(to, '', annda, 13)
 def cloneProfile(mid):
-    contact = maxgie.getContact(mid)
+    contact = tanie.getContact(mid)
     if contact.videoProfile == None:
-        maxgie.cloneContactProfile(mid)
+        tanie.cloneContactProfile(mid)
     else:
-        profile = maxgie.getProfile()
+        profile = tanie.getProfile()
         profile.displayName, profile.statusMessage = contact.displayName, contact.statusMessage
-        .updateProfile(profile)
-        pict = maxgie.downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
-        vids = .downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
+        tanie.updateProfile(profile)
+        pict = tanie.downloadFileURL('http://dl.profile.line-cdn.net/' + contact.pictureStatus, saveAs="tmp/pict.bin")
+        vids = tanie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + contact.pictureStatus + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
-    coverId = .getProfileDetail(mid)['result']['objectId']
-    .updateProfileCoverById(coverId)
+    coverId = tanie.getProfileDetail(mid)['result']['objectId']
+    tanie.updateProfileCoverById(coverId)
 def backupProfile():
-    profile = .getContact(maxgieMID)
+    profile = tanie.getContact(tanieMID)
     settings['myProfile']['displayName'] = profile.displayName
     settings['myProfile']['pictureStatus'] = profile.pictureStatus
     settings['myProfile']['statusMessage'] = profile.statusMessage
@@ -234,53 +234,53 @@ def backupProfile():
     coverId = .getProfileDetail()['result']['objectId']
     settings['myProfile']['coverId'] = str(coverId)
 def restoreProfile():
-    profile = .getProfile()
+    profile = tanie.getProfile()
     profile.displayName = settings['myProfile']['displayName']
     profile.statusMessage = settings['myProfile']['statusMessage']
     if settings['myProfile']['videoProfile'] == None:
         profile.pictureStatus = settings['myProfile']['pictureStatus']
-        .updateProfileAttribute(8, profile.pictureStatus)
-        .updateProfile(profile)
+        tanie.updateProfileAttribute(8, profile.pictureStatus)
+        tanie.updateProfile(profile)
     else:
-        .updateProfile(profile)
-        pict = tan.downloadFileURL('http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'], saveAs="tmp/pict.bin")
-        vids = .downloadFileURL( 'http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'] + '/vp', saveAs="tmp/video.bin")
+        tanie.updateProfile(profile)
+        pict = tantajie.downloadFileURL('http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'], saveAs="tmp/pict.bin")
+        vids = tanie.downloadFileURL( 'http://dl.profile.line-cdn.net/' + settings['myProfile']['pictureStatus'] + '/vp', saveAs="tmp/video.bin")
         changeVideoAndPictureProfile(pict, vids)
     coverId = settings['myProfile']['coverId']
-    .updateProfileCoverById(coverId)
+    tanie.updateProfileCoverById(coverId)
 def autoresponuy(to,msg,wait):
     to = msg.to
     if msg.to not in wait["GROUP"]['AR']['AP']:
         return
     if msg.to in wait["GROUP"]['AR']['S']:
-        .sendMessage(msg.to,text=None,contentMetadata=wait["GROUP"]['AR']['S'][msg.to]['Sticker'], contentType=7)
+        tanie.sendMessage(msg.to,text=None,contentMetadata=wait["GROUP"]['AR']['S'][msg.to]['Sticker'], contentType=7)
     if(wait["GROUP"]['AR']['P'][msg.to] in [""," ","\n",None]):
         return
     if '@!' not in wait["GROUP"]['AR']['P'][msg.to]:
         wait["GROUP"]['AR']['P'][msg.to] = '@!'+wait["GROUP"]['AR']['P'][msg.to]
-    nama = .getGroup(msg.to).name
-    sd = .waktunjir()
-    .sendMention(msg.to,wait["GROUP"]['AR']['P'][msg.to].replace('greeting',sd).replace(';',nama),'',[msg._from]*wait["GROUP"]['AR']['P'][msg.to].count('@!'))
+    nama = tanie.getGroup(msg.to).name
+    sd = tanie.waktunjir()
+    tanie.sendMention(msg.to,wait["GROUP"]['AR']['P'][msg.to].replace('greeting',sd).replace(';',nama),'',[msg._from]*wait["GROUP"]['AR']['P'][msg.to].count('@!'))
 def ClonerV2(to):
     try:
-        contact = .getContact(to)
-        profile = .profile
-        profileName = .profile
-        profileStatus = .profile
+        contact = tanie.getContact(to)
+        profile = tanie.profile
+        profileName = tanie.profile
+        profileStatus = tanie.profile
         profileName.displayName = contact.displayName
         profileStatus.statusMessage = contact.statusMessage
-        .updateProfile(profileName)
-        .updateProfile(profileStatus)
-        profile.pictureStatus = .downloadFileURL('http://dl.profile.line-cdn.net/{}'.format(contact.pictureStatus, 'path'))
-        if .getProfileCoverId(to) is not None:
-            .updateProfileCoverById(.getProfileCoverId(to))
-        .updateProfilePicture(profile.pictureStatus)
-        print("Success Clone Profile {}".format(contact.displayName))
-        return maxgie.updateProfile(profile)
+        tanie.updateProfile(profileName)
+        tanie.updateProfile(profileStatus)
+        profile.pictureStatus = tanie.downloadFileURL('http://dl.profile.line-cdn.net/{}'.format(contact.pictureStatus, 'path'))
+        if tanie.getProfileCoverId(to) is not None:
+            tanie.updateProfileCoverById(.getProfileCoverId(to))
+        tanie.updateProfilePicture(profile.pictureStatus)
+        print("Success Clone Profile {}"tanie.format(contact.displayName))
+        return tanie.updateProfile(profile)
         if contact.videoProfile == None:
             return "Get Video Profile"
         path2 = "http://dl.profile.line-cdn.net/" + profile.pictureStatus
-        .updateProfilePicture(path2, 'vp')
+        tanie.updateProfilePicture(path2, 'vp')
     except Exception as error:
         print(error)#maxg = "ua053fcd4c52917706ae60c811e39d3ea"
 def sendMentionFooter(to, mid, firstmessage, lastmessage):
@@ -294,13 +294,13 @@ def sendMentionFooter(to, mid, firstmessage, lastmessage):
         arrData = {'S':slen, 'E':elen, 'M':mid}
         arr.append(arrData)
         text += mention + str(lastmessage)
-        nama = "{}".format(maxgie.getContact(maxgieMID).displayName)
-        img = "http://dl.profile.line-cdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus)
+        nama = "{}".format(tanie.getContact(tanieMID).displayName)
+        img = "http://dl.profile.line-cdn.net/{}".format(tanie.getContact(tanieMID).pictureStatus)
         ticket = "https://line.me/ti/p/z7CqVLtFII"
-        maxgie.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        tanie.sendMessage(to, text, {'AGENT_LINK': ticket, 'AGENT_ICON': img, 'AGENT_NAME': nama, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        .sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def mentions(to, text="", mids=[]):
     arrData = ""
     arr = []
@@ -331,12 +331,12 @@ def mentions(to, text="", mids=[]):
 def changeVideoAndPictureProfile(pict, vids):
     try:
         files = {'file': open(vids, 'rb')}
-        obs_params = maxgie.genOBSParams({'oid': (MID), 'ver': '2.0', 'type': 'video', 'cat': 'vp.mp4'})
+        obs_params = tanie.genOBSParams({'oid': (tanieMID), 'ver': '2.0', 'type': 'video', 'cat': 'vp.mp4'})
         data = {'params': obs_params}
         r_vp = ().server.postContent('{}/talk/vp/upload.nhn'.format(str(.server.LINE_OBS_DOMAIN)), data=data, files=files)
         if r_vp.status_code != 201:
             return "Failed update profile"
-        ().updateProfilePicture(pict, 'vp')
+        (tanie).updateProfilePicture(pict, 'vp')
         return "Success update profile"
     except Exception as e:
         raise Exception("Error change video and picture profile {}".format(str(e)))
@@ -345,7 +345,7 @@ def sendTemplate(to, data):
     xyz = LiffChatContext(to)
     xyzz = LiffContext(chat=xyz)
     view = LiffViewRequest('1602687308-GXq4Vvk9', xyzz)
-    token = maxgie.liff.issueLiffView(view)
+    token = tanie.liff.issueLiffView(view)
     url = 'https://api.line.me/message/v3/share'
     headers = {
         'Content-Type': 'application/json',
@@ -412,10 +412,10 @@ def sendMention(to, mid, firstmessage, lastmessage):
         arrData = {'S':slen, 'E':elen, 'M':mid}
         arr.append(arrData)
         text += mention + str(lastmessage)
-        .sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        tajie.sendMessage(to, text, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        .sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        tanie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def mentionMembers(to, mid):group = .getGroup(to)
         mids = [mem.mid for mem in group.members]
         jml = len(mids)
@@ -437,10 +437,10 @@ def mentionMembers(to, mid):group = .getGroup(to)
         if no == jml:
             textx += ""
             textx += ""
-        .sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+        tanie.sendMessage(to, textx, {'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
     except Exception as error:
         logError(error)
-        maxgie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
+        tanie.sendMessage(to, "[ INFO ] Error :\n" + str(error))
 def timeChange(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
@@ -476,7 +476,7 @@ def sendStickers(to, sver, spkg, sid):
         'STKPKGID': spkg,
         'STKID': sid
     }
-    .sendMessage(to, '', contentMetadata, 7)
+    tanie.sendMessage(to, '', contentMetadata, 7)
 def sendSticker(to, mid, sver, spkg, sid):
     contentMetadata = {
         'MSG_SENDER_NAME': .getContact(mid).displayName,
@@ -489,7 +489,7 @@ def sendSticker(to, mid, sver, spkg, sid):
 def sendImage(to, path, name="image"):
     try:
         if settings["server"] == "VPS":
-            .sendImageWithURL(to, str(path))
+            tanie.sendImageWithURL(to, str(path))
     except Exception as error:
         logError(error)
 def command(text):
@@ -522,10 +522,10 @@ def removeCmd(cmd, text):
         json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
         return True
     except Exception as error:
-        logError(error)async def maxgieBot(op):
+        logError(error)async def tanieBot(op):
     try:
         if settings["restartPoint"] != None:
-            .sendMessage(settings["restartPoint"], 'ล็อคอินแล้วเรียบร้อย ><')
+            tanie.sendMessage(settings["restartPoint"], 'ล็อคอินแล้วเรียบร้อย ><')
             settings["restartPoint"] = None
         if op.type == 0:
             return
@@ -533,8 +533,8 @@ def removeCmd(cmd, text):
             if settings["autoAdd"] == True:
               if op.param2 in admin:
                   return
-              .findAndAddContactsByMid(op.param1)
-              .sendMessage(op.param1,"{}".format(tagadd["add"]))
+              tanie.findAndAddContactsByMid(op.param1)
+              tanie.sendMessage(op.param1,"{}".format(tagadd["add"]))
               msgSticker = sets["messageSticker"]["listSticker"]["add"]
               if msgSticker != None:
                   sid = msgSticker["STKID"]
@@ -546,31 +546,31 @@ def removeCmd(cmd, text):
             if settings["autoblock"] == True:
               if op.param2 in admin:
                   return
-           .sendMessage(op.param1,tagadd["b"])
+           tanie.sendMessage(op.param1,tagadd["b"])
           #    msgSticker = sets["messageSticker"]["listSticker"]["block"]
           #    if msgSticker != None:
           #        sid = msgSticker["STKID"]
           #        spkg = msgSticker["STKPKGID"]
           #        sver = msgSticker["STKVER"]
           #        sendSticker(op.param1, sver, spkg, sid)
-                    #maxgie.sendMessage(op.param1,tagaad["b"])
-              .blockContact(op.param1)
+                    #tanie.sendMessage(op.param1,tagaad["b"])
+              tanie.blockContact(op.param1)
               print ("[ 5 ] AUTO BLOCK")
         if op.type == 13:
             if MID in op.param3:
-                G = .getGroup(op.param1)
+                G = tanie.getGroup(op.param1)
                 if settings["autoJoin"] == True:
                     if sets["autoCancel"]["on"] == True:
                         if len(G.members) <= sets["autoCancel"]["members"]:
-                            .acceptGroupInvitation(op.param1)
+                            tanie.acceptGroupInvitation(op.param1)
                         else:
-                            .leaveGroup(op.param1)
+                            tanie.leaveGroup(op.param1)
                     else:
-                        .acceptGroupInvitation(op.param1)
+                        tanie.acceptGroupInvitation(op.param1)
                 elif sets["autoCancel"]["on"] == True:
                     if len(G.members) <= sets["autoCancel"]["members"]:
-                        .acceptGroupInvitation(op.param1)
-                        .leaveGroup(op.param1)
+                        tanie.acceptGroupInvitation(op.param1)
+                        tanie.leaveGroup(op.param1)
             else:
                 Inviter = op.param3.replace("",',')
                 InviterX = Inviter.split(",")
@@ -580,16 +580,16 @@ def removeCmd(cmd, text):
                 if matched_list == []:
                     pass
                 else:
-                    .acceptGroupInvitation(op.param1, matched_list)
-                    .leaveGroup(op.param1, matched_list)
+                    tanie.acceptGroupInvitation(op.param1, matched_list)
+                    tanie.leaveGroup(op.param1, matched_list)
                     print ("[ 17 ] LEAVE GROUP")                 
         if op.type == 15:
           if settings["Leave"] == True:
             if op.param2 in admin:
                 return
-            g = maxgie.getGroup(op.param1)
-            contact = .getContact(op.param2)
-            cover = .getProfileCoverURL(op.param2)
+            g = tanie.getGroup(op.param1)
+            contact = tanie.getContact(op.param2)
+            cover = tanie.getProfileCoverURL(op.param2)
             gname = g.name
             name = contact.displayName
             status = contact.statusMessage
@@ -603,7 +603,7 @@ def removeCmd(cmd, text):
             sendTemplate(op.param1, data)
         if op.type == 15:
           if settings["lv"] == True:
-              ginfo = maxgie.getGroup(op.param1)
+              ginfo = tan.getGroup(op.param1)
               msg = sets["messageSticker"]["listSticker"]["lv"]
               if msg != None:
                   contact = maxgie.getContact(maxgieMID)
@@ -616,9 +616,9 @@ def removeCmd(cmd, text):
           if settings["Welcome"] == True:
             if op.param2 in admin:
                 return
-            g = .getGroup(op.param1)
-            contact = maxgie.getContact(op.param2)
-            cover = maxgie.getProfileCoverURL(op.param2)
+            g = tanie.getGroup(op.param1)
+            contact = tanie.getContact(op.param2)
+            cover = tanie.getProfileCoverURL(op.param2)
             gname = g.name
             name = contact.displayName
             status = contact.statusMessage
@@ -634,9 +634,9 @@ def removeCmd(cmd, text):
           if settings["Wc"] == True:
             if op.param2 in admin:
                 return
-            ginfo =.getGroup(op.param1)
-            contact = .getContact(op.param2)
-            cover =.getProfileCoverURL(op.param2)
+            ginfo =tanie.getGroup(op.param1)
+            contact = tanie.getContact(op.param2)
+            cover =tanie.getProfileCoverURL(op.param2)
             names = contact.displayName
             status = contact.statusMessage
             pp = contact.pictureStatus
@@ -646,9 +646,9 @@ if op.type == 17:
           if settings["Wc"] == True:
             if op.param2 in admin:
                 return
-            ginfo = .getGroup(op.param1)
-            contact = .getContact(op.param2)
-            cover = .getProfileCoverURL(op.param2)
+            ginfo = tanie.getGroup(op.param1)
+            contact = tanie.getContact(op.param2)
+            cover = tanie.getProfileCoverURL(op.param2)
             names = contact.displayName
             status = contact.statusMessage
             pp = contact.pictureStatus
@@ -706,10 +706,10 @@ if op.type == 17:
             sendTemplate(op.param1, data)
         if op.type == 17:
           if settings["wcsti2"] == True:
-              ginfo = .getGroup(op.param1)
+              ginfo = tanie.getGroup(op.param1)
               msg = sets["messageSticker"]["listSticker"]["wc"]
               if msg != None:
-                  contact = maxgie.getContact(MID)
+                  contact = maxgie.getContact(tanieMID)
                   a = contact.displayName
                   stk = msg['STKID']
                   spk = msg['STKPKGID']
@@ -741,7 +741,7 @@ if op.type == 17:
                      #   if "@!" in settings["reply"]:
                      #       msg_ = settings["reply"].split("@!")
                      #       sendMention(to, sender, "「 แทคส่วนตัว 」\n" + msg_[0], msg_[1])
-                     #   maxgie.sendMessage(to, "「 แทคส่วนตัว 」\n", settings["reply"])
+                     #   tanie.sendMessage(to, "「 แทคส่วนตัว 」\n", settings["reply"])
         if op.type == 25:
             msg = op.message
             text = str(msg.text)
@@ -763,7 +763,7 @@ if op.type == 17:
                     try:
                         if msg.to not in wait['Unsend']:
                             wait['Unsend'][msg.to] = {'B':[]}
-                        if msg._from not in [maxgieMID]:
+                        if msg._from not in [tanieMID]:
                             return
                         wait['Unsend'][msg.to]['B'].append(msg.id)
                     except:pass
@@ -779,32 +779,32 @@ if op.type == 17:
             setKey = settings["keyCommand"].title()
             if settings["setKey"] == False: setKey = ''
             if isValid != False:
-                if msg.toType == 0 and sender != MID: to = sender
+                if msg.toType == 0 and sender != tanieMID: to = sender
                 else: to = receiver
-                if msg._from not in (MID):
+                if msg._from not in (tanieMID):
                   if apalo["talkban"] == True:
                     if msg._from in apalo["Talkblacklist"]:
-                        .sendMention(to, "คุณติดดำผมอยู่นะครับ @! :)","",[msg._from])
-                        .kickoutFromGroup(msg.to, [msg._from])
+                        tanie.sendMention(to, "คุณติดดำผมอยู่นะครับ @! :)","",[msg._from])
+                        tanie.kickoutFromGroup(msg.to, [msg._from])
                 if msg.contentType == 13:
                   if apalo["Talkwblacklist"] == True:
                     if msg._from in admin:
                       if msg.contentMetadata["mid"] in apalo["Talkblacklist"]:
-                          maxgie.sendMessage(msg.to,"Sudah Ada")
+                          tanie.sendMessage(msg.to,"Sudah Ada")
                           apalo["Talkwblacklist"] = False
                       else:
                           apalo["Talkblacklist"][msg.contentMetadata["mid"]] = True
                           apalo["Talkwblacklist"] = False
-                          .sendMessage(msg.to,"เพิ่มบัญชีนี้ในรายการสีดำเรียบร้อยแล้ว")
+                          tanie.sendMessage(msg.to,"เพิ่มบัญชีนี้ในรายการสีดำเรียบร้อยแล้ว")
                   if apalo["Talkdblacklist"] == True:
                     if msg._from in admin:
                       if msg.contentMetadata["mid"] in apalo["Talkblacklist"]:
                           del apalo["Talkblacklist"][msg.contentMetadata["mid"]]
-                          .sendMessage(msg.to,"เพิ่มบัญชีนี้ในรายการสีขาวเรียบร้อยแล้ว")
+                          tanie.sendMessage(msg.to,"เพิ่มบัญชีนี้ในรายการสีขาวเรียบร้อยแล้ว")
                           apalo["Talkdblacklist"] = False
                       else:
                           apalo["Talkdblacklist"] = False
-                          .sendMessage(msg.to,"Tidak Ada Dalam Da ftar Blacklist")
+                          tanie.sendMessage(msg.to,"Tidak Ada Dalam Da ftar Blacklist")
                 if msg.contentType == 16:
                     if msg.toType in [2,1,0]:
                         print ("AutoLikeCommat")
@@ -812,9 +812,9 @@ if op.type == 17:
                             if settings["autolike"] == True:
                                 purl = msg.contentMetadata["postEndUrl"].split('userMid=')[1].split('&postId=')
                                 if purl[1] not in wait['postId']:
-                                    .likePost(purl[0], purl[1], random.choice([1001,1002,1003,1004,1005]))
+                                    tanie.likePost(purl[0], purl[1], random.choice([1001,1002,1003,1004,1005]))
                                 if settings["com"] == True:
-                                    .createComment(purl[0], purl[1], settings["commet"])
+                                    tanie.createComment(purl[0], purl[1], settings["commet"])
                                     wait['postId'].append(purl[1])
                                 else:
                                     pass
@@ -822,9 +822,9 @@ if op.type == 17:
                                 if settings["autolike"] == True:
                                     purl = msg.contentMetadata['postEndUrl'].split('homeId=')[1].split('&postId=')
                                     if purl[1] not in wait['postId']:
-                                        .likePost(msg._from, purl[1], random.choice([1001,1002,1003,1004,1005]))
+                                        tanie.likePost(msg._from, purl[1], random.choice([1001,1002,1003,1004,1005]))
                                     if settings["com"] == True:
-                                        .createComment(msg._from, purl[1], settings["commet"])
+                                        tanie.createComment(msg._from, purl[1], settings["commet"])
                                         wait['postId'].append(purl[1])
 if op.type == 25:
             print("[ 25 ] SEND MESSAGE")
@@ -835,7 +835,7 @@ if op.type == 25:
             sender = msg._from
             if msg.toType == 0 or msg.toType == 1 or msg.toType == 2:
                 if msg.toType == 0:
-                    if sender != maxgie.profile.mid:
+                    if sender != tanie.profile.mid:
                         to = sender
                     else:
                         to = receiver
@@ -946,72 +946,72 @@ if op.type == 25:
                     sendTemplate(to, data)
                 elif text.lower() == 'clearban' or text.lower() == "ล้างดำ":
                       apalo["Talkblacklist"] = []
-                      maxgie.sendMessage(to, "สำเร็จ >_<")
+                      tanie.sendMessage(to, "สำเร็จ >_<")
                 elif text.lower() == "cancelall" or text.lower() == "ยกเชิญ" and sender == (MID):
                             if msg.toType == 2:
                                 group = .getGroup(to)
                                 if group.invitee is None or group.invitee == []:
-                                    .sendMessage(to, "Nothing")
+                                    tanie.sendMessage(to, "Nothing")
                                 else:
                                     invitee = [contact.mid for contact in group.invitee]
                                     for inv in invitee:
-                                        .cancelGroupInvitation(to, [inv])
-                                    .sendMessage(to, "ยกเชิญจำนวน「 {} 」คน".format(str(len(invitee))))
+                                        tanie.cancelGroupInvitation(to, [inv])
+                                    tanie.sendMessage(to, "ยกเชิญจำนวน「 {} 」คน".format(str(len(invitee))))
                 elif text.lower() == "คทดำ":
-                    if msg._from in maxgieMID:
+                    if msg._from in tanieMID:
                         if apalo["Talkblacklist"] == []:
-                            .sendMessage(to, "ไม่มีคท.คนติดดำ")
+                            tanie.sendMessage(to, "ไม่มีคท.คนติดดำ")
                         else:
                             for bl in apalo["Talkblacklist"]:
-                                .sendMessage(to, text=None, contentMetadata={'mid': bl}, contentType=13)
-                elif msg.text.lower().startswith("ตั้งสีme "):
+                                tanie.sendMessage(to, text=None, contentMetadata={'mid': bl}, contentType=13)
+                elif msg.text.lower()tanie.startswith("ตั้งสีme "):
                             text_ = removeCmd("ตั้งสีme", text)
                             try:
                                 temp["t"] = text_
-                                .sendMessage(to,"「 โค๊ดสี 」\nคือ : " + text_)
+                                tanie.sendMessage(to,"「 โค๊ดสี 」\nคือ : " + text_)
                             except:
-                                .sendMessage(to,"สำเเร็จแล้ว")
-                elif msg.text.lower().startswith("สีอักษร "):
+                                tanie.sendMessage(to,"สำเเร็จแล้ว")
+                elif msg.text.lower()tanie.startswith("สีอักษร "):
                             text_ = removeCmd("สีอักษร", text)
                             try:
                                 temp["te"] = text_
-                                .sendMessage(to,"「 โค๊ดสี 」\nคือ : " + text_)
+                                tajie.sendMessage(to,"「 โค๊ดสี 」\nคือ : " + text_)
                             except:
-                                .sendMessage(to,"สำเเร็จแล้ว")
+                                tanie.sendMessage(to,"สำเเร็จแล้ว")
                 elif msg.text.lower() == "รหัสสี":
                             c="https://i.pinimg.com/originals/d0/9c/8a/d09c8ad110eb44532825df454085a376.jpg"
                             p="https://i.pinimg.com/originals/7c/d3/aa/7cd3aa57150f8f6f18711ff22c9f6d4a.jpg"
                             m="**ตัวอย่างที่1**\nคำสั่งเปลี่ยนสี me\nพิม'ตั้งสีme #FFFFFF'\n**ตัวอย่างที่2**\nคำสั่งเปลี่ยนสี tag\nพิม'ตั้งสีแทค #FFFFFF'"
-                            .sendImageWithURL(to,c)
-                            .sendImageWithURL(to,p)
-                            .sendMessage(to,m)
-                elif msg.text.lower().startswith("ตั้งบล็อค "):
+                            tanie.sendImageWithURL(to,c)
+                            tanie.sendImageWithURL(to,p)
+                            tanie.sendMessage(to,m)
+                elif msg.text.lower()tanie.startswith("ตั้งบล็อค "):
                             text_ = removeCmd("ตั้งบล็อค", text)
                             try:
                                 tagadd["b"] = text_
-                                .sendMessage(to,"「 ตั้งบล็อคอัตโนมัติ 」\nคือ : " + text_)
+                                tanie.sendMessage(to,"「 ตั้งบล็อคอัตโนมัติ 」\nคือ : " + text_)
                             except:
-                                .sendMessage(to,"สำเเร็จแล้ว")
-                elif text.lower().startswith("ตั้งค้างเชิญ "):
+                                tanie.sendMessage(to,"สำเเร็จแล้ว")
+                elif text.lower()tanie.startswith("ตั้งค้างเชิญ "):
                             text_ = removeCmd("ตั้งค้างเชิญ", text)
                             try:
                                 sets["autoCancel"]["members"] = text_
-                                .sendMessage(to,"「 ตั้งยกค้างเชิญ 」\nจำนวน : " + text_)
+                                tanie.sendMessage(to,"「 ตั้งยกค้างเชิญ 」\nจำนวน : " + text_)
                             except:
-                                .sendMessage(to,"สำเเร็จแล้ว")
+                                tanie.sendMessage(to,"สำเเร็จแล้ว")
                 elif "Allban" in msg.text.lower():
                   if msg._from in admin:
                       if msg.toType == 2:
                            print ("All Banlist")
-                           _name = .text.lower().replace("Allban","")
-                           gs = .getGroup(msg.to)
-                          .sendReplyMessage(msg.id,to,"Ban Group Done...")
+                           _name = tanie.text.lower().replace("Allban","")
+                           gs = tanie.getGroup(msg.to)
+                          tanie.sendReplyMessage(msg.id,to,"Ban Group Done...")
                            targets = []
                            for g in gs.members:
                                if _name in g.displayName:
                                     targets.append(g.mid)
                            if targets == []:
-                                .sendReplyMessage(msg.id,to,"Done..")
+                                tanie.sendReplyMessage(msg.id,to,"Done..")
                            else:
                                for target in targets:
                                    if not target in admin:
@@ -1020,22 +1020,22 @@ if op.type == 25:
                                            f=codecs.open('b.json','w','utf-8')
                                            json.dump(apalo["Talkblacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                        except:
-                                           .sendReplyMessage(msg.id,to,"พบข้อผิดพลาดที่ไม่ทราบสาเหตุ")
+                                           tanie.sendReplyMessage(msg.id,to,"พบข้อผิดพลาดที่ไม่ทราบสาเหตุ")
 if text.lower() == "ดำ":
                   if msg._from in admin:
                       apalo["Talkwblacklist"] = True
-                      .sendMessage(to,"ส่งคท.มา..")
+                      tanie.sendMessage(to,"ส่งคท.มา..")
                 if text.lower() == "ขาว":
                   if msg._from in admin:
                       apalo["Talkdblacklist"] = True
-                      .sendMessage(to,"ส่งคท.มา..")
-                elif text.lower().startswith("/exec\n") or "/exec" in msg.text:
+                      tanie.sendMessage(to,"ส่งคท.มา..")
+                elif text.lower()tanie.startswith("/exec\n") or "/exec" in msg.text:
                     try:
                         code = msg.text.replace("/exec\n", "")
                         exec(code)
                     except Exception as error:
-                        maxgie.sendMessage(to, "Error : {}".format(error))
-                elif msg.text.lower().startswith("ตั้งแทค "):
+                        tanie.sendMessage(to, "Error : {}".format(error))
+                elif msg.text.lower()tanie.startswith("ตั้งแทค "):
                       text_ = removeCmd("ตั้งแทค", text)
                       try:
                           tagadd["tag"] = text_
@@ -1043,8 +1043,8 @@ if text.lower() == "ดำ":
                           data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "STEVE Botline", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContactMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u266f0d1211f905b2ca386024d9d4e165"}}
                           sendTemplate(to,data)
                       except:
-                         .sendMessage(to,"Done. >_<")
-                elif msg.text.lower().startswith("ตั้งแทคแชท "):
+                         tanie.sendMessage(to,"Done. >_<")
+                elif msg.tanietext.lower()tanie.startswith("ตั้งแทคแชท "):
                       text_ = removeCmd("ตั้งแทคแชท", text)
                       try:
                           settings["reply"] = text_
@@ -1052,8 +1052,8 @@ if text.lower() == "ดำ":
                           data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "STEVE Botline", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(MID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u266f0d1211f905b2ca386024d9d4e165"}}
                           sendTemplate(to,data)
                       except:
-                         .sendMessage(to,"Done. >_<")
-                elif msg.text.lower().startswith("ตั้งต้อนรับ "):
+                         tanie.sendMessage(to,"Done. >_<")
+                elif msg.text.lower()tanie.startswith("ตั้งต้อนรับ "):
                       text_ = removeCmd("ตั้งต้อนรับ", text)
                       try:
                           tagadd["wctext"] = text_
@@ -1061,15 +1061,15 @@ if text.lower() == "ดำ":
                           data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "STEVE Botline", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u266f0d1211f905b2ca386024d9d4e165"}}
                           sendTemplate(to,data)
                       except:
-                         .sendMessags(to,"Done. >_<")
-                elif msg.text.lower().startswith("ตั้งคนออก "):
+                         tanie.sendMessags(to,"Done. >_<")
+                elif msg.text.lower()tanie.startswith("ตั้งคนออก "):
                             text_ = removeCmd("ตั้งคนออก", text)
                             try:
                                 tagadd["lv"] = text_
-                                .sendMessage(to,"「 ตั้งคนออก 」\nคือ : " + text_)
+                                tanie.sendMessage(to,"「 ตั้งคนออก 」\nคือ : " + text_)
                             except:
-                                .sendMessage(to,"สำเเร็จแล้ว")
-                elif msg.text.lower().startswith("ตั้งแอด "):
+                                tanie.sendMessage(to,"สำเเร็จแล้ว")
+                elif msg.text.lower()tanie.startswith("ตั้งแอด "):
                       text_ = removeCmd("ตั้งแอด", text)
                       try:
                           tagadd["add"] = text_
@@ -1077,7 +1077,7 @@ if text.lower() == "ดำ":
                           data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "STEVE Botline", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact()MID)).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u266f0d1211f905b2ca386024d9d4e165"}}
                           sendTemplate(to,data)
                       except:
-                          .sendMessags(to,"Done. >_<")
+                          tanie.sendMessags(to,"Done. >_<")
                 elif msg.text.lower().startswith("ตั้งคอมเม้น "):
                       text_ = removeCmd("ตั้งคอมเม้น", text)
                       try:
@@ -1086,7 +1086,7 @@ if text.lower() == "ดำ":
                           data = {"type": "text","text": "{}".format(sa),"sentBy": {"label": "STEVE Botline", "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(MID).pictureStatus),"linkUrl": "line://nv/profilePopup/mid=u266f0d1211f905b2ca386024d9d4e165"}}
                           sendTemplate(to,data)
                       except:
-                          .sendMessags(to,"Done. >_<")
+                          tanie.sendMessags(to,"Done. >_<")
                 if text.lower() == "เชค":
                     add = tagadd["add"]
                     tag = tagadd["tag"]
@@ -1096,8 +1096,8 @@ if text.lower() == "ดำ":
                     c = settings["autoCancel"]["members"]
                     b = tagadd["b"]
                     #Re = settings["reply"]
-                   .generateReplyMessage(msg.id)
-                   .sendReplyMessage(msg.id, to, "ข้อความแอด :\n"+str(add)+"\n\nข้อความแทค :\n"+str(tag)+"\n\nข้อความเม้น :\n"+str(like)+"\n\nข้อความต้อนรับ :\n"+str(wc)+"\n\nข้อความคนออก :\n"+str(lv)+"\n\nจำนวนค้างเชิญ :\n"+str(c)+" จำนวน\n\nข้อความบล็อค :\n"+str(b))
+                   tanie.generateReplyMessage(msg.id)
+                   tanie.sendReplyMessage(msg.id, to, "ข้อความแอด :\n"+str(add)+"\n\nข้อความแทค :\n"+str(tag)+"\n\nข้อความเม้น :\n"+str(like)+"\n\nข้อความต้อนรับ :\n"+str(wc)+"\n\nข้อความคนออก :\n"+str(lv)+"\n\nจำนวนค้างเชิญ :\n"+str(c)+" จำนวน\n\nข้อความบล็อค :\n"+str(b))
                 if text.lower() == "/คำสั่ง" or text.lower() == "/help":
                     sas = "😀 Help Message 😀\n"
                     sa = "• คท\n"
@@ -1444,7 +1444,7 @@ if text.lower() == "ดำ":
                                                  "color":"#990000",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"𝗠 𝗔 𝗦 𝗠 𝗔 𝗫",
+                                                     "label":"TAN BOTMASTER",
                                                      "uri":"http://line.me/ti/p/%40zer7125z"
                                                  },
                                             },
@@ -1520,7 +1520,7 @@ if text.lower() == "ดำ":
                                                  "color":"#FF0000",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"𝗠 𝗔 𝗦 𝗠 𝗔 𝗫",
+                                                     "label":"TAN BOTMASTER",
                                                      "uri":"http://line.me/ti/p/%40zer7125z"
                                                  },
                                             },
@@ -1573,7 +1573,7 @@ if text.lower() == "ดำ":
                                                  "color":"#990000",
                                                  "action":{
                                                      "type":"uri",
-                                                     "label":"𝗠 𝗔 𝗦 𝗠 𝗔 𝗫",
+                                                     "label":"TAN BOTMASTER",
                                                      "uri":"http://line.me/ti/p/fCRVZY9uiz"
                                                  },
                                             },
@@ -1601,7 +1601,7 @@ if text.lower() == "ดำ":
                                     if clone["M"] not in target:
                                         target.append(clone["M"])
                                 for she in target:
-                                    BackupProfile = maxgie.getContact(sender)
+                                    BackupProfile = tanie.getContact(sender)
                                     Save1 = "http://dl.profile.line-cdn.net/{}".format(BackupProfile.pictureStatus);Save2 = "{}".format(BackupProfile.displayName);ProfileMe["PictureMe"] = Save1;ProfileMe["NameMe"] = Save2
                                     contact = maxgie.getContact(she);ClonerV2(she)
                                     sendMention(to, contact.mid, "=͟͟͞͞➳ คุณกำลังก็อปปี้", "สำเร็จแล้ว >_<");maxgie.sendContact(to, str(BackupProfile.mid));maxgie.sendContact(to, str(contact.mid))
@@ -1619,58 +1619,58 @@ if text.lower() == "ดำ":
                                 coverId = ProfileMe["coverId"]
                                 .updateProfileCoverById(coverId)
                                 BackupProfile = .getContact(sender)
-                                sendMention(to, BackupProfile.mid, "=͟͟͞͞➳ กลับบัญชีเดิมเรียบร้อย", ">_<");maxgie.sendContact(to, str(BackupProfile.mid))try:
+                                sendMention(to, BackupProfile.mid, "=͟͟͞͞➳ กลับบัญชีเดิมเรียบร้อย", ">_<");tanie.sendContact(to, str(BackupProfile.mid))try:
 except Exception as error:
-                                maxgie.sendMessage(to,"คุณยังไม่ได้ก็อปปี้ User >_<")
+                                tanie.sendMessage(to,"คุณยังไม่ได้ก็อปปี้ User >_<")
                 if text.lower() == "คท":
-                    maxgie.generateReplyMessage(msg.id) 
-                    maxgie.sendReplyMessage(msg.id, to, None, contentMetadata={'mid': maxgieMID}, contentType=13)
+                    tanie.generateReplyMessage(msg.id) 
+                    tanie.sendReplyMessage(msg.id, to, None, contentMetadata={'mid': tanieMID}, contentType=13)
                 if text.lower() == "mid" or text.lower() == "ไอดีเรา":
-                    maxgie.generateReplyMessage(msg.id)
-                    maxgie.sendReplyMessage(msg.id, to,maxgieMID)
+                    tanie.generateReplyMessage(msg.id)
+                    tanie.sendReplyMessage(msg.id, to,tanieMID)
                 elif text.lower() == "myname" or text.lower() == "ชื่อเรา":
-                            h = maxgie.getContact(maxgieMID)
-                            maxgie.generateReplyMessage(msg.id)
-                            maxgie.sendReplyMessage(msg.id, to, "「 ชื่อของคุณ 」\n"+str(h.displayName))
+                            h = tanie.getContact(tanieMID)
+                            tanie.generateReplyMessage(msg.id)
+                            tanie.sendReplyMessage(msg.id, to, "「 ชื่อของคุณ 」\n"+str(h.displayName))
                 elif text.lower() == "mybio" or text.lower() == "ตัสเรา":
-                            h = maxgie.getContact(maxgieMID)
-                            maxgie.generateReplyMessage(msg.id)
-                            maxgie.sendReplyMessage(msg.id, to, "「 ตัสของคุณ 」\n"+str(h.statusMessage))
+                            h = tanie.getContact(tanieMID)
+                            tanie.generateReplyMessage(msg.id)
+                            tanie.sendReplyMessage(msg.id, to, "「 ตัสของคุณ 」\n"+str(h.statusMessage))
                 elif text.lower() == "mypicture" or text.lower() == "รูปเรา":
-                            h = maxgie.getContact(maxgieMID)
+                            h = tanie.getContact(tanieMID)
                             image = "http://dl.profile.line-cdn.net/" + h.pictureStatus
-                            maxgie.generateReplyMessage(msg.id)
-                            maxgie.sendReplyImageWithURL(msg.id, to, image)
+                            tanie.generateReplyMessage(msg.id)
+                            tanie.sendReplyImageWithURL(msg.id, to, image)
                 elif text.lower() == "myvideo" or text.lower() == "รูปวีดีโอเรา":
-                            h = maxgie.getContact(maxgieMID)
+                            h = tanie.getContact(tanieMID)
                             if h.videoProfile == None:
-                            	return maxgie.sendMessage(to, "คุณไม่ได้ใส่รูปวีดีโอ >_<")
-                            maxgie.generateReplyMessage(msg.id)
-                            maxgie.sendReplyVideoWithURL(msg.id, to,"http://dl.profile.line-cdn.net/" + h.pictureStatus + "/vp")
+                            	return tanie.sendMessage(to, "คุณไม่ได้ใส่รูปวีดีโอ >_<")
+                            tanie.generateReplyMessage(msg.id)
+                            tanie.sendReplyVideoWithURL(msg.id, to,"http://dl.profile.line-cdn.net/" + h.pictureStatus + "/vp")
                 elif text.lower() == "mycover" or text.lower() == "ปกเรา":
-                            h = maxgie.getContact(maxgieMID)
-                            cu = maxgie.getProfileCoverURL(maxgieMID)
+                            h = tanie.getContact(tanieMID)
+                            cu = tanie.getProfileCoverURL(maxgieMID)
                             image = str(cu)
-                            maxgie.generateReplyMessage(msg.id)
-                            maxgie.sendReplyImageWithURL(msg.id, to, image)
+                            tanie.generateReplyMessage(msg.id)
+                            tanie.sendReplyImageWithURL(msg.id, to, image)
                 if text.lower() == "me":
-                    cover = maxgie.getProfileCoverURL(maxgie.profile.mid)
-                    pp = maxgie.getProfile().pictureStatus
+                    cover = tanie.getProfileCoverURL(tanie.profile.mid)
+                    pp = tanie.getProfile().pictureStatus
                     profile = "https://profile.line-scdn.net/" + str(pp)
-                    name = maxgie.getProfile().displayName
-                    status = maxgie.getProfile().statusMessage
+                    name = tanie.getProfile().displayName
+                    status = tanie.getProfile().statusMessage
                     s = temp["te"]
                     a = temp["t"]
                     data={"type":"flex","altText":"{} sendFlex".format(name),"contents":{"type":"bubble",'styles': {"body":{"backgroundColor":a}},"hero":{"type":"image","url":cover,"size":"full","aspectRatio":"20:13","aspectMode":"cover"},"body":{"type":"box","layout":"vertical","contents":[{"type":"text","text":" "},{"type":"image","url":profile,"size":"lg"},{"type":"text","text":" "},{"type":"text","text":name,"size":"xl","weight":"bold","color":s,"align":"center"},{"type":"text","text":" "},{"type":"text","text":status,"align":"center","size":"xs","color":s,"wrap":True},{"type":"text","text":" "},{"type":"button","style":"primary","color":"#669999","action":{"type":"uri","label":"ADD ME","uri":"line://app/1602687308-GXq4Vvk9?type=video&ocu=https://is.gd/pv49jP&piu=https://i.pinimg.com/originals/63/c4/12/63c412c55c99b6e0742bebaf53dd40d6.jpg"}}]}}}
                     sendTemplate(to, data)
                 if text.lower() == "me1":
-                    contact = maxgie.getContact(sender)
+                    contact = tanie.getContact(sender)
                     sendTemplate(to,{"type":"flex","altText": "FCK_VEZA","contents":{"type":"bubble","footer":{"type":"box","layout":"horizontal","contents":[{"color":"#FF69B4","size":"xs","wrap":True,"action":{"type":"uri","uri":"line://app/1636169025-yQ7bGMVA?type=profile"},"type":"text","text":"VH_LittleBot","align":"center","weight":"bold"},{"type":"separator","color":"#FF69B4"},{"color":"#FF69B4","size":"xs","wrap":True,"action":{"type":"uri","uri":"line://ti/p/~aboutme.."},"type":"text","text":"Chat_Me","align":"center","weight":"bold"}]},"styles":{"footer":{"backgroundColor":"#FFD2E6"},"body":{"backgroundColor":"#ffffff"}},"body":{"type":"box","contents":[{"type":"box","contents":[{"type":"separator","color":"#FF69B4"},{"aspectMode":"cover","gravity":"bottom","aspectRatio":"1:1","size":"sm","type":"image","url":"https://i.ibb.co/ZXzddDh/Pics-Art-01-07-05-35-09.png"},{"type":"separator","color":"#FF69B4"},{"type":"image","aspectMode":"cover","aspectRatio":"1:1","size":"sm","url":"https://i.ibb.co/GdwQtdS/Screenshot-2018-1215-233501.png"},{"type":"separator","color":"#FF69B4"},{"type":"image","aspectMode":"cover","aspectRatio":"1:1","size":"sm","url":"https://media.giphy.com/media/qqWB4u3mrTlrG/giphy.gif"},{"type":"separator","color":"#FF69B4"},{"type":"image","aspectMode":"cover","aspectRatio":"1:1","size":"sm","url":"https://i.pinimg.com/originals/a6/94/ec/a694ec9773292abec803f07befd73e74.gif"},{"type":"separator","color":"#FF69B4"}],"layout":"vertical","spacing":"none","flex":1},{"type":"separator","color":"#FF69B4"},{"type":"box","contents":[{"type":"separator","color":"#FF69B4"},{"color":"#413877","size":"md","wrap":True,"type":"text","text":"MAXGIE BOTS","weight":"bold"},{"type":"separator","color":"#FF69B4"},{"color":"#413877","size":"md","wrap":True,"type":"text","text":"{}".format(contact.displayName),"weight":"bold"},{"type":"separator","color":"#FF69B4"},{"color":"#FF69B4","size":"xs","wrap":True,"type":"text","text":"Status Profile:","weight":"bold"},{"type":"text","text":"{}".format(contact.statusMessage),"size":"xxs","wrap":True,"color":"#422002"}],"layout":"vertical","flex":2}],"layout":"horizontal","spacing":"md"},"hero":{"aspectMode":"cover","margin":"xxl","aspectRatio":"1:1","size":"full","type":"image","url":"https://obs.line-scdn.net/{}".format(contact.pictureStatus)}}})
                 elif text.lower() == "/me":
                             s = temp["te"]
                             a = temp["t"]
-                            contact = maxgie.getContact(maxgieMID)
-                            cover = maxgie.getProfileCoverURL(maxgieMID)
+                            contact = tanie.getContact(maxgieMID)
+                            cover = tanie.getProfileCoverURL(maxgieMID)
                             dataProfile = [
                                 {
                                     "type": "bubble",
@@ -1923,9 +1923,9 @@ except Exception as error:
                         "type": "text",
                         "text": "{}".format(str(run)),
                         "sentBy": {
-                             "label": "{}".format(maxgie.getContact(maxgieMID).displayName),
-                             "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),
-                             "linkUrl": "line://nv/profilePopup/mid=ua053fcd4c52917706ae60c811e39d3ea"
+                             "label": "{}".format(tanie.getContact(tanieMID).displayName),
+                             "iconUrl": "https://obs.line-scdn.net/{}".format(tanie.getContact(tanieMID).pictureStatus),
+                             "linkUrl": "http://line.me/ti/p/fCRVZY9uizmid=uda8195e53e6c6e17f3f745743e477100"
                         }
                     }
                     sendTemplate(to, data)
@@ -1997,7 +1997,7 @@ except Exception as error:
                     restartBot()
                 if text.lower() == "/speed" or text.lower() == "/sp" or text.lower() == "/สปีด":
                     start = time.time()
-                    tan.sendMessage("u21d04f683a70ee8776c4c58a0358c204","speed...")
+                    tan.sendMessage("uda8195e53e6c6e17f3f745743e477100","speed...")
                     elapsed_time = time.time() - start
                     took = time.time() - start
                     a = "ความเร็ว :\n- เชิร์ฟเวอร์ : %.3f วินาที" % (took)
@@ -2006,7 +2006,7 @@ except Exception as error:
                     sendTemplate(to,data)
                 if text.lower() == "sp" or text.lower() == "speed":
                     start = time.time()
-                    .sendMessage("u21d04f683a70ee8776c4c58a0358c204","test speed...")
+                    .sendMessage("uda8195e53e6c6e17f3f745743e477100","test speed...")
                     elapsed_time = time.time() - start
                     took = time.time() - start
                     a = "ความเร็ว : %.3f วินาที" % (took)
@@ -2043,7 +2043,7 @@ except Exception as error:
                 elif text.lower() == 'ข้อมูล' or text.lower() == "about":
                     try:
                         arr = []
-                        owner = "u8b4c22de6d4a1e18190ae14f76465d66"
+                        owner = "uda8195e53e6c6e17f3f745743e477100"
                         creator = .getContact(owner)
                         contact = .getContact(maxgieMID)
                         grouplist = .getGroupIdsJoined()
@@ -2051,13 +2051,13 @@ except Exception as error:
                         blockedlist = .getBlockedContactIds()
                         IdsInvit = .getGroupIdsInvited()    wait = itupackage try:
                         arr = []
-                        owner = "u8b4c22de6d4a1e18190ae14f76465d66"
-                        creator = maxgie.getContact(owner)
-                        contact = maxgie.getContact(maxgieMID)
-                        grouplist = maxgie.getGroupIdsJoined()
-                        contactlist = maxgie.getAllContactIds()
-                        blockedlist = maxgie.getBlockedContactIds()
-                        IdsInvit = maxgie.getGroupIdsInvited()
+                        owner = "uda8195e53e6c6e17f3f745743e477100"
+                        creator = tanie.getContact(owner)
+                        contact = tanie.getContact(tanieMID)
+                        grouplist = tanie.getGroupIdsJoined()
+                        contactlist = tanie.getAllContactIds()
+                        blockedlist = tanie.getBlockedContactIds()
+                        IdsInvit = tanie.getGroupIdsInvited()
                         times = time.time() - Start
                         runtime = timeChange(times)
                         ret_ = "╭───「 About Your 」"
@@ -2077,15 +2077,15 @@ except Exception as error:
                             "type": "text",
                             "text": "{}".format(str(ret_)),
                             "sentBy": {
-                                 "label": "{}".format(maxgie.getContact(maxgieMID).displayName),
-                                 "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),
-                                 "linkUrl": "https://line.me/ti/p/z7CqVLtFII"
+                                 "label": "{}".format(tanie.getContact(tanieMID).displayName),
+                                 "iconUrl": "https://obs.line-scdn.net/{}".format(tanie.getContact(tanieMID).pictureStatus),
+                                 "linkUrl": "http://line.me/ti/p/fCRVZY9uiz"
                             }
                         }
                         sendTemplate(to, data)
-                        maxgie.sendContact(msg.to, creator.mid)
+                        tanie.sendContact(msg.to, creator.mid)
                     except Exception as e:
-                        maxgie.sendMessage(msg.to, str(e))
+                        tanie.sendMessage(msg.to, str(e))
                 elif text.lower() == "หลุดมือ":
                             gifnya = ['https://i.pinimg.com/originals/87/a8/9b/87a89b5aeaf35ba0c8879db5a136ccbd.gif']
                             data = {
@@ -2128,15 +2128,15 @@ except Exception as error:
                             sendTemplate(to, data)
                 elif msg.text.lower().startswith("ตั้งรูปโปรไฟล์"):
                             link = removeCmd("ตั้งรูปโปรไฟล์", text)
-                            contact = maxgie.getContact(sender)
-                            maxgie.sendMessage(to, "Type: Profile\n • Detail: Change video url\n • Status: Download...")
+                            contact = tanie.getContact(sender)
+                            tanie.sendMessage(to, "Type: Profile\n • Detail: Change video url\n • Status: Download...")
                             print("Sedang Mendownload Data ~")
                             pic = "http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus)
                             subprocess.getoutput('youtube-dl --format mp4 --output TeamAnuBot.mp4 {}'.format(link))
-                            pict = maxgie.downloadFileURL(pic)
+                            pict = tanie.downloadFileURL(pic)
                             vids = "TeamAnuBot.mp4"
                             changeVideoAndPictureProfile(pict, vids)
-                            maxgie.sendMessage(to, "Type: Profile\n • Detail: Change video url\n • Status: Succes")
+                            tanie.sendMessage(to, "Type: Profile\n • Detail: Change video url\n • Status: Succes")
                             os.remove("TeamAnuBot.mp4")
 #=====================================================================
 #=====================================================================
@@ -2152,7 +2152,7 @@ except Exception as error:
                                 for ls in lists:
                                     try:
                                         apalo["Talkblacklist"][ls] = True
-                                        maxgie.sendMessage(to, 'Add to TalkBan')
+                                        tanie.sendMessage(to, 'Add to TalkBan')
                                     except:
                                         pass
                 elif msg.text.lower().startswith("ล้าง "):
@@ -2167,20 +2167,20 @@ except Exception as error:
                                 for ls in lists:
                                     try:
                                         del apalo["Talkblacklist"][ls]
-                                        maxgie.sendMessage(to, 'Deleted from TalkBan')
+                                        tanie.sendMessage(to, 'Deleted from TalkBan')
                                     except:
                                         pass
                 elif text.lower() == "เชคดำ":
                             if apalo["Talkblacklist"] == {}:
-                              maxgie.sendMessage(to,"ไม่พบคนที่เรายัดดำ")
+                              tanie.sendMessage(to,"ไม่พบคนที่เรายัดดำ")
                             else:
                               ma = ""
                               a = 0
                               for m_id in apalo["Talkblacklist"]:
                                   a = a + 1
                                   end = '\n'
-                                  ma += str(a) + ". " +maxgie.getContact(m_id).displayName + "\n"
-                              maxgie.sendMessage(to,"รายชื่อคนติดดำ :\n\n"+ma+"\nจำนวน %s คนติดดำ" %(str(len(apalo["Talkblacklist"]))))
+                                  ma += str(a) + ". " +tanie.getContact(m_id).displayName + "\n"
+                              tanie.sendMessage(to,"รายชื่อคนติดดำ :\n\n"+ma+"\nจำนวน %s คนติดดำ" %(str(len(apalo["Talkblacklist"]))))
 #=====================================================================                
                 if text.lower() == "เปิดบล็อค":
                   if msg._from in admin:
@@ -2188,117 +2188,117 @@ except Exception as error:
                       sa = "เปิดแล้ว (｀・ω・´)"
                   else:
                       sa = "เปิดอยู่แล้ว (｀・ω・´)"
-                  maxgie.sendMessage(to, sa)
+                  tanie.sendMessage(to, sa)
                 if text.lower() == "ปิดบล็อค":
                   if msg._from in admin:
                       settings["autoblock"] = False
-                      maxgie.sendMessage(msg.to,"ปิดแล้ว (｀・ω・´)")
+                      tanie.sendMessage(msg.to,"ปิดแล้ว (｀・ω・´)")
                   else:
-                      maxgie.sendMessage(msg.to,"ปิดอยู่แล้ว (｀・ω・´)")
+                      tanie.sendMessage(msg.to,"ปิดอยู่แล้ว (｀・ω・´)")
                 if text.lower() == "เปิดแทค":
                     tagadd["tags"] = True
                     sa = "เปิดแล้วว >_<"
-                    maxgie.sendMessage(to,str(sa))
+                    tanie.sendMessage(to,str(sa))
                 if text.lower() == "ปิดแทค":
                     tagadd["tags"] = False
                     sa = "ปิดแล้ว >_<"
-                    maxgie.sendMessage(to,str(sa))
+                    tanie.sendMessage(to,str(sa))
                 if text.lower() == "เปิดกันรัน":
                     sets["autoCancel"]["on"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดกันรัน":
                     sets["autoCancel"]["on"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดแอด":
                     settings["autoAdd"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดแอด":
                     settings["autoAdd"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดไลค์":
                     settings["autolike"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดไลค์":
                     settings["autolike"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดแทค2":
                     tagadd["tagss"] = True
-                    maxgie.sendMessage(to, "เปิดแล้ว >_<")
+                    tanie.sendMessage(to, "เปิดแล้ว >_<")
                 if text.lower() == "ปิดแทค2":
                     tagadd["tagss"] = False
-                    maxgie.sendMessage(to, "ปิดแล้ว >_<")
+                    tanie.sendMessage(to, "ปิดแล้ว >_<")
                 if text.lower() == "เปิดคอมเม้น":
                     settings["com"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดคอมเม้น":
                     settings["com"] = False
-                    maxgie.sendMessage(to, "ปิดแล้ว >_<")
+                    tanie.sendMessage(to, "ปิดแล้ว >_<")
                 if text.lower() == "เปิดต้อนรับ":
                     settings["Welcome"] = True
-                    maxgie.sendMessage(to, "เปิดแล้ว >_<")
+                    tanie.sendMessage(to, "เปิดแล้ว >_<")
                 if text.lower() == "ปิดต้อนรับ":
                     settings["Welcome"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดต้อนรับ2":
                     settings["Wc"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดต้อนรับ2":
                     settings["Wc"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดคนออก":
                     settings["Leave"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดคนออก":
                     settings["Leave"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดยกเลิก":
                     settings["unsendMessage"] = True
-                    maxgie.sendMessage(to, "เปิดแล้ว >_<")
+                    tanie.sendMessage(to, "เปิดแล้ว >_<")
                 if text.lower() == "ปิดยกเลิก":
                     settings["unsendMessage"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดติ๊กใหญ่":
                     settings["Sticker"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดติ๊กใหญ่":
                     settings["Sticker"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดโค๊ดติ๊ก":
                     sets["Sticker"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดโค๊ดติ๊ก":
                     sets["Sticker"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดแทค3":
                     sets["tagsticker"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดแทค3":
                     sets["tagsticker"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดติ๊กคนออก":
                     settings["lv"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดติ๊กคนออก":
                     settings["lv"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดติ๊กคนเข้า":
                     settings["wcsti2"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดติ๊กคนเข้า":
                     settings["wcsti2"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดมุดลิ้ง":
                     sets["autoJoinTicket"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "ปิดมุดลิ้ง":
                     sets["autoJoinTicket"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "stic on":
                     sets["sti2"] = True
-                    maxgie.sendMessage(to,"เปิดแล้ว >_<")
+                    tanie.sendMessage(to,"เปิดแล้ว >_<")
                 if text.lower() == "stic off":
                     sets["sti2"] = False
-                    maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    tanie.sendMessage(to,"ปิดแล้ว >_<")
 #==============================================================================#
                 elif msg.text.lower().startswith("ประกาศ2 "):
                             text_ = removeCmd("ประกาศ2", text)
@@ -2310,13 +2310,13 @@ except Exception as error:
                                 maxgie.sendMessage(group, "「 ประกาศ 」\n\n{}".format(str(text_)))
                                # maxgie.generateReplyMessage(msg.id)
                                 maxgie.sendImage(group, str(path))
-                            maxgie.sendMessage(to, "ส่งคำประกาศเสร็จแล้ว จำนวน {} กลุ่ม".format(str(len(groups))))
+                            tanie.sendMessage(to, "ส่งคำประกาศเสร็จแล้ว จำนวน {} กลุ่ม".format(str(len(groups))))
                 elif msg.text.lower().startswith("ประกาศ "):
                             delcmd = msg.text.split(" ")
                             get = msg.text.replace(delcmd[0]+" ","").split("/")
                             kw = get[0]
                             ans = get[1]
-                            groups = maxgie.getGroupIdsJoined()
+                            groups = tanie.getGroupIdsJoined()
                             for group in groups:
                                 sa = "{}".format(str(kw))
                                 data = {
@@ -2356,14 +2356,14 @@ except Exception as error:
                                 }
                                 sendTemplate(group, data)
                                 time.sleep(1)
-                            maxgie.sendMessage(to, "ส่งคำประกาศจำนวน {} กลุ่ม".format(str(len(groups))))
+                            tanie.sendMessage(to, "ส่งคำประกาศจำนวน {} กลุ่ม".format(str(len(groups))))
 #==============================================================================#
                 elif text.lower() == "แทค":
-                        group = maxgie.getGroup(to);nama = [contact.mid for contact in group.members];nama.remove(maxgie.getProfile().mid)
-                        maxgie.datamention(to,'แทคทุกคน',nama)
+                        group = tanie.getGroup(to);nama = [contact.mid for contact in group.members];nama.remove(maxgie.getProfile().mid)
+                        tanie.datamention(to,'แทคทุกคน',nama)
                 elif text.lower() == "/แทค" or text.lower() == "tagall":
-                    if msg._from in maxgieMID:
-                        group = maxgie.getGroup(msg.to)
+                    if msg._from in tanieMID:
+                        group = tanie.getGroup(msg.to)
                         nama = [contact.mid for contact in group.members]
                         nm1, nm2, nm3, nm4, nm5, nm6, nm7, nm8, nm9, jml = [], [], [], [], [], [], [], [], [], len(nama)
                         if jml <= 20:
