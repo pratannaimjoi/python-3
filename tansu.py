@@ -1,5 +1,5 @@
 from linepy import *
-#from liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, LiffNoneContext, LiffViewRequest
+from liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, LiffNoneContext, LiffViewRequest
 from akad.ttypes import Message
 from akad.ttypes import ContentType as Type
 from akad.ttypes import TalkException
@@ -14,10 +14,10 @@ from io import StringIO
 from multiprocessing import Pool
 from googletrans import Translator
 from urllib.parse import urlencode
-#from tmp.MySplit import *
+from tmp.MySplit import *
 from random import randint
 from shutil import copyfile
-#from youtube_dl import YoutubeDL
+from youtube_dl import YoutubeDL
 import subprocess, youtube_dl, humanize, traceback
 import subprocess as cmd
 import platform
