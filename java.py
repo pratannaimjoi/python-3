@@ -28,7 +28,7 @@ try:
     import urllib.request as urllib2
 except ImportError:
     #import urllib2
- = LINE('')
+line.log= LINE('uda8195e53e6c6e17f3f745743e477100')
 tanie.log("Auth Token : " + str(.authToken))
 tanie.log("Timeline Token : " + str(.tl.channelAccessToken))
 
