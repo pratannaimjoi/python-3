@@ -1100,8 +1100,8 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         else:
             res += '\n│ Nothing'
         res += '\n├ Usage : '
-        res += '\n│ • {key}GroupList'
-        res += '\n│ • {key}GroupList Leave <num/name/all>'
+        res += '\n│ • {}GroupList'
+        res += '\n│ • {}GroupList Leave <num/name/all>'
         res += '\n╰───「 Hello World 」'
         ress.append(res)
         if cmd == 'grouplist':
@@ -1187,9 +1187,9 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
         else:
             res += '\n│ Nothing'
         res += '\n├ Usage : '
-        res += '\n│ • {key}InvitationList'
-        res += '\n│ • {key}InvitationList Accept <num/name/all>'
-        res += '\n│ • {key}InvitationList Reject <num/name/all>'
+        res += '\n│ • {}InvitationList'
+        res += '\n│ • {}InvitationList Accept <num/name/all>'
+        res += '\n│ • {}InvitationList Reject <num/name/all>'
         res += '\n╰───「 Hello World 」'
         ress.append(res)
         if cmd == 'invitationlist':
