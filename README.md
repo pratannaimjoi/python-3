@@ -1,11 +1,37 @@
-# Spoon-Knife git clone https://github.com/tanpattaya/Spoon-Knife
+# Spoon-Knife 
+-`pkg update`
+-`pkg upgrade`
+-`pkg install python`
+-`pkg install git`
+-`pkg install python3-pip`
+-`pkg install akad`
+-`pip3 install rsa`
+-`pip3 install thrift`
+-`pip3 install requests`
+-`pip3 install bs4`
+-`pip3 install gtts`
+-`pip3 install pytz`
+-`pip3 install beautifulsoup`
+-`pip3 install googletrans`
+-`pip3 install pafy`
+-`pip3 install humanfriendly`
+-`pip3 install goslate`
+-`pip3 install wikipedia`
+-`pip3 install html5lib`
+-`pip3 install urllib`
+-`pip3 install antolib`
+-`pip3 install tweepy`
+-`pip3 install youtube_dl`
+-`git clone https://github.com/tanpattaya/Spoon-Knife`
+-`cd Spoon-Knife`
+-`ls`
+-`python3 Tan.py`
 
 
 
 
 
 
+-`@ pratannaimjoi_nametag.png -https://api.line.me/liff/v2.1/apps`
 
-
-# Spoon-Knife git clone https://github.com/heroku/python-getting-started.git
-cd python-getting-started
+-`http://line.me/ti/p/tSOOE2vIkL -http://line.me/ti/p/~tanpattaya1983`
