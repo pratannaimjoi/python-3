@@ -1,0 +1,217 @@
+{ "ผล": { "ประเภท":
+[{ "iconImage": "20001_icon_1488955665123,
+.png", "id": 20001 "stickerIds": [60181,61838,60183,61832,
+, 61656,61828,60420,60671,62144,62058,
+, 62033,61989,61836,61824,61732,61705,
+, 61326,61452,61349,61122,60178,
+, 60425,60182,60462,60360,60291,60410,60168,
+, 60436,60162,60215,60031,60028,60537,
+, 60035,60180,60030,60146,60143,60225,
+, 60033,60032,60016,60015,60038,60036,61284,
+, 61255,61309,61274,61282,61244] "ชื่อเรื่อง"
+: "Video call_all"}],
+"cdnPrefix": "https://d.line-scdn.net/yuki/static/line/", "สติกเกอร์":
+[{ "modifiedDate": 3, "ชื่อ": "Call_mask_3d_puppy"
+"newMarkEndDate": 1492387200000 "stickerId"
+: 60015 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60015_thumb_1488178421470.png"}
+{ "modifiedDate": 3, "ชื่อ": "Call_mask_3d_cat"
+"newMarkEndDate": 1492387200000,
+"stickerId": 60016 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60016_thumb_1488178503444.png"}
+, { "downloadType": "AUTO", "modifiedDate": 13
+"ชื่อ": "Call_trigger_dongkey"
+"newMarkEndDate": 1492387200000,
+"stickerId": 60028 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60028_thumb_1488185559764.png"}
+, { "downloadType": "AUTO", "modifiedDate"
+: 2, "ชื่อ": "Call_fun_regent_cut"
+"newMarkEndDate": 1492387200000,
+"ผม", "newMarkEndDate": 1492387200000 "เสียง"
+: จริง "stickerId": 60031 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60031_thumb_1488268051004.png"}
+, { "modifiedDate": 2, "ชื่อ": "Call_men_Sunglasses_Hansomeguy"
+"newMarkEndDate": 1492387200000 "stickerId": 60032 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60032_thumb_1495686973298.png"},
+{ "modifiedDate": 2, "ชื่อ": "Call_men_mustache"
+"newMarkEndDate": 1492387200000,
+"stickerId": 60033 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60033_thumb_1488268383171.png"}
+, { "downloadType": "AUTO", "modifiedDate"
+: 2, "ชื่อ": "Call_women_simple_rabbit"
+"newMarkEndDate": 1492387200000,
+"stickerId": 60035 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60035_thumb_1488268801114.png"},
+{ "modifiedDate": 6, "ชื่อ": "Call_real_angry"
+"newMarkEndDate": 1488121200000 "เสียง"
+: จริง "stickerId": 60036 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60036_thumb_1490606828066.png"}
+, { "modifiedDate": 6, "ชื่อ": "Call_real_omg"
+"newMarkEndDate": 1488121200000 "เสียง"
+: จริง "stickerId": 60038 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60038_thumb_1490606732166.png"},
+{ "modifiedDate": 4, "ชื่อ": "Call_fun_rubber_glove"
+"newMarkEndDate": 1497225600000 "เสียง": ความจริง
+"stickerId": 60143 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60143_thumb_1493371834014.png"},
+{ "modifiedDate": 3, "ชื่อ": "Call_fun_otaku"
+"newMarkEndDate": 1497225600000,
+"stickerId": 60146 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60146_thumb_1493373064189.png"},
+{ "นามสกุล": { "adjustableDistortion": ความจริง
+"distortionType": "พื้นฐาน"}
+"modifiedDate": 3,
+"ชื่อ": "gallery_emotion_play_emotion_tears"
+"newMarkEndDate": 1493769600000 "stickerId": 60162 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60162_thumb_1493872139160.png"},
+{ "modifiedDate": 3, "ชื่อ": "gallery_emotion_play_sickbear"
+"newMarkEndDate": 1493769600000 "stickerId": 60168 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60168_thumb_1493873306628.png"}
+, { "modifiedDate": 4, "ชื่อ": "Call_women_strawberry_cat_milk"
+"newMarkEndDate": 1497225600000 "stickerId": 60178 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60178_thumb_1493875853280.png"},
+{ "modifiedDate": 3, "ชื่อ": "Call_women_panda"
+"newMarkEndDate": 1497225600000 "stickerId": 60180 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60180_thumb_1493876210568.png"},
+{ "modifiedDate": 4, "ชื่อ": "Call_women_pastel_bear"
+"newMarkEndDate": 1497225600000,
+"stickerId": 60181 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60181_thumb_1493876342564.png"},
+{ "modifiedDate": 6, "ชื่อ": "Call_women_bobtail_cat"
+"newMarkEndDate": 1497225600000 "stickerId": 60182 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60182_thumb_1493876492083.png"},
+{ "modifiedDate": 3, "ชื่อ": "Call_women_whiteline_pink_rabbit"
+"newMarkEndDate": 1497225600000 "stickerId": 60183 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60183_thumb_1493876686795.png"},
+{ "modifiedDate": 4, "ชื่อ": "gallery_fun_ugly_doll_orange"
+"newMarkEndDate": 1493769600000 "stickerId": 60215,
+"stickerType": "PNG", "ภาพขนาดย่อ": "60215_thumb_1493890227396.png"}
+, { "modifiedDate": 2, "ชื่อ": "Call_fun_turban", "newMarkEndDate": 1497225600000,
+"stickerId": 60225 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60225_thumb_1494492891766.png"},
+{ "modifiedDate" 44, "ชื่อ": "gallery_fun_otaku_heart"
+"newMarkEndDate": 1507021200000 "stickerId": 60291 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60291_thumb_1538362818451.png"}
+, { "modifiedDate" 37, "ชื่อ": "gallery_emotion_burnout_notebook"
+"newMarkEndDate": 1513328400000 "stickerId": 60360 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60360_thumb_1511932748160.png"},
+{ "modifiedDate": 11 "ชื่อ": "gallery_cute_squirrel_acorn"
+"newMarkEndDate": 1515636000000 "stickerId": 60410 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60410_thumb_1514880043657.png"}, { "modifiedDate"
+: 41, "ชื่อ": "gallery_beauty_3d_glasses"
+"newMarkEndDate": 1515636000000 "stickerId": 60420 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60420_thumb_1514431235662.png"},
+{ "modifiedDate" 45, "ชื่อ": "gallery_fun_thor"
+"newMarkEndDate": 1514941200000 "stickerId": 60425 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60425_thumb_1514286808106.png"},
+{ "modifiedDate": 8, "ชื่อ": "gallery_emotion_kkk"
+"newMarkEndDate": 1514941200000 "stickerId": 60436,
+"stickerType": "PNG", "ภาพขนาดย่อ": "60436_thumb_1514286636669.png"},
+{ "modifiedDate": 36, "ชื่อ": "gallery_fun_tibet_fox"
+"newMarkEndDate": 1516237200000 "stickerId": 60462 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60462_thumb_1515553516276.png"}
+, { "modifiedDate" 37, "ชื่อ": "common_fun_choco_gift"
+"newMarkEndDate": 1518652800000 "stickerId": 60537 "stickerType"
+"PNG", "ภาพขนาดย่อ": "60537_thumb_1517900000964.png"}
+, { "modifiedDate"
+: 34, "ชื่อ": "effect_emotion_realistic_tears"
+"newMarkEndDate": 1522198800000,
+"stickerId": 60671 "stickerType":
+"PNG", "ภาพขนาดย่อ": "60671_thumb_1521612018091.png"}
+, { "modifiedDate": 23, "ชื่อ": "effect_cute_emoji_pig"
+"newMarkEndDate": 1530666000000 "stickerId": 61122 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61122_thumb_1529633473212.png"}
+, { "modifiedDate": 17 "ชื่อ": "effect_seasonal_summer_under_the_sea"
+"newMarkEndDate": 1533776400000 "stickerId": 61244 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61244_thumb_1532588327701.png"},
+{ "modifiedDate" 51, "ชื่อ": "effect_seasonal_summer_pink_sunglasses"
+"newMarkEndDate": 1534813200000 "stickerId": 61255 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61255_thumb_1533263044423.png"},
+{ "นามสกุล": { "extraGuideMessageType"
+: "004"}, "modifiedDate": 36, "ชื่อ": "effect_seasonal_summer_extreme_hot"
+"newMarkEndDate": 1534035600000,
+"stickerId": 61274 "stickerType"
+"PNG", "ภาพขนาดย่อ": "61274_thumb_1532584858513.png"
+"validationVersion": 1}
+,{"ส่วนขยาย":
+{ "extraGuideMessageType": "004"}, "modifiedDate": 23,
+"ชื่อ": "effect_seasonal_summer_palmtree"
+"newMarkEndDate": 1533776400000 "stickerId": 61282 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61282_thumb_1532489056066.png"
+"validationVersion": 1}
+,{"ส่วนขยาย"
+: { "extraGuideMessageType": "004"},
+"modifiedDate": 35,
+"ชื่อ": "effect_seasonal_summer_tropical_floral_wreath", "newMarkEndDate": 1534035600000,
+"stickerId": 61284 "stickerType"
+"PNG", "ภาพขนาดย่อ": "61284_thumb_1532587242911.png"}
+, { "นามสกุล": { "extraGuideMessageType": "004"}
+"modifiedDate" 37, "ชื่อ": "effect_seasonal_summer_tree_bandana"
+"newMarkEndDate": 1534035600000 "stickerId": 61309 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61309_thumb_1533015571542.png"
+"validationVersion": 1}, { "modifiedDate": 14 "ชื่อ"
+"effect_beauty_heart_glasses", "newMarkEndDate"
+: 1538614800000 "stickerId": 61326 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61326_thumb_1533182597908.png"}
+, { "modifiedDate" 38, "ชื่อ": "effect_seasonal_summer_red_bandana"
+"newMarkEndDate": 1534208400000,
+"stickerId": 61349 "stickerType"
+"PNG", "ภาพขนาดย่อ": "61349_thumb_1533634393810.png"
+"validationVersion": 1}
+{ "modifiedDate": 15 "ชื่อ": "effect_fun_oh_yeah"
+"newMarkEndDate": 1536022800000,
+"stickerId": 61452 "stickerType"
+"PNG", "ภาพขนาดย่อ": "61452_thumb_1531208321411.png"}
+, { "modifiedDate": 8, "ชื่อ":
+"effect_cute_koala", "newMarkEndDate": 1540861200000 "stickerId": 61656,
+"stickerType": "PNG", "ภาพขนาดย่อ": "61656_thumb_1538374641964.png"}
+, { "นามสกุล": { "extraGuideMessageType": "002"},
+"modifiedDate": 29, "ชื่อ": "effect_cute_cat_glasses"
+"newMarkEndDate": 1541466000000,
+"stickerId": 61705 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61705_thumb_1539825645342.png"},
+{ "modifiedDate": 21 "ชื่อ": "effect_fun_foodgod"
+"newMarkEndDate": 1547514000000,
+"stickerId": 61732 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61732_thumb_1541395655524.png"},
+{ "modifiedDate": 32, "ชื่อ": "effect_cute_starcat"
+"newMarkEndDate": 1547514000000,
+"stickerId": 61824 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61824_thumb_1545099953965.png"}
+, { "นามสกุล": { "extraGuideMessageType": "002"},
+"modifiedDate": 17 "ชื่อ": "effect_cute_bunhair"
+"newMarkEndDate": 1548118800000,
+"stickerId": 61828 "stickerType"
+"PNG", "ภาพขนาดย่อ": "61828_thumb_1544597120082.png"},
+{ "นามสกุล": { "extraGuideMessageType": "002"},
+"modifiedDate" 43, "ชื่อ": "effect_cute_neonsketch"
+"newMarkEndDate": 1548118800000 "stickerId": 61832 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61832_thumb_1545094659291.png"}
+, { "modifiedDate" 42, "ชื่อ": "effect_cute_raccoon"
+"newMarkEndDate": 1548723600000,
+"stickerId": 61836 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61836_thumb_1545040765268.png"}
+, { "นามสกุล": { "extraGuideMessageType": "002"},
+"modifiedDate" 42, "ชื่อ": "effect_cute_animal_boldline"
+"newMarkEndDate": 1549328400000,
+"stickerId": 61838 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61838_thumb_1545040743723.png"},
+{ "นามสกุล": { "extraGuideMessageType": "002"},
+"modifiedDate": 19 "ชื่อ": "effect_beauty_heartballoon"
+"newMarkEndDate": 1550538000000,
+"stickerId": 61989 "stickerType":
+"PNG", "ภาพขนาดย่อ": "61989_thumb_1548913422020.png"},
+{ "modifiedDate" 89, "ชื่อ": "effect_frame_cat_mandarin"
+"newMarkEndDate": 1551229200000,
+"stickerId": 62033 "stickerType"
+"PNG", "ภาพขนาดย่อ": "62033_thumb_1550231282076.png"}
+, { "modifiedDate" 40, "ชื่อ": "effect_seasonal_spring_snowball"
+"newMarkEndDate": 1553043600000 "stickerId": 62058 "stickerType":
+"PNG", "ภาพขนาดย่อ": "62058_thumb_1551333891945.png"}
+, { "นามสกุล": { "extraGuideMessageType": "002"},
+"modifiedDate": 25, "ชื่อ": "effect_fun_future_baby"
+"newMarkEndDate": 1554858000000,
+"stickerId": 62144 "stickerType"
+"PNG", "ภาพขนาดย่อ": "62144_thumb_1553145968113.png"}]
+"การประทับเวลา": 1559582701000}
+} 72e679ba7b1b8e717218dfa9722d2279b1e0795f128e3e24e9be88cf867f298c
