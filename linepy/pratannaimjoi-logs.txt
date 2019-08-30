@@ -1,0 +1,10 @@
+2019-08-07T11:54:28.850280+00:00 heroku[run.8830]: Starting process with command `liff.openWindow`
+2019-08-07T11:54:28.307666+00:00 app[api]: Starting process with command `liff.openWindow` by user tanknug1983@gmail.com
+2019-08-07T11:54:33.043184+00:00 heroku[run.8830]: State changed from up to complete
+2019-08-07T11:54:33.019662+00:00 heroku[run.8830]: Process exited with status 127
+2019-08-07T11:55:28.857829+00:00 heroku[run.9800]: State changed from starting to up
+2019-08-07T11:55:28.877477+00:00 heroku[run.9800]: Awaiting client
+2019-08-07T11:55:28.943754+00:00 heroku[run.9800]: Starting process with command `liff.getAccessToken()`
+2019-08-07T11:55:28.086065+00:00 app[api]: Starting process with command `liff.getAccessToken()` by user tanknug1983@gmail.com
+2019-08-07T11:55:33.506651+00:00 heroku[run.9800]: State changed from up to complete
+2019-08-07T11:55:33.486103+00:00 heroku[run.9800]: Process exited with status 1
