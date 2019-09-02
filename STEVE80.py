@@ -30,8 +30,8 @@ except ImportError:
     import urllib2
 #==============================================================================#
 
-maxgie = LINE('')
-maxgie.log("Auth Token : " + str(maxgie.authToken))
+maxgie = LINE("tanknug1983@gmail.cm","ptatan1983")
+#maxgie.log("Auth Token : " + str(maxgie.authToken))
 maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
 
 waitOpen = codecs.open("Max2.json","r","utf-8")
@@ -2067,7 +2067,7 @@ async def maxgieBot(op):
                 elif text.lower() == 'ข้อมูล' or text.lower() == "about":
                     try:
                         arr = []
-                        owner = "u8b4c22de6d4a1e18190ae14f76465d66"
+                        owner = "uda8195e53e6c6e17f3f745743e477100"
                         creator = maxgie.getContact(owner)
                         contact = maxgie.getContact(maxgieMID)
                         grouplist = maxgie.getGroupIdsJoined()
