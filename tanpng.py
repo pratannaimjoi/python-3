@@ -63,11 +63,12 @@ msg_dict = {}
 temp_flood = {}
 
 #==============================================================================#
+    did = {"join": True,}
+kcn = {"autojoin": False,"Members":5,}
 sets = {
-           "cm":"AUTO LIKE FOR :꧁💓 @:꓄ꍏꈤᖘꍏ꓄꓄ꍏꌩ💓꧂
-    'autoCancel':{"on":False,"members":10},	
-    "pict": True,
-    "sti2": True,
+    "l":True, 
+      "c":True,
+       "cm":"AUTO LIKE FOR :꧁💓 @:꓄ꍏꈤᖘꍏ꓄꓄ꍏꌩ💓꧂ 	
     "tagsticker": False,
     "Sticker": False,
     "autoJoinTicket": False,
