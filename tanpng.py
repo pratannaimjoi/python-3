@@ -30,7 +30,7 @@ except ImportError:
     import urllib2
 #==============================================================================#
 = LINE()
-line.log("liff.getAccessToken : " + str(tanknug1983@gmail.com.authToken))
+line.log("liff.getAccessToken)(tanknug1983@gmail.com)
 #maxgie.log ("Auth Token : " + str(tanknug1983@gmail.com.authToken))
 maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
 
