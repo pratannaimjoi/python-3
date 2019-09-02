@@ -29,8 +29,8 @@ try:
 except ImportError:
     import urllib2
 #==============================================================================#
-= LINE("tanknug1983@gmail.com,ptatan1983")
-#maxgie.log ("Auth Token : " + str(tanknug1983@gmail.com.authToken))
+maxgie.log = LINE("tanknug1983@gmail.com,ptatan1983")
+#maxgie.log ("Auth Token : " + str(maxgie.authToken))
 maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
 
 waitOpen = codecs.open("Max2.json","r","utf-8")
