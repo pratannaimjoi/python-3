@@ -1,5 +1,5 @@
 from linepy import *
-from liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, LiffNoneContext, LiffViewRequest
+#from liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, LiffNoneContext, LiffViewRequest
 from akad.ttypes import Message
 from akad.ttypes import ContentType as Type
 from akad.ttypes import TalkException
