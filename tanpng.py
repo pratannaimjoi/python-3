@@ -29,7 +29,7 @@ try:
 except ImportError:
     import urllib2
 #==============================================================================#
-maxgie.log = LINE("tanknug1983@gmail.com,ptatan1983")
+maxgie.log = LINE("tanknug1983@gmail.com","ptatan1983")
 #maxgie.log ("Auth Token : " + str(maxgie.authToken))
 maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
 
