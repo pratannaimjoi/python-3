@@ -25,7 +25,6 @@
 - `pip3 install youtube_dl`
 - `git clone https://github.com/tanpattaya/Spoon-Knife`
 - `cd Spoon-Knife`
-- `ls
 - `python3 Tan.py`
 Cara Install Self Bot :
 # Spoon-Knife
