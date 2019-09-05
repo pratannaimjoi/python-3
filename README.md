@@ -13,7 +13,6 @@
 - `pip3 install gtts`
 - `pip3 install pyowm`
 - `pip3 install pytz`
-- `pip3 install beautifulsoup`
 - `pip3 install googletrans`
 - `pip3 install pafy`
 - `pip3 install humanfriendly`
