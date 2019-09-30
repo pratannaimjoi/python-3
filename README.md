@@ -30,9 +30,5 @@ Cara Install Self Bot :
 # Spoon-Knife
 ## Author
 Fadhiil naimjoi/[@pratan-naimjoi](https://www.linkedin.com/in/pratan-naimjoi)
-
-@ pratannaimjoi_nametag.png 
-https://api.line.me/liff/v2.1/apps
-
-http://line.me/ti/p/tSOOE2vIkL 
-http://line.me/ti/p/~tanpattaya1983
+   http://line.me/ti/p/tSOOE2vIkL 
+   http://line.me/ti/p/~tanpattaya1983
