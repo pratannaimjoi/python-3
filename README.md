@@ -31,5 +31,5 @@ Cara Install Self Bot :
    `http://line.me/ti/p/tSOOE2vIkL` 
    `http://line.me/ti/p/~tanpattaya1983`
 ## Author
-Fadhiil naimjoi/[@pratan-naimjoi](https://www.linkedin.com/in/pratan-naimjoi)
+   tanpattaya/[@pratan-naimjoi](https://www.linkedin.com/in/pratan-naimjoi)
    
