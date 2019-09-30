@@ -23,8 +23,8 @@
 - `pip3 install antolib`
 - `pip3 install tweepy`
 - `pip3 install youtube_dl`
-- `git clone https://github.com/tanpattaya/Spoon-Knife`
-- `cd Spoon-Knife`
+- `git clone https://github.com/tanpattaya/tanpng`
+- `cd tanpng`
 - `python3 Tan.py`
 Cara Install Self Bot :
 # Spoon-Knife
