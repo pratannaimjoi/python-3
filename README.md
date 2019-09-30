@@ -28,7 +28,8 @@
 - `python3 Tan.py`
 Cara Install Self Bot :
 # Spoon-Knife
+   `http://line.me/ti/p/tSOOE2vIkL` 
+   `http://line.me/ti/p/~tanpattaya1983`
 ## Author
 Fadhiil naimjoi/[@pratan-naimjoi](https://www.linkedin.com/in/pratan-naimjoi)
-   http://line.me/ti/p/tSOOE2vIkL 
-   http://line.me/ti/p/~tanpattaya1983
+   
