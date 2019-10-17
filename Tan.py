@@ -236,7 +236,7 @@ def sendMessageWithMention(to, lineMID):
         logError(error)
  
 def myhelp():
-    myHelp = """ 🌺 indexbots 🌺
+    myHelp = """ 🌺 indexbot master🌺
 🌺คำสั่ง = คำสั่ง
 🌺คำสั่ง2 = คำสั่งเชลบอท
 🌺คำสั่ง3 = คำสั่งการแทค
