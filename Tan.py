@@ -103,7 +103,7 @@ settings = {
     "man1":"ตั้งข้อความ",
     "man2":"ตั้งข้อความ",
     "man3":"ตั้งข้อความ",
-    "message":"บัญชีนี้ได้การป้องกัน💢โดย แทน Bot master ระบบได้ทำการบล็อคคุณอัตโนมัติ\n",
+    "message":"บัญชีนี้ได้การป้องกัน💢โดย indexbots ระบบได้ทำการบล็อคคุณอัตโนมัติ\n",
     "comment":"Thanks for add me",
     "userAgent": [
         "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
@@ -256,7 +256,7 @@ def sendMessageWithMention(to, lineMID):
         logError(error)
  
 def myhelp():
-    myHelp = """ 🌺Bot master🌺
+    myHelp = """ 🌺 indexbots 🌺
 🌺คำสั่ง = คำสั่ง
 🌺คำสั่ง2 = คำสั่งเชลบอท
 🌺คำสั่ง3 = คำสั่งการแทค
@@ -269,7 +269,7 @@ def myhelp():
     return myHelp
 
 def listgrup():
-    listGrup =  """🐶คำสั่งตั้งค่า Botmaster🐶
+    listGrup =  """🐶คำสั่งตั้งค่า indexbots🐶
 🌺เปิดเข้า ➠ เข้ากลุ่มออโต้
 🌺ปิดเข้า ➠ ปิดเข้ากลุ่มออโต้
 🌺เปิดบล็อค ➠ ออโต้บล็อค
@@ -303,7 +303,7 @@ def listgrup():
     return listGrup
 
 def socmedia():
-    socMedia = """🌿คำสั่งแทคBotmaster🌿
+    socMedia = """🌿คำสั่งแทคindexbots🌿
 🌺คท @ ➠ แทคคนที่จะเอาคท
 🌺มิด @  ➠ ลงmidคนอื่น
 🌺ชื่อ @ ➠ ลงชื่อคนอื่น
@@ -322,7 +322,7 @@ def socmedia():
     return socMedia
     
 def helpset():
-    helpSet = """🍀🌸คำสั่งBotmaster🌸🍀
+    helpSet = """🍀🌸คำสั่งindexbots🌸🍀
 🌸 คม  > คอนแทคเรา
 🌸 มิด  > MID เรา
 🌸 ชื่อ  > ชื่อเรา
@@ -354,7 +354,7 @@ def helpset():
     return helpSet 
 
 def helpkicker():
-    helpKicker = """🌺คำสั่งค้นหา Botmaster🌺
+    helpKicker = """🌺คำสั่งค้นหา indexbots🌺
 🌺 พูด ข้อความ ➠ สั่งสิริพูด
 🌺 ยูทูป ข้อความ ➠ ค้นหาในยูทูป
 🌺 เขียน ข้อความ ➠ เขียน
@@ -364,7 +364,7 @@ def helpkicker():
     return helpKicker
     
 def helpsetting():
-    helpSetting = """🌿คำสั่งกลุ่ม Botmaster🌿
+    helpSetting = """🌿คำสั่งกลุ่ม indexbots🌿
 🌺 กลุ่ม ➠ ข้อมูลกลุ่ม
 🌺 ไอดีกลุ่ม ➠ไอดีห้อง
 🌺 ชื่อกลุ่ม ➠ ชื่อห้อง
@@ -385,7 +385,7 @@ def helpsetting():
     return helpSetting
 
 def helptexttospeech():
-    helpTextToSpeech =   """🌳คำสั่งเลียนแบบBotmaster🌳
+    helpTextToSpeech =   """🌳คำสั่งเลียนแบบindexbots🌳
 🏵️ เลียนแบบ on/off 
 🏵️ เลียนแบบ 
 🏵️ เพิ่มเลียนแบบ (@) 
