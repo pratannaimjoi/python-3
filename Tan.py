@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
 import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib.request, urllib.parse, urllib.error, urllib.parse
 from gtts import gTTS
-#import html5lib,shutil
-#import wikipedia,goslate
+import html5lib,shutil
+import wikipedia,goslate
 import youtube_dl, pafy, asyncio
 from multiprocessing import Pool, Process
 from googletrans import Translator
@@ -40,7 +40,6 @@ Family=["uda8195e53e6c6e17f3f745743e477100",lineMID]
 admin = "uda8195e53e6c6e17f3f745743e477100" 
 admin=['uda8195e53e6c6e17f3f745743e477100',lineMID]
 RfuFamily = RfuBot + Family
-
 protectname = []
 protecturl = []
 protection = []
