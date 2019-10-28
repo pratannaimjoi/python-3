@@ -27,7 +27,7 @@
 - `cd python-3`
 - `python3 Tan.py`
 Cara Install Self Bot :
-# Spoon-Knife
+# python3
    `http://line.me/ti/p/tSOOE2vIkL` 
    `http://line.me/ti/p/~tanpattaya1983`
 ## Author
