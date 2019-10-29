@@ -464,7 +464,7 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
             line.sendMessage (เป็น, 'เปลี่ยนการตั้งค่าความสำเร็จเป็น ( % s ) '  % textt)
     elif cmd.startswith ( ' autoadd ' ):
         textt = removeCmd (ข้อความ,)
-        texttl = textt.lower (uda8195e53e6c6e17f3f745743e477100)
+        texttl = textt.lower ("uda8195e53e6c6e17f3f745743e477100")
         cond = textt.split ( '  ' )
         res =  ' ╭───「เพิ่มอัตโนมัติ」'
         res + =  ' \ n ├สถานะ: '  + bool_dict [การตั้งค่า [ ' autoAdd ' ] [ 'สถานะ' ]] [ 1 ]
@@ -512,7 +512,7 @@ def executeCmd(msg, text, txt, cmd, msg_id, receiver, sender, to, setKey):
             line.sendMessage(to, 'Success change autoadd message to `%s`' % textt)
     elif cmd.startswith('autojoin'):
         textt = removeCmd(text, line.authToken)
-        texttl = textt.lower(uda8195e53e6c6e17f3f745743e477100))
+        texttl = textt.lower("uda8195e53e6c6e17f3f745743e477100"))
         cond = textt.split(' ')
         res = '╭───「 Auto Join 」'
         res += '\n├ Status : ' + bool_dict[settings['autoJoin']['status']][1]
