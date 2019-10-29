@@ -1,33 +1,30 @@
 from linepy import *
-#from liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, LiffNoneContext, LiffViewRequest
-from akad.ttypes import Message
-from akad.ttypes import ContentType as Type
-from akad.ttypes import TalkException
+from thrift.transport import TTransport,TSocket,THttpClient,TTransport,TZlibTransport
+from thrift.protocol import TCompactProtocol,TMultiplexedProtocol,TProtocol
+from thrift.server import THttpServer,TServer,TProcessPoolServer
+from akad.ttypes import *
+from thrift.Thrift import *
+from thrift.TMultiplexedProcessor import *
+from thrift.TSerialization import *
+from thrift.TRecursive import *
+from thrift.protocol import TCompactProtocol
+from thrift import transport, protocol, server
+from datetime import datetime
+import time,random,sys,json,codecs,threading,glob,re,os,subprocess,asyncio
 from datetime import datetime, timedelta
+from threading import Thread
 from time import sleep
-from bs4 import BeautifulSoup as bSoup
 from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
+import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse,youtube_dl,pafy,timeit,atexit,traceback,ffmpy,humanize
 from gtts import gTTS
-from threading import Thread
-from io import StringIO
-from multiprocessing import Pool
-from googletrans import Translator
-from urllib.parse import urlencode
-from tmp.MySplit import *
-from random import randint
-from shutil import copyfile
-from youtube_dl import YoutubeDL
-import subprocess, youtube_dl, humanize, traceback
-import subprocess as cmd
-import platform
-import requests, json
-import time, random, sys, json, null, pafy, codecs, html5lib ,shutil ,threading, glob, re, base64, string, os, requests, six, ast, pytz, wikipedia, urllib, urllib.parse, atexit, asyncio, traceback
-_session = requests.session()
+from ttypes import LoginRequest
+import json, requests, LineService
+from thrift.transport import THttpClient
 try:
-    import urllib.request as urllib2
+    import simplejson as json
 except ImportError:
-    import urllib2
+    import json
 #===========================================================================================================================================================
 cl= LINE("tanknug1983@gmail.com","line.me/ti/p/~ptatan1983")
 cl.log("Auth Token : " + str(cl.authToken))
