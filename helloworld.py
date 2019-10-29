@@ -16,33 +16,213 @@ parser.add_argument('-c', '--channelid', type=str, default='', metavar='', requi
 parser.add_argument('-T', '--traceback', type=str2bool, nargs='?', default=False, metavar='', required=False, const=True, choices=[True, False], help='Using Traceback | Use : True/False')
 parser.add_argument('-S', '--showqr', type=str2bool, nargs='?', default=False, metavar='', required=False, const=True, choices=[True, False], help='Show QR | Use : True/False')
 args = parser.parse_args()
-   from thrift.transport import TTransport,TSocket,THttpClient,TTransport,TZlibTransport
-from thrift.protocol import TCompactProtocol,TMultiplexedProtocol,TProtocol
-from thrift.server import THttpServer,TServer,TProcessPoolServer
-from linepy import *
-from akad.ttypes import *
-from thrift.Thrift import *
-from thrift.TMultiplexedProcessor import *
-from thrift.TSerialization import *
-from thrift.TRecursive import *
-from thrift.protocol import TCompactProtocol
-from thrift import transport, protocol, server
-from datetime import datetime
-import time,random,sys,json,codecs,threading,glob,re,os,subprocess,asyncio
+   from linepy import *
+from liff.ttypes import LiffChatContext, LiffContext, LiffSquareChatContext, LiffNoneContext, LiffViewRequest
+from akad.ttypes import Message
+from akad.ttypes import ContentType as Type
+from akad.ttypes import TalkException
 from datetime import datetime, timedelta
-from threading import Thread
 from time import sleep
+from bs4 import BeautifulSoup as bSoup
 from bs4 import BeautifulSoup
 from humanfriendly import format_timespan, format_size, format_number, format_length
-import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse,youtube_dl,pafy,timeit,atexit,traceback,ffmpy,humanize
 from gtts import gTTS
-from ttypes import LoginRequest
-import json, requests, LineService
-from thrift.transport import THttpClient
+from threading import Thread
+from io import StringIO
+from multiprocessing import Pool
+from googletrans import Translator
+from urllib.parse import urlencode
+from tmp.MySplit import *
+from random import randint
+from shutil import copyfile
+from youtube_dl import YoutubeDL
+import subprocess, youtube_dl, humanize, traceback
+import subprocess as cmd
+import platform
+import requests, json
+import time, random, sys, json, null, pafy, codecs, html5lib ,shutil ,threading, glob, re, base64, string, os, requests, six, ast, pytz, wikipedia, urllib, urllib.parse, atexit, asyncio, traceback
+_session = requests.session()
 try:
-    import simplejson as json
+    import urllib.request as urllib2
 except ImportError:
-    import json
+    import urllib2
+#===========================================================================================================================================================
+cl= LINE("tanknug1983@gmail.com","line.me/ti/p/~ptatan1983")
+cl.log("Auth Token : " + str(cl.authToken))
+cl.log("Timeline Token : " + str(cl.tl.channelAccessToken))
+waitOpen = codecs.open("tn.json","r","utf-8")
+settingsOpen = codecs.open("tn2.json","r","utf-8")
+imagesOpen = codecs.open("image.json","r","utf-8")
+stickersOpen = codecs.open("sticker.json","r","utf-8")
+plates = codecs.open ( " template.json","r","utf-8")
+wait = json.load(waitOpen)
+images = json.load(imagesOpen)
+settings = json.load(settingsOpen)
+stickers = json.load(stickersOpen)
+clMID = cl.profile.mid
+clProfile = cl.getProfile()
+clSettings = cl.getSettings()
+clPoll = OEPoll(cl)
+clMID = cl.getProfile().mid
+admin = [clMID]
+loop = asyncio.get_event_loop()
+listToken = ['desktopmac','desktopwin','iosipad','chromeos','win10']
+mc = {"wr":{}}
+unsendchat = {}
+msgdikirim = {}
+msg_image={}
+msg_video={}
+msg_sticker={}
+wbanlist = []
+msg_dict = {}
+temp_flood = {}
+settings = {
+    'autoCancel':{"on":False,"members":10},	
+    "pict": True,
+    "sti2": True,
+    "tagsticker": False,
+    "Sticker": False,
+    "autoJoinTicket": False,
+    "image": {
+        "name": "",
+    },
+    "addSticker": {
+        "name": "",
+        "status": False,
+    },
+    "messageSticker": {
+        "addName": "",
+        "addStatus": False,
+        "listSticker": {
+            "tag": {
+                "STKID": "",
+                "STKPKGID": "",
+                "STKVER": ""
+            },
+            "lv": {
+                "STKID": "",
+                "STKPKGID": "",
+                "STKVER": ""
+            },
+            "wc": {
+                "STKID": "",
+                "STKPKGID": "",
+                "STKVER": ""
+            },
+            "add": {
+                "STKID": "",
+                "STKPKGID": "",
+                "STKVER": ""
+            },
+            "join2": {
+                "STKID": "",
+                "STKPKGID": "",
+                "STKVER": ""
+            },
+        }
+    },
+    "ilstpict": {},
+}
+chatbot = {
+    "admin": [],
+    "botMute": [],
+    "botOff": [],
+}
+
+anyun = {
+    "addTikel": {
+        "name": "",
+        "status": False
+        },
+}
+nissa = {
+    "addTikel2": {
+        "name": "",
+        "status": False
+        },
+}
+tagadd = {
+    "tagss": False,
+    "tags": False,
+    "tag": "วิธีตั้งแทค \n- ตั้งแทค ข้อความที่ต้องการ",
+    "add": "ยินดีที่ได้รู้จักนะครับ 😘\nรับแอดละน้า. >_<",
+    "wctext": "",
+    "lv": "บ๊ายบาย >< ขอให้เธอโชคดีงับ >_<",
+    "b": "บัญชีนี้ถูกป้องกันด้วย ꧁💓 @:꓄ꍏꈤᖘꍏ꓄꓄ꍏꌩ💓꧂  ระบบได้บล็อคบัญชีคุณอัตโนมัติ >_<",
+    "m": "สวัสดีครับ ผมมุดลิ้งมานะครับ >_<",
+}
+apalo = {
+    "blacklist":{},
+    "Talkblacklist": {},
+    "talkban": True,
+    "Talkwblacklist": False,
+    "Talkdblacklist": False,
+}
+temp = {"te": "#CC0033","t": "#000000"}
+read = {
+    "readPoint": {},
+    "readMember": {},
+    "readTime": {},
+    "setTime":{},
+    "ROM": {}
+}
+rfuSet = {
+    'setTime':{},
+    'ricoinvite':{},
+    'winvite':{},
+    }
+
+ProfileMe = {
+    "coverId": "",
+    "statusMessage": "",
+    "PictureMe": "",
+    "NameMe": "",
+}
+peler = { 
+    "receivercount": 0,
+    "sendcount": 0
+}
+hoho = {
+    "savefile": False,
+    "namefile": "",
+}
+
+user1 = "pratan niamjoiMID"
+user2 = ""
+
+setTime = {}
+setTime = rfuSet['setTime']
+
+contact = cl.getProfile() 
+backup = cl.getProfile() 
+backup.dispalyName = contact.displayName 
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+mulai = time.time()
+Start = time.time()
+tz = pytz.timezone("Asia/Jakarta")
+timeNow = datetime.now(tz=tz)
+settings["myProfile"]["displayName"] = clProfile.displayName
+settings["myProfile"]["statusMessage"] = clProfile.statusMessage
+settings["myProfile"]["pictureStatus"] = clProfile.pictureStatus
+cont = cl.getContact(clMID)
+settings["myProfile"]["videoProfile"] = cont.videoProfile
+coverId = cl.getProfileDetail()["result"]["objectId"]
+settings["myProfile"]["coverId"] = coverId
+ProfileMe["statusMessage"] = clProfile.statusMessage
+ProfileMe["pictureStatus"] = clProfile.pictureStatus
+coverId = cl.getProfileDetail()["result"]["objectId"]
+ProfileMe["coverId"] = coverId
+
+with open("tn.json", "r", encoding="utf_8_sig") as f:
+    anu = json.loads(f.read())
+    anu.update(settings)
+    settings = anu
+with open("tn2.json", "r", encoding="utf_8_sig") as f:
+    itu = json.loads(f.read())
+    itu.update(wait)
+    wait = itu
     print ('##----- LOGIN CLIENT -----##')
     line = None
     if args.apptype:
