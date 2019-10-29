@@ -27,63 +27,143 @@ try:
 except ImportError:
     import json
 #========================================================================
-_session = requests.session()
 botStart = time.time()
-settingsOpen = codecs.open("InexBots.json","r","utf-8")
-InexBots = json.load(settingsOpen)
-Helps = codecs.open("Tempe.json","r","utf-8")
-plate = json.load(Helps)
-print("\n=======induk=======")
-f = open('tokenSb.txt','r')
-tokenSb = f.read()
-me = LINE("{}".format(str(tokenSb)))
-me.log("Timeline TokenSb : " + str(me.tl.channelAccessToken))
-meM = me.getProfile().mid
-print("\n=======bot1=======")
-f = open('tokenJs.txt','r')
-tokenJs = f.read()
-jss = LINE("{}".format(str(tokenJs)))
-jss.log("Timeline TokenJs : " + str(jss.tl.channelAccessToken))
-Antijs = jss.getProfile().mid
-print("\n=================================================================")
-print("ɪɴᴇxʙᴏᴛs.ʟɪɴᴇ ᴠᴇʀ.8.14.2")
-print("ɪɴᴇxʙᴏᴛs.ʟɪɴᴇ ᴠᴇʀ.8.14.2")
-print("     ᴄʀᴇᴀᴛᴏʀ\n       ʙʏ\n     ᴅᴇɴᴊᴀᴋᴀ")
-print("ɪɴᴇxʙᴏᴛs.ᴠᴇʀsɪᴏɴ ʙᴏᴛᴡᴀʀ")
-print("=================================================================")
-oepoll = OEPoll(me)
-call = me
-Admin = InexBots["MID"]
-Owner = ["ue1a63a15c712bd40f67f197e96ef82d1"]
-Stiles = "│﷽➢"
-InexWars = [meM,Antijs]
-Jaka = [me,jss]
-Welcome = []
-msg_dict = {}
-msg_dict1 = {}
-pro = {
-    "Pintu": [],
-    "Pembunuh": [],
-    "Maling": [],
-    "Penghasut": [],
-    "Pencuri": [],
-    "Penyelamat": [],
-    "Kuntilanak": []
+line = LINE('')
+line.log("Auth Token : " + str(line.authToken))
+line.log("Timeline Token : " + str(line.tl.channelAccessToken))
+print ("Login Succes")
+lineMID = line.profile.mid
+lineProfile = line.getProfile()
+lineSettings = line.getSettings()
+oepoll = OEPoll(line)
+#call = Call(line)
+readOpen = codecs.open("read.json","r","utf-8")
+settingsOpen = codecs.open("temp.json","r","utf-8")
+read = json.load(readOpen)
+settings = json.load(settingsOpen)
+Rfu = [line]
+Exc = [line]
+lineMID = line.getProfile().mid
+bot1 = line.getProfile().mid
+RfuBot=[lineMID]
+Family=["uda8195e53e6c6e17f3f745743e477100",lineMID]
+admin = "uda8195e53e6c6e17f3f745743e477100" 
+admin=['uda8195e53e6c6e17f3f745743e477100',lineMID]
+RfuFamily = RfuBot + Family
+protectname = []
+protecturl = []
+protection = []
+autocancel = {}
+autoinvite = []
+autoleaveroom = []
+targets = []
+
+settings = {
+    "contact": False,
+    "timeline": False,
+    "autoAdd": True,
+    "autoJoin": False,
+    'autoCancel':{"on":True,"members":3},	
+    "autoLeave": True,
+    "autoRead": False,
+    "leaveRoom": True,
+    "Respontag": True,
+    "detectMention": True,
+    "checkSticker": False,
+    "kickMention": False,
+    "potoMention": True,
+    "lang":"JP",
+    "Wc": True,
+    #"Lv": False,
+    "blacklist":{},
+    "winvite": False,
+    "wblacklist": False,
+    "dblacklist": False,
+    "commentBlack":{},
+    "wblack": False,
+    "dblack": False,
+    "clock": False,
+    "cName":"",
+    "cNames":"",
+    "invite": {},
+    "winvite": False,
+    "pnharfbot": {},
+    "pname": {},
+    "pro_name": {},
+    "man1":"ตั้งข้อความ",
+    "man2":"ตั้งข้อความ",
+    "man3":"ตั้งข้อความ",
+    "message":"บัญชีนี้ได้การป้องกัน💢โดย indexbots ระบบได้ทำการบล็อคคุณอัตโนมัติ\n",
+    "comment":"Thanks for add me",
+    }
+     {
+    "mimic": {
+        "copy": False,
+        "status": False,
+        "target": {}
+    }
 }
-Poto = {
-    "changePicture": False,
-    "pictart": False
+
+RfuProtect = {
+    "protect": False,
+    "cancelprotect": False,
+    "inviteprotect": False,
+    "linkprotect": False,
+    "Protectguest": False,
+    "Protectjoin": False,
+    "autoAdd": True,
 }
-respontags = {
-    "Auto_text": "╔⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩	    \n║✍círí círí σrαng kєѕєpíαn✍\n╠⪨⪩1 ѕukα tαg gα jєlαѕ\n╠⪨⪩2 ѕєlαlu cαrí pєrhαtíαn\n╠⪨⪩3 σrαng nчα nчєвєlín\n║  ﷽⪃⪄⫹⫺⫷⫸⫹⫺⪃⪄﷽\n╚⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩",
-    "Auto_pM": "⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩\n\n       иαмα кυ ∂ ¢євυт мυℓυ\n\n⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩",
-    "message": "тᴇяıмᴀ кᴀsıн suᴅᴀн ᴀᴅᴅ sᴀʏᴀ \nвʏ.ᴛᴇᴀᴍ ⊶ ɪɴᴇxʙᴏᴛs ⊷ \nline.me/ti/p/~denjaka-inexx "
+
+Setmain = {
+    "foto": {},
 }
-Sid={
-    "Tar":{},
-    "Red":{},
-    "Reason":{}
+
+read = {
+    "readPoint": {},
+    "readMember": {},
+    "readTime": {},
+    "ROM": {}
 }
+
+myProfile = {
+	"displayName": "",
+	"statusMessage": "",
+	"pictureStatus": ""
+}
+
+mimic = {
+    "copy":False,
+    "copy2":False,
+    "status":False,
+    "target":{}
+    }
+    
+RfuCctv={
+    "cyduk":{},
+    "point":{},
+    "sidermem":{}
+}
+
+rfuSet = {
+    'setTime':{},
+    'ricoinvite':{},
+    }
+
+user1 = lineMID
+user2 = ""
+	
+setTime = {}
+setTime = rfuSet['setTime']
+
+contact = line.getProfile() 
+backup = line.getProfile() 
+backup.dispalyName = contact.displayName 
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+mulai = time.time() 
+dangerMessage = ["killall","ล้างห้อง","บินห้อง",".winebot",".kickall","mayhem","kick on","makasih :d","!kickall","nuke","บิน",".???","Kickall","บินไปดิ","Kickword","kickword","!kickword","/kickall"]
+dangerMessage2 = ["ว่างัยจ๊ะทิรักของแทน5555","คร้าบบ","ว่างัยน่ะ!!.. รักแทนหรออ อิอิ","ว่างัยเอ๋ยย แทนรอฟังอยู่","แทนมาแล้วคร้าบบ","แอบรักแทนอยู่หราาา","แอบชอบแทนหราา","รักแทนหรอ","คิดถึงแทนมากเลยหรอ"]
 myProfile = me.getProfile()
 InexBots["myProfile"]["displayName"] = myProfile.displayName
 InexBots["myProfile"]["statusMessage"] = myProfile.statusMessage
