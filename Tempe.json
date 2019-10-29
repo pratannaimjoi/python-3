@@ -38,7 +38,7 @@
                 "contents": [
                     {
                         "type": "text",
-                        "text": "🇮​🇳​🇪​🇽​🇧​🇴​🇹​🇸​ 🇲​🇪​🇳​🇺",
+                        "text": "INDEXBOTS",
                         "color": "#F7141F"
                     }
                 ]
@@ -61,7 +61,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅷🅴🅻🅿 🅼🅴🅳🅸🅰",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Helpmedia"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Helpmedia"
                                 }
                             },
                             {
@@ -78,7 +78,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅷🅴🅻🅿 🅼🅴",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Helps"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Helps"
                                 }
                             },
                             {
@@ -95,7 +95,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅷🅴🅻🅿 🅶🆁🅾🆄🅿",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Helpsgrup"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Helpsgrup"
                                 }
                             },
                             {
@@ -112,7 +112,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅷🅴🅻🅿 🅱🅾🆃🆂",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Helpbot"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Helpbot"
                                 }
                             },
                             {
@@ -129,7 +129,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🆂🅴🆃🆃 🅾🅽-🅾🅵🅵",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Helpsaklar"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Helpsaklar"
                                 }
                             },
                             {
@@ -146,7 +146,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🆂🅴🆃🆃🅸🅽🅶🆂",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Statust"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Statust"
                                 }
                             },
                             {
@@ -163,7 +163,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅼🆈 🅵🆁🅾🅿🅸🅻🅴",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Myprofil"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Myprofil"
                                 }
                             },
                             {
@@ -180,7 +180,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🆈🅾🆄🆃🆄🅱🅴",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Youtube"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Youtube"
                                 }
                             },
                             {
@@ -197,7 +197,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🆂🆃🅸🅲🅺🅴🆁🅱🅸🅶:🅾🅽-🅾🅵🅵",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Stickerbig:on"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Stickerbig:on"
                                 }
                             },
                             {
@@ -214,7 +214,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅷🅴🅻🅿 🆅🅾🅸🅲🅴",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Helpvoice"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Helpvoice"
                                 }
                             },
                             {
@@ -231,7 +231,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "🅾🆁🅳🅴🆁",
-                                    "uri": "line://app/1623679774-k9nBDB6b?type=text&text=Price"
+                                    "uri": "line://app/1626556804-GvDNyK69?type=text&text=Price"
                                  }
                             }
                         ]
@@ -240,10 +240,10 @@
             }
         }
     },
-    "Headers_X": "u133f7110dd00e635f0776957837055a2",
+    "Headers_X": "udb43d62b8ab3d9390881ded66f8a037a",
     "pricelist": {
         "type": "flex",
-        "altText": "INEXBOTS STORE",
+        "altText": "INDEXBOTS STORE",
         "contents": {
             "type": "bubble",
             "styles": {
@@ -282,7 +282,7 @@
                     },
                     {
                         "type": "text",
-                        "text": "InexBots Store",
+                        "text": "IndexBots Store",
                         "weight": "bold",
                         "size": "xxl",
                         "margin": "md"
@@ -465,7 +465,7 @@
                                 "action": {
                                     "type": "uri",
                                     "label": "KLIK DISINI",
-                                    "uri": "line://ti/p/~denjaka-inexx"
+                                    "uri": "line/ti/p/~ptatan1983"
                                 },
                                 "style": "primary",
                                 "color": "#10CF08"
