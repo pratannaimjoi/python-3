@@ -180,6 +180,25 @@ backup = cl.getProfile()
 backup.dispalyName = contact.displayName 
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
+botStart = time.time()
+print ("Login Succes")
+lineMID = line.profile.mid
+lineProfile = line.getProfile()
+lineSettings = line.getSettings()
+oepoll = OEPoll(line)
+#call = Call(line)
+readOpen = codecs.open("read.json","r","utf-8")
+settingsOpen = codecs.open("temp.json","r","utf-8")
+read = json.load(readOpen)
+settings = json.load(settingsOpen)
+Rfu = [line]
+Exc = [line]
+lineMID = line.getProfile().mid
+bot1 = line.getProfile().mid
+RfuBot=[lineMID]
+Family=["uda8195e53e6c6e17f3f745743e477100",lineMID]
+admin = "uda8195e53e6c6e17f3f745743e477100" 
+admin=['uda8195e53e6c6e17f3f745743e477100',lineMID]
 
 mulai = time.time()
 Start = time.time()
@@ -206,29 +225,6 @@ with open("tn2.json", "r", encoding="utf_8_sig") as f:
     itu.update(wait)
     wait = itu
 #========================================================================
-botStart = time.time()
-line = LINE('')
-line.log("Auth Token : " + str(line.authToken))
-line.log("Timeline Token : " + str(line.tl.channelAccessToken))
-print ("Login Succes")
-lineMID = line.profile.mid
-lineProfile = line.getProfile()
-lineSettings = line.getSettings()
-oepoll = OEPoll(line)
-#call = Call(line)
-readOpen = codecs.open("read.json","r","utf-8")
-settingsOpen = codecs.open("temp.json","r","utf-8")
-read = json.load(readOpen)
-settings = json.load(settingsOpen)
-Rfu = [line]
-Exc = [line]
-lineMID = line.getProfile().mid
-bot1 = line.getProfile().mid
-RfuBot=[lineMID]
-Family=["uda8195e53e6c6e17f3f745743e477100",lineMID]
-admin = "uda8195e53e6c6e17f3f745743e477100" 
-admin=['uda8195e53e6c6e17f3f745743e477100',lineMID]
-
 cont = me.getContact(meM)
 Line_Apikey = plate["Headers_X"]
 Extr = me.getContact(Line_Apikey).displayName
