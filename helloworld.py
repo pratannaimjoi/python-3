@@ -16,7 +16,33 @@ parser.add_argument('-c', '--channelid', type=str, default='', metavar='', requi
 parser.add_argument('-T', '--traceback', type=str2bool, nargs='?', default=False, metavar='', required=False, const=True, choices=[True, False], help='Using Traceback | Use : True/False')
 parser.add_argument('-S', '--showqr', type=str2bool, nargs='?', default=False, metavar='', required=False, const=True, choices=[True, False], help='Show QR | Use : True/False')
 args = parser.parse_args()
-   
+   from thrift.transport import TTransport,TSocket,THttpClient,TTransport,TZlibTransport
+from thrift.protocol import TCompactProtocol,TMultiplexedProtocol,TProtocol
+from thrift.server import THttpServer,TServer,TProcessPoolServer
+from linepy import *
+from akad.ttypes import *
+from thrift.Thrift import *
+from thrift.TMultiplexedProcessor import *
+from thrift.TSerialization import *
+from thrift.TRecursive import *
+from thrift.protocol import TCompactProtocol
+from thrift import transport, protocol, server
+from datetime import datetime
+import time,random,sys,json,codecs,threading,glob,re,os,subprocess,asyncio
+from datetime import datetime, timedelta
+from threading import Thread
+from time import sleep
+from bs4 import BeautifulSoup
+from humanfriendly import format_timespan, format_size, format_number, format_length
+import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib, urllib.parse,youtube_dl,pafy,timeit,atexit,traceback,ffmpy,humanize
+from gtts import gTTS
+from ttypes import LoginRequest
+import json, requests, LineService
+from thrift.transport import THttpClient
+try:
+    import simplejson as json
+except ImportError:
+    import json
     print ('##----- LOGIN CLIENT -----##')
     line = None
     if args.apptype:
