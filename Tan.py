@@ -14,10 +14,8 @@ import wikipedia,goslate
 import youtube_dl, pafy, asyncio
 from multiprocessing import Pool, Process
 from googletrans import Translator
-#==============================================================================#
-botStart = time.time()
-#==============================================================================#
 
+botStart = time.time()
 line = LINE('')
 line.log("Auth Token : " + str(line.authToken))
 line.log("Timeline Token : " + str(line.tl.channelAccessToken))
@@ -47,7 +45,7 @@ autocancel = {}
 autoinvite = []
 autoleaveroom = []
 targets = []
-#==============================================================================#
+
 settings = {
     "contact": False,
     "timeline": False,
@@ -178,8 +176,8 @@ dangerMessage2 = ["ว่างัยจ๊ะทิรักของแทน5
 myProfile["displayName"] = lineProfile.displayName
 myProfile["statusMessage"] = lineProfile.statusMessage
 myProfile["pictureStatus"] = lineProfile.pictureStatus
-#==============================================================================#
-#==============================================================================#
+
+
 def Rapid1Say(mtosay):
     line.sendText(Rapid1To,mtosay)
 
