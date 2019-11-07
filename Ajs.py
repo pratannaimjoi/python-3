@@ -1,8 +1,22 @@
+# -*- coding: utf-8 -*-
+
+from linepy import *
+from akad.ttypes import Message
+from akad.ttypes import ContentType as Type
+from datetime import datetime
+from time import sleep
+from bs4 import BeautifulSoup
+from humanfriendly import format_timespan, format_size, format_number, format_length
+import time, random, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, ast, pytz, urllib.request, urllib.parse, urllib.error, urllib.parse
+from gtts import gTTS
+import html5lib,shutil
+import wikipedia,goslate
+import youtube_dl, pafy, asyncio
+from multiprocessing import Pool, Process
+from googletrans import Translator
 from thrift.transport import TTransport,TSocket,THttpClient,TTransport,TZlibTransport
 from thrift.protocol import TCompactProtocol,TMultiplexedProtocol,TProtocol
 from thrift.server import THttpServer,TServer,TProcessPoolServer
-import lineX
-from lineX import *
 from akad.ttypes import *
 from thrift.Thrift import *
 from thrift.TMultiplexedProcessor import *
