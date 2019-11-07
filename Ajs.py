@@ -27,8 +27,167 @@ try:
 except ImportError:
     import json
 #========================================================================
+botStart = time.time()
+line = LINE('')
+line.log("Auth Token : " + str(line.authToken))
+line.log("Timeline Token : " + str(line.tl.channelAccessToken))
+print ("Login Succes")
+lineMID = line.profile.mid
+lineProfile = line.getProfile()
+lineSettings = line.getSettings()
+oepoll = OEPoll(line)
+#call = Call(line)
+readOpen = codecs.open("read.json","r","utf-8")
+settingsOpen = codecs.open("temp.json","r","utf-8")
+read = json.load(readOpen)
+settings = json.load(settingsOpen)
+Rfu = [line]
+Exc = [line]
+lineMID = line.getProfile().mid
+bot1 = line.getProfile().mid
+RfuBot=[lineMID]
+Family=["uda8195e53e6c6e17f3f745743e477100",lineMID]
+admin = "uda8195e53e6c6e17f3f745743e477100" 
+admin=['uda8195e53e6c6e17f3f745743e477100',lineMID]
+RfuFamily = RfuBot + Family
+protectname = []
+protecturl = []
+protection = []
+autocancel = {}
+autoinvite = []
+autoleaveroom = []
+targets = []
 
+settings = {
+    "contact": False,
+    "timeline": False,
+    "autoAdd": True,
+    "autoJoin": False,
+    'autoCancel':{"on":True,"members":3},	
+    "autoLeave": True,
+    "autoRead": False,
+    "leaveRoom": True,
+    "Respontag": True,
+    "detectMention": True,
+    "checkSticker": False,
+    "kickMention": False,
+    "potoMention": True,
+    "lang":"JP",
+    "Wc": True,
+    #"Lv": False,
+    "blacklist":{},
+    "winvite": False,
+    "wblacklist": False,
+    "dblacklist": False,
+    "commentBlack":{},
+    "wblack": False,
+    "dblack": False,
+    "clock": False,
+    "cName":"",
+    "cNames":"",
+    "invite": {},
+    "winvite": False,
+    "pnharfbot": {},
+    "pname": {},
+    "pro_name": {},
+    "man1":"ตั้งข้อความ",
+    "man2":"ตั้งข้อความ",
+    "man3":"ตั้งข้อความ",
+    "message":"บัญชีนี้ได้การป้องกัน💢โดย indexbots ระบบได้ทำการบล็อคคุณอัตโนมัติ\n",
+    "comment":"Thanks for add me",
+    "userAgent": [
+        "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20100101 Firefox/5.0 (Debian)",
+        "Mozilla/5.0 (X11; U; Linux amd64; en-US; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 FirePHP/0.5",
+        "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux x86_64) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux ppc; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (X11; Linux AMD64) Gecko Firefox/5.0",
+        "Mozilla/5.0 (X11; FreeBSD amd64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1; rv:6.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 6.1.1; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.2; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.1; U; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.1; rv:2.0.1) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.0; WOW64; rv:5.0) Gecko/20100101 Firefox/5.0",
+        "Mozilla/5.0 (Windows NT 5.0; rv:5.0) Gecko/20100101 Firefox/5.0"
+    ],
+    "mimic": {
+        "copy": False,
+        "status": False,
+        "target": {}
+    }
 }
+
+RfuProtect = {
+    "protect": False,
+    "cancelprotect": False,
+    "inviteprotect": False,
+    "linkprotect": False,
+    "Protectguest": False,
+    "Protectjoin": False,
+    "autoAdd": True,
+}
+
+Setmain = {
+    "foto": {},
+}
+
+read = {
+    "readPoint": {},
+    "readMember": {},
+    "readTime": {},
+    "ROM": {}
+}
+
+myProfile = {
+	"displayName": "",
+	"statusMessage": "",
+	"pictureStatus": ""
+}
+
+mimic = {
+    "copy":False,
+    "copy2":False,
+    "status":False,
+    "target":{}
+    }
+    
+RfuCctv={
+    "cyduk":{},
+    "point":{},
+    "sidermem":{}
+}
+
+rfuSet = {
+    'setTime':{},
+    'ricoinvite':{},
+    }
+
+user1 = lineMID
+user2 = ""
+	
+setTime = {}
+setTime = rfuSet['setTime']
+
+contact = line.getProfile() 
+backup = line.getProfile() 
+backup.dispalyName = contact.displayName 
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+mulai = time.time() 
+dangerMessage = ["killall","ล้างห้อง","บินห้อง",".winebot",".kickall","mayhem","kick on","makasih :d","!kickall","nuke","บิน",".???","Kickall","บินไปดิ","Kickword","kickword","!kickword","/kickall"]
+dangerMessage2 = ["ว่างัยจ๊ะทิรักของแทน5555","คร้าบบ","ว่างัยน่ะ!!.. รักแทนหรออ อิอิ","ว่างัยเอ๋ยย แทนรอฟังอยู่","แทนมาแล้วคร้าบบ","แอบรักแทนอยู่หราาา","แอบชอบแทนหราา","รักแทนหรอ","คิดถึงแทนมากเลยหรอ"]
+
+myProfile["displayName"] = lineProfile.displayName
+myProfile["statusMessage"] = lineProfile.statusMessage
+myProfile["pictureStatus"] = lineProfile.pictureStatus
 myProfile = me.getProfile()
 InexBots["myProfile"]["displayName"] = myProfile.displayName
 InexBots["myProfile"]["statusMessage"] = myProfile.statusMessage
