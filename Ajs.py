@@ -27,62 +27,7 @@ try:
 except ImportError:
     import json
 #========================================================================
-_session = requests.session()
-botStart = time.time()
-settingsOpen = codecs.open("InexBots.json","r","utf-8")
-InexBots = json.load(settingsOpen)
-Helps = codecs.open("Tempe.json","r","utf-8")
-plate = json.load(Helps)
-print("\n=======induk=======")
-f = open('tokenSb.txt','r')
-tokenSb = f.read()
-me = LINE("{}".format(str(tokenSb)))
-me.log("Timeline TokenSb : " + str(me.tl.channelAccessToken))
-meM = me.getProfile().mid
-print("\n=======bot1=======")
-f = open('tokenJs.txt','r')
-tokenJs = f.read()
-jss = LINE("{}".format(str(tokenJs)))
-jss.log("Timeline TokenJs : " + str(jss.tl.channelAccessToken))
-Antijs = jss.getProfile().mid
-print("\n=================================================================")
-print("ɪɴᴇxʙᴏᴛs.ʟɪɴᴇ ᴠᴇʀ.8.14.2")
-print("ɪɴᴇxʙᴏᴛs.ʟɪɴᴇ ᴠᴇʀ.8.14.2")
-print("     ᴄʀᴇᴀᴛᴏʀ\n       ʙʏ\n     ᴅᴇɴᴊᴀᴋᴀ")
-print("ɪɴᴇxʙᴏᴛs.ᴠᴇʀsɪᴏɴ ʙᴏᴛᴡᴀʀ")
-print("=================================================================")
-oepoll = OEPoll(me)
-call = me
-Admin = InexBots["MID"]
-Owner = ["uda8195e53e6c6e17f3f745743e477100"]
-Stiles = "│﷽➢"
-InexWars = [meM,Antijs]
-Jaka = [me,jss]
-Welcome = []
-msg_dict = {}
-msg_dict1 = {}
-pro = {
-    "Pintu": [],
-    "Pembunuh": [],
-    "Maling": [],
-    "Penghasut": [],
-    "Pencuri": [],
-    "Penyelamat": [],
-    "Kuntilanak": []
-}
-Poto = {
-    "changePicture": False,
-    "pictart": False
-}
-respontags = {
-    "Auto_text": "╔⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩	    \n║✍círí círí σrαng kєѕєpíαn✍\n╠⪨⪩1 ѕukα tαg gα jєlαѕ\n╠⪨⪩2 ѕєlαlu cαrí pєrhαtíαn\n╠⪨⪩3 σrαng nчα nчєвєlín\n║  ﷽⪃⪄⫹⫺⫷⫸⫹⫺⪃⪄﷽\n╚⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩",
-    "Auto_pM": "⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩\n\n       иαмα кυ ∂ ¢євυт мυℓυ\n\n⪨⪩┅༐┅͜͡❇║нα∂ιя кυу║❇͜͡┅༐┅⪨⪩",
-    "message": "тᴇяıмᴀ кᴀsıн suᴅᴀн ᴀᴅᴅ sᴀʏᴀ \nвʏ.ᴛᴇᴀᴍ ⊶ ɪɴᴇxʙᴏᴛs ⊷ \nline.me/ti/p/~denjaka-inexx "
-}
-Sid={
-    "Tar":{},
-    "Red":{},
-    "Reason":{}
+
 }
 myProfile = me.getProfile()
 InexBots["myProfile"]["displayName"] = myProfile.displayName
