@@ -81,7 +81,7 @@ settings = {
     "man1":"ตั้งข้อความ",
     "man2":"ตั้งข้อความ",
     "man3":"ตั้งข้อความ",
-    "message":"บัญชีนี้ได้การป้องกัน💢โดย indexbots ระบบได้ทำการบล็อคคุณอัตโนมัติ\n",
+    "message":"บัญชีนี้ได้การป้องกัน💢โดย ꧁💓 @:꓄ꍏꈤᖘꍏ꓄꓄ꍏꌩ💓꧂ ระบบได้ทำการบล็อคคุณอัตโนมัติ\n",
     "comment":"Thanks for add me",
     "userAgent": [
         "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
@@ -234,7 +234,7 @@ def sendMessageWithMention(to, lineMID):
         logError(error)
  
 def myhelp():
-    myHelp = """ 🌺 indexbot master🌺
+    myHelp = """ 🌺 tanbot Self🌺
 🌺คำสั่ง = คำสั่ง
 🌺คำสั่ง2 = คำสั่งเชลบอท
 🌺คำสั่ง3 = คำสั่งการแทค
@@ -247,7 +247,7 @@ def myhelp():
     return myHelp
 
 def listgrup():
-    listGrup =  """🐶คำสั่งตั้งค่า indexbots🐶
+    listGrup =  """🐶คำสั่งตั้งค่า tanbot Self🐶
 🌺เปิดเข้า ➠ เข้ากลุ่มออโต้
 🌺ปิดเข้า ➠ ปิดเข้ากลุ่มออโต้
 🌺เปิดบล็อค ➠ ออโต้บล็อค
@@ -281,7 +281,7 @@ def listgrup():
     return listGrup
 
 def socmedia():
-    socMedia = """🌿คำสั่งแทคindexbots🌿
+    socMedia = """🌿คำสั่งแทคtanbot Self🌿
 🌺คท @ ➠ แทคคนที่จะเอาคท
 🌺มิด @  ➠ ลงmidคนอื่น
 🌺ชื่อ @ ➠ ลงชื่อคนอื่น
@@ -300,7 +300,7 @@ def socmedia():
     return socMedia
     
 def helpset():
-    helpSet = """🍀🌸คำสั่งindexbots🌸🍀
+    helpSet = """🍀🌸คำสั่งtanbot Self🌸🍀
 🌸 คม  > คอนแทคเรา
 🌸 มิด  > MID เรา
 🌸 ชื่อ  > ชื่อเรา
@@ -332,7 +332,7 @@ def helpset():
     return helpSet 
 
 def helpkicker():
-    helpKicker = """🌺คำสั่งค้นหา indexbots🌺
+    helpKicker = """🌺คำสั่งค้นหา tanbot Self🌺
 🌺 พูด ข้อความ ➠ สั่งสิริพูด
 🌺 ยูทูป ข้อความ ➠ ค้นหาในยูทูป
 🌺 เขียน ข้อความ ➠ เขียน
@@ -342,7 +342,7 @@ def helpkicker():
     return helpKicker
     
 def helpsetting():
-    helpSetting = """🌿คำสั่งกลุ่ม indexbots🌿
+    helpSetting = """🌿คำสั่งกลุ่ม tanbot Self🌿
 🌺 กลุ่ม ➠ ข้อมูลกลุ่ม
 🌺 ไอดีกลุ่ม ➠ไอดีห้อง
 🌺 ชื่อกลุ่ม ➠ ชื่อห้อง
@@ -591,7 +591,7 @@ def lineBot(op):
                     line.sendMessage(to, "████████▒... 80.0%")
                     line.sendMessage(to, "█████████▒... 90.0%")
                     line.sendMessage(to, "███████████..100.0%")
-                    line.sendMessage(to, " 🌹แทนBotmaster ยังอยู่ครับ✔")
+                    line.sendMessage(to, " 🌹แทนBotSelf ยังอยู่ครับ✔")
                 elif msg.text.lower() == ".ออน":
                     line.sendMessage(msg.to,(str(datetime.datetime.now() - start_runtime)[:-7].split(" days, ")[0]+" วัน "+str(datetime.datetime.now() - start_runtime)[:-7].split(" days, ")[1].split(":")[0]+" ชั่วโมง " if "days" in str(datetime.datetime.now() - start_runtime) else str(datetime.datetime.now() - start_runtime)[:-7].split(" day, ")[0]+" วัน "+str(datetime.datetime.now() - start_runtime)[:-7].split(" day, ")[1].split(":")[0]+" ชั่วโมง " if "day" in str(datetime.datetime.now() - start_runtime) else str(datetime.datetime.now() - start_runtime)[:-7].split(":")[0]+" ชั่วโมง ")+str(datetime.datetime.now() - start_runtime)[:-7].split(":")[1]+" นาที "+str(datetime.datetime.now() - start_runtime)[:-7].split(":")[2]+" วินาที")               
                 elif "คท " in msg.text:
@@ -691,7 +691,7 @@ def lineBot(op):
                             pass
                 elif text.lower() == 'สปีด':
                     start = time.time()
-                    line.sendMessage(to,"ความเร็วของ ตาล Bot Self...")
+                    line.sendMessage(to,"ความเร็วของ แทน Bot Self...")
                     elapsed_time = time.time() - start
                     line.sendMessage(to,format(str(elapsed_time)))	
                 elif text.lower() == 'รีบอท':
@@ -702,7 +702,7 @@ def lineBot(op):
                     timeNow = time.time()
                     runtime = timeNow - botStart
                     runtime = format_timespan(runtime)
-                    line.sendMessage(to, "🌹แทนBot master🌹\n""ระยะเวลาการทำงานของบอท {}".format(str(runtime)))
+                    line.sendMessage(to, "🌹แทนBot Self🌹\n""ระยะเวลาการทำงานของบอท {}".format(str(runtime)))
                 elif text.lower() == 'บอท':
                     try:
                         arr = []
@@ -712,14 +712,14 @@ def lineBot(op):
                         grouplist = line.getGroupIdsJoined()
                         contactlist = line.getAllContactIds()
                         blockedlist = line.getBlockedContactIds()
-                        ret_ = "╔══[  แทน Bot master ]" 
+                        ret_ = "╔══[  tan Bot master ]" 
                         ret_ += "\n╠🌟⏩ ชื่อ ═ {}".format(contact.displayName)
                         ret_ += "\n╠🌟⏩ กลุ่ม ═ {}".format(str(len(grouplist)))
                         ret_ += "\n╠🌟⏩ เพื่อน ═ {}".format(str(len(contactlist)))
                         ret_ += "\n╠🌟⏩ บล็อค ═ {}".format(str(len(blockedlist)))
                         ret_ += "\n╠══[สถานะ]"
                         ret_ += "\n╠🌟⏩ ผู้สร้าง ═ {}".format(creator.displayName)
-                        ret_ += "\n╚══[  แทน Bot master ]"
+                        ret_ += "\n╚══[  tan Bot master ]"
                         line.sendContact(to, owner)
                         line.sendMessage(to, str(ret_))
                     except Exception as e:
@@ -727,7 +727,7 @@ def lineBot(op):
 #==============================================================================#
                 elif text.lower() == 'สถานะ':
                     try:
-                        ret_ = "╔════[  สถานะ Bot master ]═════┓"
+                        ret_ = "╔════[  สถานะ tanBot master ]═════┓"
                         if settings["บอททำงานปกติครับ"] == True: ret_ += "\n╠❂☞ รับบล็อคออโต้ ✔"
                         else: ret_ += "\n╠🔀 รับบล็อคออโต้    ✘ "
                         if settings["autoJoin"] == True: ret_ += "\n╠❂☞ เข้าห้องออโต้ ✔"
@@ -754,7 +754,7 @@ def lineBot(op):
                         else: ret_ += "\n╠🔀 แสดงภาพคนแทค ✘ "
                         if settings["detectMention"] == True: ret_ += "\n╠❂☞ แสดงติ้กคนแทค ✔"
                         else: ret_ += "\n╠🔀 แสดงติ้กคนแทค ✘ "
-                        ret_ += "\n╚════[ สถานะ Bot master ]═════┛"
+                        ret_ += "\n╚════[ สถานะ tanBot master ]═════┛"
                         line.sendMessage(to, str(ret_))
                     except Exception as e:
                         line.sendMessage(msg.to, str(e))
