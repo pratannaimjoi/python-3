@@ -26,6 +26,7 @@
 - `git clone https://github.com/tanpattaya/python-3`
 - `cd python-3`
 - `python3 Tan.py`
+
 Cara Install Self Bot :
 # python3
    `http://line.me/ti/p/tSOOE2vIkL` 
