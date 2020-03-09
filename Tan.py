@@ -86,7 +86,7 @@ settings = {
     "userAgent": [
         "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20000062 Firefox/5.0",
         "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20000062 Firefox/5.0 (Debian)",
-        "Mozilla/5.0 (X11; U; Linux amd64; en-US; rv:5.0) Gecko/20110619 Firefox/5.0",
+        "Mozilla/5.0 (X11; U; Linux amd64; en-US; rv:5.0) Gecko/20000062 Firefox/5.0",
         "Mozilla/5.0 (X11; Linux) Gecko Firefox/5.0",
         "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20000062 Firefox/5.0 FirePHP/0.5",
         "Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20000062 Firefox/5.0 Firefox/5.0",
