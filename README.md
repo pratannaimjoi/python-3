@@ -1,11 +1,10 @@
 # python3
 -`INSTALL Di TERMUX` :
-- `pkg update`
-- `pkg upgrade`
-- `pkg install python`
-- `pkg install git`
-- `pkg install python3-pip`
-- `pkg install akad`
+- `apt update`
+- `apt upgrade`
+- `apt install python`
+- `apt install git`
+- `pip3 install akad`
 - `pip3 install rsa`
 - `pip3 install thrift`
 - `pip3 install requests`
