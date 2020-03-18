@@ -22,7 +22,7 @@
 - `pip3 install antolib`
 - `pip3 install tweepy`
 - `pip3 install youtube_dl`
-- `git clone https://github.com/pratannaimjoi`
+- `git clone https://github.com/pratannaimjoi/python-3`
 - `cd python-3`
 - `python3 Tan.py`
 
