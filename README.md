@@ -25,12 +25,6 @@
 - `git clone https://github.com/pratannaimjoi/python-3`
 - `cd python-3`
 - `python3 Tan.py`
+# python3 BY
 
-Cara Install Self Bot :
-# python3
-   `http://line.me/ti/p/tSOOE2vIkL` 
-   `http://line.me/ti/p/~tanpattaya1983`
-## Author
-   /[@pratan-naimjoi](https://www.linkedin.com/in/pratan-naimjoi)
-
-    ꧁💓 @:꓄ꍏꈤᖘꍏ꓄꓄ꍏꌩ💓꧂   
+ ꧁💓 @:꓄ꍏꈤᖘꍏ꓄꓄ꍏꌩ💓꧂   
