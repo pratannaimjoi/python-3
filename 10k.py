@@ -722,7 +722,7 @@ def bot(op):
                                     if ptatan1983.getGroup(op.param1).preventedJoinByTicket == False:
                                         if op.param2 not in Bots and op.param2 not in owner and op.param2 not in admin and op.param2 not in staff:
                                             ptatan1983.reissueGroupTicket(op.param1)
-                                            X = aditmadzs.getGroup(op.param1)
+                                            X = ptatan1983.getGroup(op.param1)
                                             X.preventedJoinByTicket = True
                                             ptatan1983.updateGroup(X)
                                             ptatan1983.sendMessage(op.param1, None, contentMetadata={'mid': op.param2}, contentType=13)
