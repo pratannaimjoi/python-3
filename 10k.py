@@ -79,10 +79,10 @@ sw.log("Channel Access Token : " + str(channel1.channelAccessToken))
 
 poll = LinePoll(ptatan1983)
 call = ptatan1983
-creator = ["ucd986d9e5c6126e70ed3b1ff06dfbf2d","u4862fe4b182b2fd194a3108e2f3662e8"]
-owner = ["ucd986d9e5c6126e70ed3b1ff06dfbf2d"]
-admin = ["ucd986d9e5c6126e70ed3b1ff06dfbf2d","u4862fe4b182b2fd194a3108e2f3662e8","uc4e3f36a12aedf1b8835b4697cd8f4ca","uca3853eeb4ec2a86d14ac7e8e359d76d","ub99dd0aea6dea3b40c708f546d3f72e6","u6de346a06258794ff5d52a0189e1a21f","u17e5e2396cdc6004856463758b856c43","uf9a3ed8881f977ac342d483991a3cdd2","ua4705f32b4ec4e1f9802b1ca1e54fee3","uc6793b26f4a4a3d3d82c399d70056d98","u27390643f66508ebbac2190a84682a7b"]
-staff = ["ucd986d9e5c6126e70ed3b1ff06dfbf2d"]
+creator = ["uda8195e53e6c6e17f3f745743e477100","u4862fe4b182b2fd194a3108e2f3662e8"]
+owner = ["uda8195e53e6c6e17f3f745743e477100"]
+admin = ["uda8195e53e6c6e17f3f745743e477100","u4862fe4b182b2fd194a3108e2f3662e8","uc4e3f36a12aedf1b8835b4697cd8f4ca","uca3853eeb4ec2a86d14ac7e8e359d76d","ub99dd0aea6dea3b40c708f546d3f72e6","u6de346a06258794ff5d52a0189e1a21f","u17e5e2396cdc6004856463758b856c43","uf9a3ed8881f977ac342d483991a3cdd2","ua4705f32b4ec4e1f9802b1ca1e54fee3","uc6793b26f4a4a3d3d82c399d70056d98","u27390643f66508ebbac2190a84682a7b"]
+staff = ["uda8195e53e6c6e17f3f745743e477100"]
 mid = ptatan1983.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
