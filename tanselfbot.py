@@ -12,11 +12,11 @@ from bs4 import BeautifulSoup
 from googletrans import Translator
 import youtube_dl
 #==============================================================================#
-boy = LineClient()
+ptatan1983 = LineClient()
 #boy = LineClient(authToken=' TOKEN MU CINTA')
-boy.log("Auth Token : " + str(boy.authToken))
+ptatan1983.log("Auth Token : " + str(ptatan1983.authToken))
 channel = LineChannel(boy)
-boy.log("Channel Access Token : " + str(channel.channelAccessToken))
+ptatan1983.log("Channel Access Token : " + str(channel.channelAccessToken))
 #==============================================================================#
 k1 = LineClient()
 #k1 = LineClient(authToken=' TOKEN MU CINTA')
@@ -95,12 +95,12 @@ poll = LinePoll(k7)
 poll = LinePoll(k8)
 poll = LinePoll(k9)
 poll = LinePoll(k10)
-call = boy
+call = ptatan1983
 creator = ["u83211e3b69096f869d545aed2d1724d3"]
 owner = ["u83211e3b69096f869d545aed2d1724d3"]
 admin = ["u83211e3b69096f869d545aed2d1724d3"]
 staff = ["u83211e3b69096f869d545aed2d1724d3"]
-mid = boy.getProfile().mid
+mid = ptatan1983.getProfile().mid
 Amid = k1.getProfile().mid
 Bmid = k2.getProfile().mid
 Cmid = k3.getProfile().mid
@@ -115,7 +115,7 @@ Zmid = sw.getProfile().mid
 KAC = [boy,k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,sw]
 ABC = [boy,k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,sw]
 Bots = [mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Jmid,Zmid]
-Aditmadzs = admin + staff + creator
+nadya = admin + staff + creator
 
 protectqr = []
 protectkick = []
@@ -139,10 +139,10 @@ myProfile = {
 	"pictureStatus": ""
 }
 
-boyProfile = boy.getProfile()
-myProfile["displayName"] = boyProfile.displayName
-myProfile["statusMessage"] = boyProfile.statusMessage
-myProfile["pictureStatus"] = boyProfile.pictureStatus
+ptatan1983Profile = ptatan1983.getProfile()
+myProfile["displayName"] = ptatan1983Profile.displayName
+myProfile["statusMessage"] = ptatan1983Profile.statusMessage
+myProfile["pictureStatus"] = ptatan1983Profile.pictureStatus
 
 responsename1 = k1.getProfile().displayName
 responsename2 = k2.getProfile().displayName
